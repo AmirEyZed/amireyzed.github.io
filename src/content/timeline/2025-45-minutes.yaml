@@ -31,3 +31,12 @@ guests:
 links:
   - label: { fa: "چهل‌وپنج دقیقه در Apple Podcasts", en: "45 Minutes on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/45-minutes-%DA%86%D9%87%D9%84-%D9%88-%D9%BE%D9%86%D8%AC-%D8%AF%D9%82%DB%8C%D9%82%D9%87/id1827824631"
+images:
+  - src: ./2025-45-minutes-kourosh.jpg
+    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با کوروش زراندوز", en: "45 Minutes thumbnail with Kourosh Zarandouz" }
+  - src: ./2025-45-minutes-iman.jpg
+    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با ایمان دست‌پاک", en: "45 Minutes thumbnail with Iman Dastpak" }
+  - src: ./2025-45-minutes-bigezmoge.jpg
+    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با علی بیگزموگ", en: "45 Minutes thumbnail with Ali BigezMoge" }
+  - src: ./2025-45-minutes-sam.jpg
+    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با سام صابری", en: "45 Minutes thumbnail with Sam Saberi" }

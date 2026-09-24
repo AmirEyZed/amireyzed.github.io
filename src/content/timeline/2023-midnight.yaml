@@ -51,3 +51,5 @@ images:
     alt: { fa: "بازدید فصل اول میدنایت: ۵۶۱ هزار", en: "Season one views of The MidNight: 561K" }
   - src: ./2023-midnight-watch-time.jpg
     alt: { fa: "زمان تماشای فصل اول میدنایت: ۲۲۵ هزار ساعت", en: "Season one watch time of The MidNight: 225K hours" }
+  - src: ./2023-midnight-lennon.jpg
+    alt: { fa: "تامبنیل میدنایت با امید لنون", en: "The MidNight thumbnail with Omid Lennon" }

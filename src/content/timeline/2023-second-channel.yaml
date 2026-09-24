@@ -17,3 +17,6 @@ highlights:
 links:
   - label: { fa: "EyZedMoments", en: "EyZedMoments" }
     url: "https://www.youtube.com/@EyZedMoments"
+images:
+  - src: ./2023-second-channel-first.jpg
+    alt: { fa: "تامبنیل اولین ویدیوی کانال EyZed Reacts", en: "Thumbnail of the first EyZed Reacts video" }

@@ -32,3 +32,12 @@ guests:
     about: { fa: "یوتیوبر", en: "YouTuber" }
     url: "https://youtu.be/2m6LYkWmfKY"
     stat: { fa: "۳۷ هزار بازدید", en: "37K views" }
+images:
+  - src: ./2021-hot-moz-bigezmoge.jpg
+    alt: { fa: "تامبنیل هات موز با علی بیگزموگ", en: "Hot MoZ thumbnail with Ali BigezMoge" }
+  - src: ./2021-hot-moz-samira.jpg
+    alt: { fa: "تامبنیل هات موز با سمیرا سالی", en: "Hot MoZ thumbnail with Samira Saly" }
+  - src: ./2021-hot-moz-brox.jpg
+    alt: { fa: "تامبنیل هات موز با علی بروکس", en: "Hot MoZ thumbnail with Ali Brox" }
+  - src: ./2021-hot-moz-famous-haji.jpg
+    alt: { fa: "تامبنیل هات موز با فیمس حاجی", en: "Hot MoZ thumbnail with Famous Haji" }

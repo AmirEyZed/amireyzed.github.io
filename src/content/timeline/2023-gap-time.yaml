@@ -15,3 +15,6 @@ highlights:
 links:
   - label: { fa: "تماشای گپ تایم", en: "Watch Gap Time" }
     url: "https://youtu.be/nwvR4J7AOh8"
+images:
+  - src: ./2023-gap-time.jpg
+    alt: { fa: "تامبنیل گپ تایم ویجیاتو", en: "Thumbnail of Vigiato’s Gap Time" }

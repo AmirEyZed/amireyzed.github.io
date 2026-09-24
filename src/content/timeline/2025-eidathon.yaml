@@ -12,3 +12,6 @@ highlights:
     - "۴۵۷ ساعت لایو در ۲۰ روز اول"
   en:
     - "457 hours live in the first 20 days"
+images:
+  - src: ./2025-eidathon-goal.jpg
+    alt: { fa: "هدف دونیت عیداتون: جبران خسارت مراسم", en: "The Eidathon donation goal: covering the ceremony’s loss" }

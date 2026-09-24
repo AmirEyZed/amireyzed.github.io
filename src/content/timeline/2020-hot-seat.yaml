@@ -17,5 +17,11 @@ guests:
     url: "https://youtu.be/jUActve_Z_I"
     stat: { fa: "۴۰ هزار بازدید", en: "40K views" }
 images:
-  - src: ./2020-hot-seat.jpg
-    alt: { fa: "اعلام اولین قسمت صندلی داغ در یوتیوب", en: "Announcing the first Hot Seat episode on YouTube" }
+  - src: ./2020-hot-seat-sogang.jpg
+    alt: { fa: "تامبنیل صندلی داغ با SogangYT", en: "Hot Seat thumbnail with SogangYT" }
+  - src: ./2020-hot-seat-heisenberg.jpg
+    alt: { fa: "تامبنیل صندلی داغ با هاشم هایزنبرگ", en: "Hot Seat thumbnail with Hashem Heisenberg" }
+  - src: ./2020-hot-seat-hami.jpg
+    alt: { fa: "تامبنیل صندلی داغ با حامی کی‌ام", en: "Hot Seat thumbnail with Hami KM" }
+  - src: ./2020-hot-seat-rozalita.jpg
+    alt: { fa: "تامبنیل صندلی داغ با RozaLita", en: "Hot Seat thumbnail with RozaLita" }

@@ -12,3 +12,6 @@ links:
     url: "https://www.youtube.com/watch?v=gNaDten5AAg"
   - label: { fa: "کانال موزلند", en: "Moz Land channel" }
     url: "https://www.youtube.com/channel/UCmKxMIKqE4jxyHwpEPbObSg"
+images:
+  - src: ./2021-moz-land-reveal.jpg
+    alt: { fa: "تامبنیل ویدیوی رونمایی از موز لند", en: "Thumbnail of the Moz Land reveal video" }

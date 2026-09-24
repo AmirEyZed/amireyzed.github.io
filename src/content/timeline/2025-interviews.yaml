@@ -23,3 +23,10 @@ links:
     url: "https://cozycorner.cc/corner-73-amir-eyzed"
   - label: { fa: "هشت شب، قسمت ۱۴", en: "Hasht-e Shab, episode 14" }
     url: "https://youtu.be/CxK1_I4HQ7c"
+images:
+  - src: ./2025-interviews-fuse.jpg
+    alt: { fa: "تامبنیل فیوز ۳۴ با آرش نعلچگر", en: "Fuse Podcast #34 thumbnail" }
+  - src: ./2025-interviews-binosha.jpg
+    alt: { fa: "تامبنیل مصاحبه با بینوشا", en: "Binosha interview thumbnail" }
+  - src: ./2025-interviews-karnakon.jpg
+    alt: { fa: "تامبنیل پادکست کارنکن", en: "Karnakon podcast thumbnail" }

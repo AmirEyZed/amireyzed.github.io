@@ -7,3 +7,6 @@ title:
 summary:
   fa: "۷ نوامبر توی بتل رویال استریمرها که RwinShow برگزار کرد، با ارکا اول شدیم؛ اولین باری که توی یه رقابت بین استریمرها اول شدم."
   en: "On November 7, Orca and I took first place in the streamers’ Battle Royale hosted by RwinShow, my first win in a competition between streamers."
+images:
+  - src: ./2019-battle-royale.jpg
+    alt: { fa: "تامبنیل بتل رویال استریمرهای RwinShow", en: "Thumbnail of the RwinShow streamer battle royale" }

@@ -15,3 +15,6 @@ highlights:
 links:
   - label: { fa: "قسمت ۴۵ پادکست Manganeh", en: "Manganeh, episode 45" }
     url: "https://youtu.be/Esbz7o5qfIE"
+images:
+  - src: ./2026-manganeh.jpg
+    alt: { fa: "تامبنیل قسمت ۴۵ پادکست Manganeh", en: "Manganeh episode 45 thumbnail" }

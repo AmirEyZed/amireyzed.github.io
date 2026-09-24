@@ -36,5 +36,11 @@ links:
   - label: { fa: "میدنایت فصل دوم در Apple Podcasts", en: "The MidNight season 2 on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/the-midnight-season-2/id1718918492"
 images:
+  - src: ./2023-midnight-s2-beniamin.jpg
+    alt: { fa: "تامبنیل میدنایت با بنیامین", en: "The MidNight thumbnail with TheBeniamin" }
+  - src: ./2023-midnight-s2-kimia.jpg
+    alt: { fa: "تامبنیل میدنایت با کیمیا بهبودی", en: "The MidNight thumbnail with Kimia Behboudi" }
+  - src: ./2023-midnight-s2-hyrox.jpg
+    alt: { fa: "تامبنیل میدنایت با HyroxTV", en: "The MidNight thumbnail with HyroxTV" }
   - src: ./2023-midnight-arakelian.jpg
     alt: { fa: "تامبنیل قسمت ویژه میدنایت با کارن آراکلیان", en: "The MidNight special episode thumbnail with Karen Arakelian" }
