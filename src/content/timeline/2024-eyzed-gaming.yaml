@@ -1,0 +1,17 @@
+# Source: EyZed Gaming channel 20 Aug 2024; Wukong launch stream peak 6,097 (#59231, #59337, #59267, #59421); EyZedMoments 10K on 14 Sep (#60234).
+year: 2024
+order: 3
+title:
+  fa: "EyZed Gaming"
+  en: "EyZed Gaming"
+summary:
+  fa: "۲۰ اوت کانال EyZed Gaming رو ساختم. استریم لانچ Black Myth: Wukong به ۶٬۰۹۷ بینندهٔ هم‌زمان رسید، بهترین عددم بعد از فیلتر شدن توییچ در ایران. سپتامبر هم EyZedMoments ده‌هزارتایی شد."
+  en: "On August 20 I started the EyZed Gaming channel. My Black Myth: Wukong launch stream peaked at 6,097 concurrent viewers, my best since Twitch was filtered in Iran. In September EyZedMoments reached 10,000 subscribers."
+links:
+  - label: { fa: "قسمت اول", en: "Episode one" }
+    url: "https://youtu.be/EhZ04397Sek"
+images:
+  - src: ./2024-eyzed-reacts-10k.jpg
+    alt: { fa: "کانال EyZed Reacts با ۱۰ هزار سابسکرایبر", en: "The EyZed Reacts channel at 10K subscribers" }
+  - src: ./2024-peak-6097.jpg
+    alt: { fa: "اوج ۶٬۰۹۷ بینندهٔ هم‌زمان", en: "A peak of 6,097 concurrent viewers" }

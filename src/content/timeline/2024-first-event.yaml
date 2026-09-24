@@ -1,0 +1,20 @@
+# Source: First in-person event with Sequence Community, 13 Dec 2024 (#63509, #63529, #63649, #64094); Mizban episode 1 on 22 Dec (#64459); later falling-out in his own words (2026-09-24).
+year: 2024
+order: 10
+title:
+  fa: "اولین ایونت حضوری"
+  en: "My first in-person event"
+summary:
+  fa: "۱۳ دسامبر اولین ایونت حضوریم رو با Sequence Community توی یه کافه در تهران برگزار کردیم: گپ دربارهٔ استریم و شبکه‌های اجتماعی، پرسش و پاسخ و چند مهمون سوپرایزی. بلیت‌ها توی حدود سه ساعت تموم شد. بعدها به‌خاطر تغییر عقایدشون با این تیم به مشکل خوردم، ولی اون موقع بچه‌های تازه‌کاری بودن که کارشون رو خوب انجام دادن و همکاریمون خروجی خوبی داشت."
+  en: "On December 13 I held my first in-person event with Sequence Community at a café in Tehran: a talk on streaming and social media, Q&A and a few surprise guests. Tickets sold out in about three hours. Later I fell out with this team over a change in their views, but at the time they were newcomers who did their work well, and our collaboration turned out well."
+highlights:
+  fa:
+    - "حدود ۶۰ نفر مهمون"
+  en:
+    - "About 60 guests"
+links:
+  - label: { fa: "گفت‌وگو در «میزبان»", en: "Talking about it on Mizban" }
+    url: "https://youtu.be/IRX7oXCmX38"
+images:
+  - src: ./2024-first-event.jpg
+    alt: { fa: "با تیم سکانس در اولین ایونت حضوری", en: "With the Sequence team at my first in-person event" }

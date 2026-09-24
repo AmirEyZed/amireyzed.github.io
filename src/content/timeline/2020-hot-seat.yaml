@@ -1,0 +1,21 @@
+# Source: Hot Seat first YouTube episode 21 Apr 2020 with Hashem Heisenberg (#32541, #32550, #39759); HamiKM episode 31 May (#33691); Twitch segment since Sep 2019 (#28710).
+year: 2020
+order: 2
+title:
+  fa: "صندلی داغ"
+  en: "Hot Seat"
+summary:
+  fa: "۲۱ آوریل اولین قسمت «صندلی داغ» روی یوتیوب اومد؛ برنامهٔ مصاحبه‌ای که از سپتامبر ۲۰۱۹ بخشی از استریم‌هام بود. بعدش هفته‌ای دو قسمت منتشر شد."
+  en: "On April 21 the first episode of Hot Seat came out on YouTube, an interview show that had been a segment of my streams since September 2019. After that it ran twice a week."
+guests:
+  - name: { fa: "هاشم هایزنبرگ", en: "Hashem Heisenberg" }
+    about: { fa: "استریمر؛ بعدها از میزبان‌های شورگج", en: "Streamer, later a co-host of SHEVARGEJ" }
+    url: "https://youtu.be/mHs7o3LjUI0"
+    stat: { fa: "۳۸ هزار بازدید", en: "38K views" }
+  - name: { fa: "حامی کی‌ام", en: "Hami KM" }
+    about: { fa: "یوتیوبر؛ بعدها یکی از دو مبارز PYB 1", en: "YouTuber, later one of the two fighters of PYB 1" }
+    url: "https://youtu.be/jUActve_Z_I"
+    stat: { fa: "۴۰ هزار بازدید", en: "40K views" }
+images:
+  - src: ./2020-hot-seat.jpg
+    alt: { fa: "اعلام اولین قسمت صندلی داغ در یوتیوب", en: "Announcing the first Hot Seat episode on YouTube" }

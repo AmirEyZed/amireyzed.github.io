@@ -1,0 +1,73 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { site } from '../data/site';
+import { t, type Lang } from '../i18n/ui';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const home = getRelativeLocaleUrl(lang, '');
+---
+
+<header class="header">
+  <div class="bar">
+    <a class="mark latin" href={home} aria-label={t(lang, 'nav.home')}>
+      <span class="mark-led" aria-hidden="true"></span>
+      <span class="mark-text">{site.mark}</span>
+    </a>
+    <LangSwitch lang={lang} />
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    border-bottom: 1px solid transparent;
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease;
+  }
+
+  .header.is-scrolled {
+    background: rgb(15 14 14 / 0.6);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom-color: var(--line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(100% - (var(--gutter) * 2), var(--maxw));
+    min-height: 4.25rem;
+    margin-inline: auto;
+  }
+
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+  }
+
+  .mark-led {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--kick);
+    box-shadow: 0 0 10px rgb(83 252 24 / 0.8);
+  }
+
+  .mark-text {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 800;
+  }
+</style>

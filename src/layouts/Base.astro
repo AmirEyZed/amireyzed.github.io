@@ -1,0 +1,106 @@
+---
+import '@fontsource-variable/vazirmatn';
+import 'lenis/dist/lenis.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+import { site } from '../data/site';
+import { dirOf, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title = t(lang, 'meta.title'), description = t(lang, 'meta.description') } = Astro.props;
+
+const dir = dirOf(lang);
+const siteUrl = Astro.site ?? new URL(site.url);
+const canonical = new URL(Astro.url.pathname, siteUrl);
+const alternates = {
+  fa: new URL('/', siteUrl),
+  en: new URL('/en/', siteUrl),
+};
+const ogImage = new URL('/og.png', siteUrl);
+const ogLocale = lang === 'fa' ? 'fa_IR' : 'en_US';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name[lang],
+  alternateName: site.name[lang === 'fa' ? 'en' : 'fa'],
+  url: siteUrl.href,
+  ...(site.email ? { email: `mailto:${site.email}` } : {}),
+  sameAs: site.socials.map((s) => s.url),
+};
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="alternate" hreflang="fa" href={alternates.fa.href} />
+    <link rel="alternate" hreflang="en" href={alternates.en.href} />
+    <link rel="alternate" hreflang="x-default" href={alternates.fa.href} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#0f0e0e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.mark} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.href} />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)}></script>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-wall"></div>
+      <div class="ambient-lamp"></div>
+      <div class="ambient-grain"></div>
+    </div>
+    <a class="skip-link" href="#main">{t(lang, 'a11y.skip')}</a>
+    <slot />
+    <dialog class="lightbox" aria-label={t(lang, 'photo.viewer')}>
+      <div class="lb-veil" aria-hidden="true"></div>
+      <div class="lb-stage" data-lb-stage>
+        <figure class="lb-figure">
+          <div class="lb-frame">
+            <img class="lb-img" alt="" data-lb-img draggable="false" />
+          </div>
+          <figcaption class="lb-caption">
+            <span class="lb-alt" data-lb-alt></span>
+            <span class="lb-count" data-lb-count></span>
+          </figcaption>
+        </figure>
+      </div>
+      <button type="button" class="lb-btn lb-prev" data-lb-prev aria-label={t(lang, 'photo.prev')}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+      </button>
+      <button type="button" class="lb-btn lb-next" data-lb-next aria-label={t(lang, 'photo.next')}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+      </button>
+      <button type="button" class="lb-btn lb-close" data-lb-close aria-label={t(lang, 'photo.close')} autofocus>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </dialog>
+    <script>
+      import '../scripts/app';
+    </script>
+  </body>
+</html>

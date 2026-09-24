@@ -1,0 +1,21 @@
+# Source: Merch teaser premiered live on 22 Sep 2024, reel posted the same night (#60519, #60529, #60538); store opened 25 Sep 18:00 and items sold out within about two hours (#60655, #60680, #60687–60704); product photos 22 Sep; first line designed by Ahmad Raf (#55360).
+year: 2024
+order: 5
+title:
+  fa: "امیرایزد شاپ"
+  en: "AmirEyZed Shop"
+summary:
+  fa: "۲۲ سپتامبر تیزر مرچ رو توی استریم رونمایی کردیم و ۲۵ سپتامبر فروشگاه مرچ خودم، امیرایزد شاپ، باز شد. چند محصولش توی حدود دو ساعت تموم شد."
+  en: "On September 22 we premiered the merch teaser live on stream, and on September 25 my merch store, AmirEyZed Shop, opened. Several items sold out in about two hours."
+links:
+  - label: { fa: "تیزر مرچ", en: "Merch teaser" }
+    url: "https://www.instagram.com/reel/DAMasO9oJj7/"
+images:
+  - src: ./2024-merch-boxes.jpg
+    alt: { fa: "امیر ایزد کنار جعبه‌های مرچ", en: "Amir EyZed with the merch boxes" }
+  - src: ./2024-merch-mug.jpg
+    alt: { fa: "ماگ مرچ با لوگوی موز", en: "The merch mug with the banana logo" }
+  - src: ./2024-merch-backpack.jpg
+    alt: { fa: "طرح کوله‌پشتی مرچ", en: "The merch backpack design" }
+  - src: ./2024-merch-patch.jpg
+    alt: { fa: "وصلهٔ گلدوزی مرچ", en: "The embroidered merch patch" }

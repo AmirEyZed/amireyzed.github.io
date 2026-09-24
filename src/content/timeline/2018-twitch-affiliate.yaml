@@ -1,0 +1,17 @@
+# Source: Twitch Affiliate on 26 Aug 2018 (#13946, #14704); ThEmZed brand and return to CG in July (#11719, #11848); ThEmZed poster 26 Jul.
+year: 2018
+order: 5
+title:
+  fa: "افیلیت توییچ"
+  en: "Twitch Affiliate"
+summary:
+  fa: "۲۶ اوت افیلیت توییچ شدم و ساب روی کانالم فعال شد. همون تابستون با برند ThEmZed دوباره به Critical Gaming برگشتم."
+  en: "On August 26 I became a Twitch Affiliate and subscriptions went live on my channel. That summer I also rejoined Critical Gaming under the ThEmZed brand."
+highlights:
+  fa:
+    - "۲ هزار فالوور توییچ در اوت"
+  en:
+    - "2K Twitch followers in August"
+images:
+  - src: ./2018-themzed.jpg
+    alt: { fa: "پوستر ThEmZed", en: "The ThEmZed poster" }

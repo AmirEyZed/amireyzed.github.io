@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Timeline from './Timeline.astro';
+import Footer from './Footer.astro';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const entries = await getCollection('timeline');
+const firstYear = entries.length ? Math.min(...entries.map((e) => e.data.year)) : new Date().getFullYear();
+---
+
+<Base lang={lang}>
+  <Header lang={lang} />
+  <main id="main">
+    <Hero lang={lang} firstYear={firstYear} />
+    <Timeline lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Base>

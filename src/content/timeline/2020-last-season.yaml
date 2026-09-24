@@ -1,0 +1,14 @@
+# Source: Joined NoTeamSquad 1 Feb (#30973, #30994); PPL Season 7 draw 4 Apr, 5th place (#32206, #32390, #32918); stepping back 16 Apr (#32446).
+year: 2020
+order: 1
+title:
+  fa: "آخرین فصل رقابتی"
+  en: "My last competitive season"
+summary:
+  fa: "با NoTeamSquad در فصل هفتم پرشین پرولیگ بازی کردیم و پنجم کشور شدیم. آوریل گفتم از رقابت یه قدم عقب می‌کشم و یوتیوب رو جدی شروع می‌کنم؛ این آخرین فصل رقابتی رینبوی من بود."
+  en: "With NoTeamSquad I played Persian Pro League Season 7 and we finished fifth in Iran. In April I said I was stepping back from competition to take YouTube seriously; it was my last competitive Rainbow Six season."
+images:
+  - src: ./2020-ppl-nts.jpg
+    alt: { fa: "پوستر مسابقهٔ NoTeamSquad در پرشین پرولیگ", en: "NoTeamSquad match poster in the Persian Pro League" }
+  - src: ./2020-ppl-s7-draw.jpg
+    alt: { fa: "پوستر قرعه‌کشی فصل هفتم پرشین پرولیگ", en: "Persian Pro League Season 7 draw poster" }

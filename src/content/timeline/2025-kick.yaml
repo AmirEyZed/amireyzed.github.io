@@ -1,0 +1,15 @@
+# Source: Kick Partner 3 Sep 2025 (#72837, #72960); all live streams moved to Kick 17 Oct (#74022, #74051, #74062).
+year: 2025
+order: 7
+title:
+  fa: "کیک، خونهٔ جدید لایو"
+  en: "Kick becomes home"
+summary:
+  fa: "۳ سپتامبر پارتنر کیک شدم و ۱۷ اکتبر همهٔ لایوهام رو به کیک بردم. یوتیوب برای خلاصه‌ها و ویدیوهای ادیت‌شده موند."
+  en: "On September 3 I became a Kick Partner, and on October 17 I moved all my live streams to Kick. YouTube stayed for edited recaps and videos."
+links:
+  - label: { fa: "کیک", en: "Kick" }
+    url: "https://kick.com/amireyzed"
+images:
+  - src: ./2025-kick-live.jpg
+    alt: { fa: "پوستر لایو امیر ایزد در کیک", en: "AmirEyZed live on Kick poster" }

@@ -1,0 +1,23 @@
+# Source: SAHNE unveiled 22 Aug 2026, private beta (#79966, #79979); to be released open source (#81095); SAHNE+ released free 18 Sep, independent source review (#81070, #81095, #81102, #81103); why he builds apps (#81106).
+year: 2026
+order: 4
+featured: true
+title:
+  fa: "صحنه و صحنه پلاس"
+  en: "SAHNE and SAHNE+"
+summary:
+  fa: "۲۲ اوت «صحنه» رو معرفی کردم: اپ دسکتاپی که با کمک هوش مصنوعی ساختم تا اورلی استریم رو مدیریت کنه، از تعداد بیننده و چت تا هدف دونیت و تایمر دوناتون. ۱۸ سپتامبر هم «صحنه پلاس» رو منتشر کردم: یه اپ رایگان برای گیف‌های هشدار دونیت، ساب و گیفت‌ساب."
+  en: "On August 22 I introduced SAHNE, a desktop app I built with AI help to run stream overlays, from viewer count and chat to donation goals and a donathon timer. On September 18 I released SAHNE+, a free app for donation, sub and gifted-sub GIF alerts."
+why:
+  fa: "ابزارهایی برای بقیهٔ استریمرها، بدون هیچ منفعت شخصی: صحنه پلاس رایگانه و خود صحنه هم قراره اپن‌سورس منتشر بشه."
+  en: "Tools for other streamers, with no personal gain: SAHNE+ is free, and SAHNE itself is set to be released as open source."
+links:
+  - label: { fa: "کانال صحنه", en: "SAHNE channel" }
+    url: "https://t.me/appsahne"
+  - label: { fa: "دانلود صحنه پلاس", en: "Download SAHNE+" }
+    url: "https://github.com/AmirEyZed/sahne-plus/releases"
+images:
+  - src: ./2026-sahne.jpg
+    alt: { fa: "معرفی اپ صحنه", en: "Introducing the SAHNE app" }
+  - src: ./2026-sahne-plus.jpg
+    alt: { fa: "معرفی اپ صحنه پلاس", en: "Introducing the SAHNE+ app" }

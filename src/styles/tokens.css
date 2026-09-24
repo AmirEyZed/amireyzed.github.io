@@ -1,0 +1,58 @@
+/*
+  Design tokens. The palette is sampled from Amir's stream screenshot:
+  the dark room, the lime light on the wall, the neon sign and the Kick overlay.
+  Components only use these variables.
+*/
+:root {
+  color-scheme: dark;
+
+  /* Palette */
+  --night: #0f0e0e; /* room shadows: page background */
+  --charcoal: #1b1a1b; /* overlay panels */
+  --charcoal-2: #252426; /* raised panels */
+  --umber: #48433f; /* warm grey-brown: strong lines */
+  --taupe: #77746a; /* dim lines, unlit LEDs (not for small text) */
+  --olive: #939458; /* lamp light on the wall */
+  --moss: #3c4f34; /* deep shade of the wall light */
+  --lime: #e2e565; /* the lamp itself: highlight, focus, hover */
+  --lemon: #f4ed99; /* glow halo */
+  --kick: #53fc18; /* Kick green: the lit path and LEDs */
+  --warm-white: #f5f5f1; /* neon tube core, main text */
+
+  /* Roles */
+  --bg: var(--night);
+  --panel: var(--charcoal);
+  --panel-2: var(--charcoal-2);
+  --line: #2c2a29;
+  --line-strong: var(--umber);
+  --fg: var(--warm-white);
+  --fg-soft: #d3d0c5;
+  --fg-muted: #aaa698;
+  --fg-dim: var(--taupe);
+  /* Kick chat name-tag colours, used for the glass-lens colour fringes */
+  --tag-red: #ff4b23;
+  --tag-blue: #3a74ff;
+
+  /* Layout */
+  --gutter: 1rem;
+  --maxw: 68rem;
+  --text-w: 30rem;
+  --axis-w: 5rem;
+  --axis-w-m: 2.5rem;
+  --radius-lg: 28px;
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  /* Type: Vazirmatn everywhere, Persian and Latin, body and display */
+  --font-body: 'Vazirmatn Variable', 'Vazirmatn', 'Segoe UI', system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --step--1: clamp(0.84rem, 0.8rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --step-1: clamp(1.18rem, 1.08rem + 0.45vw, 1.42rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem);
+  --step-hero: clamp(2.9rem, 1.4rem + 6.6vw, 7rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

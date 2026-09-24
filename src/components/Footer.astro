@@ -1,0 +1,84 @@
+---
+import { site } from '../data/site';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="inner">
+    <p class="find">{t(lang, 'footer.find', { mark: site.mark })}</p>
+    <ul class="socials">
+      {
+        site.socials.map((s) => (
+          <li>
+            <a class="chip latin" href={s.url} target="_blank" rel="me noopener noreferrer" data-magnetic="0.35">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    {site.email && <a class="email latin" href={`mailto:${site.email}`}>{site.email}</a>}
+    <p class="copy"><span class="latin">&copy; {year} {site.mark}</span></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: rgb(27 26 27 / 0.85);
+  }
+
+  .inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.4rem;
+    width: min(100% - (var(--gutter) * 2), var(--maxw));
+    margin-inline: auto;
+    padding-block: 3.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .find {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  html[lang='fa'] .find {
+    font-weight: 800;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .socials .chip {
+    font-family: var(--font-display);
+  }
+
+  .email {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+
+  .email:hover {
+    color: var(--lime);
+  }
+
+  .copy {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+</style>

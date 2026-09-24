@@ -1,0 +1,20 @@
+# Source: Commentator of PYB 1, Persian YouTube’s first charity boxing match, for drinking water in Sistan and Baluchestan, 8 Aug 2025 (#72158, #72162, #72175, #72184); 505K views (YouTube).
+year: 2025
+order: 6
+title:
+  fa: "گزارشگر اولین بوکس خیریهٔ یوتیوب فارسی"
+  en: "Commentating Persian YouTube’s first charity boxing match"
+summary:
+  fa: "۸ اوت گزارشگر PYB 1 بودم؛ اولین مسابقهٔ بوکس خیریهٔ یوتیوب فارسی بین حامی کی‌ام و فرنود، برای کمک به تأمین آب آشامیدنی مردم سیستان و بلوچستان."
+  en: "On August 8 I was the commentator for PYB 1, Persian YouTube’s first charity boxing match, between Hami KM and Farnood, raising money for drinking water in Sistan and Baluchestan."
+highlights:
+  fa:
+    - "۵۰۵ هزار بازدید پخش زنده"
+  en:
+    - "505K views of the live broadcast"
+links:
+  - label: { fa: "تماشای مسابقه", en: "Watch the fight" }
+    url: "https://www.youtube.com/live/H4JQOVpurFM"
+images:
+  - src: ./2025-pyb.jpg
+    alt: { fa: "میز گزارش PYB 1", en: "The PYB 1 commentary desk" }

@@ -1,0 +1,17 @@
+# Source: WeekWatch from 28 Mar 2024 (#54171, #54204, #54422); MazzeTime from 29 Mar with six streamers (#54255, #54266, #54274).
+year: 2024
+order: 2
+title:
+  fa: "مزه‌تایم و ویک‌واچ"
+  en: "MazzeTime and WeekWatch"
+summary:
+  fa: "آخر مارس دو فرمت هفتگی راه انداختم: «مزه‌تایم»، گپ گروهی با پیکسی، امیرفانتوم، سام صابری، علی زلزله، سمیرا سالی و سیابچ؛ و «ویک‌واچ»، نقد هفتگی ویدیوهای تازهٔ یوتیوب فارسی که چند سازنده نقدهاش رو توی ویدیوی بعدیشون اعمال کردن."
+  en: "At the end of March I launched two weekly formats: MazzeTime, a group talk show with Pixie, AmirPhantom, Sam Saberi, Ali Zelzele, Samira Saly and Siabach; and WeekWatch, a weekly review of new Persian YouTube videos whose notes several creators applied in their next video."
+links:
+  - label: { fa: "مزه‌تایم", en: "MazzeTime" }
+    url: "https://youtu.be/gl0s0ebAYPw"
+  - label: { fa: "ویک‌واچ", en: "WeekWatch" }
+    url: "https://youtu.be/C49Ew2MisLI"
+images:
+  - src: ./2024-mazzetime.jpg
+    alt: { fa: "استریمرهای مزه‌تایم", en: "The MazzeTime streamers" }

@@ -1,0 +1,15 @@
+# Source: The One Awards full video passed 1M views, 23 Sep 2026 (#81172).
+year: 2026
+order: 5
+title:
+  fa: "یک میلیون بازدید The One Awards"
+  en: "The One Awards passes 1M views"
+summary:
+  fa: "۲۳ سپتامبر ویدیوی کامل مراسم The One Awards از یک میلیون بازدید گذشت."
+  en: "On September 23 the full video of The One Awards passed one million views."
+links:
+  - label: { fa: "تماشای مراسم", en: "Watch the ceremony" }
+    url: "https://www.youtube.com/watch?v=AnW73Zr1HaE"
+images:
+  - src: ./2026-toa-1m.jpg
+    alt: { fa: "پوستر یک میلیون بازدید The One Awards", en: "The One Awards one-million-views poster" }

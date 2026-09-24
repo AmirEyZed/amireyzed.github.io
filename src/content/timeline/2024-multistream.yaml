@@ -1,0 +1,17 @@
+# Source: First simultaneous Twitch and YouTube stream 24 Feb 2024 (#53090, #53187); 20K subscribers 1 Apr (#54363); June peak 3,014 (#57321, #57322).
+year: 2024
+order: 1
+title:
+  fa: "لایو هم‌زمان توییچ و یوتیوب"
+  en: "Live on Twitch and YouTube at once"
+summary:
+  fa: "۲۴ فوریه اولین استریم هم‌زمان روی توییچ و یوتیوب رو گذاشتم و از اون به بعد همهٔ لایوها هم‌زمان پخش شد. آوریل هم کانال اصلی یوتیوبم به ۲۰ هزار سابسکرایبر رسید."
+  en: "On February 24 I streamed on Twitch and YouTube at the same time for the first time, and from then on every stream went to both. In April my main YouTube channel reached 20,000 subscribers."
+highlights:
+  fa:
+    - "اوج ژوئن: ۳٬۰۱۴ بینندهٔ هم‌زمان روی دو پلتفرم"
+  en:
+    - "June peak: 3,014 concurrent viewers across both platforms"
+images:
+  - src: ./2024-june-peak.jpg
+    alt: { fa: "اوج بینندهٔ هم‌زمان ژوئن روی توییچ و یوتیوب", en: "June peak concurrent viewers on Twitch and YouTube" }

@@ -1,0 +1,28 @@
+# Source: TheBeniamin’s "50 YouTubers for 100 Million", 6 Oct 2024: team win, joint first (#60921–60923, #60926, #60939, #63032); Secret Hitler invite (#64181); views from YouTube.
+year: 2024
+order: 6
+featured: true
+title:
+  fa: "برندهٔ مسابقهٔ ۵۰ یوتیوبر"
+  en: "Winning the 50-YouTuber challenge"
+summary:
+  fa: "۶ اکتبر توی «مسابقهٔ ۵۰ یوتوبر برای ۱۰۰ میلیون» بنیامین، بین پنجاه یوتیوبر فارسی اول مشترک شدم. دو ماه بعد هم برای «راز هیتلر تو دنیای واقعی» دوباره دعوتم کرد."
+  en: "On October 6, in TheBeniamin’s 50 YouTubers for 100 Million, I finished joint first among fifty Persian YouTubers. Two months later he invited me back for Secret Hitler in Real Life."
+why:
+  fa: "از بین پنجاه یوتیوبر فارسی، یکی از دو برندهٔ ویدیویی بودم که بیش از ۳ میلیون بار دیده شده."
+  en: "Out of fifty Persian YouTubers, I was one of the two winners, in a video watched more than 3 million times."
+highlights:
+  fa:
+    - "این ویدیو بهترین همکاری سال در The One Awards شد"
+    - "راز هیتلر: ۶۰۲ هزار بازدید"
+  en:
+    - "The video won Best Collaboration at The One Awards"
+    - "Secret Hitler: 602K views"
+links:
+  - label: { fa: "مسابقهٔ ۵۰ یوتوبر", en: "50 YouTubers" }
+    url: "https://youtu.be/n4flU7MCPug"
+  - label: { fa: "راز هیتلر", en: "Secret Hitler" }
+    url: "https://youtu.be/730OxmX1yfs"
+images:
+  - src: ./2024-50-youtubers.jpg
+    alt: { fa: "تامبنیل مسابقهٔ ۵۰ یوتوبر؛ امیر ایزد با هودی قرمز", en: "The 50-YouTuber challenge thumbnail, with Amir EyZed in the red hoodie" }

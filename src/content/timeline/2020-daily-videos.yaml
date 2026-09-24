@@ -1,0 +1,19 @@
+# Source: Daily YouTube uploads in Nov 2020 (#36448, #36699); YouTube Partner Program acceptance in May (#33306, #33503).
+year: 2020
+order: 6
+title:
+  fa: "هر روز یه ویدیو"
+  en: "A video every day"
+summary:
+  fa: "نوامبر هر روز یه ویدیو روی یوتیوب گذاشتم. از ماه مه هم عضو برنامهٔ پارتنری یوتیوب شده بودم."
+  en: "In November I posted a YouTube video every day. I had joined the YouTube Partner Program in May."
+highlights:
+  fa:
+    - "۴۱۲ هزار بازدید در ۲۸ روز"
+  en:
+    - "412K views in 28 days"
+images:
+  - src: ./2020-daily-videos.jpg
+    alt: { fa: "آمار ۲۸ روزهٔ کانال یوتیوب", en: "YouTube channel stats for 28 days" }
+  - src: ./2020-youtube-partner.jpg
+    alt: { fa: "ایمیل پذیرش در برنامهٔ پارتنری یوتیوب", en: "The YouTube Partner Programme acceptance email" }

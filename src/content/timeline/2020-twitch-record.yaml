@@ -1,0 +1,19 @@
+# Source: Best Twitch stream to date on 9 Oct 2020 (#35921).
+year: 2020
+order: 5
+title:
+  fa: "رکورد جدید توییچ"
+  en: "A new Twitch record"
+summary:
+  fa: "۹ اکتبر بهترین استریم توییچم تا اون روز رو داشتم."
+  en: "On October 9 I had my best Twitch stream up to that point."
+highlights:
+  fa:
+    - "۲٬۰۹۶ بینندهٔ هم‌زمان"
+    - "۸٬۵۸۱ بینندهٔ یکتا"
+  en:
+    - "2,096 concurrent viewers"
+    - "8,581 unique viewers"
+images:
+  - src: ./2020-twitch-record.jpg
+    alt: { fa: "آمار استریم رکورد ۹ اکتبر", en: "Stats of the October 9 record stream" }

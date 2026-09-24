@@ -1,0 +1,33 @@
+# Source: 45 Minutes from 16 Jul 2025 with Artin Eshraghi, 19 episodes to 29 May 2026 (#71320, #71517, #71527, #71624, #77400); guests (#71921, #71977, #72359, #72576); Kouman named YouTuber of the Year at The One Awards (Vigiato winners list); views from YouTube.
+year: 2025
+order: 5
+featured: true
+title:
+  fa: "چهل‌وپنج دقیقه"
+  en: "45 Minutes"
+summary:
+  fa: "جولای پادکست «چهل‌وپنج دقیقه» رو با آرتین اشراقی شروع کردم؛ ۱۹ قسمت تا مه ۲۰۲۶، روی یوتیوب و همهٔ پلتفرم‌های صوتی."
+  en: "In July I started the podcast 45 Minutes with Artin Eshraghi: 19 episodes through May 2026, on YouTube and every audio platform."
+why:
+  fa: "گفت‌وگو با شناخته‌شده‌ترین اسم‌های یوتیوب فارسی؛ دو قسمت کوروش زراندوز از کومان، بهترین یوتیوبر سال The One Awards، روی هم نزدیک ۶۰۰ هزار بار دیده شده."
+  en: "Conversations with some of the best-known names on Persian YouTube. The two episodes with Kourosh Zarandouz of Kouman, The One Awards’ YouTuber of the Year, have close to 600K views combined."
+guests:
+  - name: { fa: "کوروش زراندوز", en: "Kourosh Zarandouz" }
+    about: { fa: "از کومان؛ بهترین یوتیوبر سال، محبوب‌ترین کامیونیتی و خیرخواه‌ترین محتواساز در The One Awards", en: "Of Kouman; YouTuber of the Year, Most Popular Community and Most Charitable Creator at The One Awards" }
+    url: "https://youtu.be/6W19VgHPMTc"
+    stat: { fa: "۵۹۲ هزار بازدید در دو قسمت", en: "592K views in two episodes" }
+  - name: { fa: "علی بیگزموگ", en: "Ali BigezMoge" }
+    about: { fa: "از شناخته‌شده‌ترین یوتیوبرهای فارسی", en: "One of the best-known Persian YouTubers" }
+    url: "https://youtu.be/kx7ZJNM5WFI"
+    stat: { fa: "۲۴۶ هزار بازدید", en: "246K views" }
+  - name: { fa: "بنیامین", en: "TheBeniamin" }
+    about: { fa: "یوتیوبر؛ نوظهورترین استعداد یوتیوب و بهترین همکاری در The One Awards", en: "YouTuber; Most Promising YouTube Talent and Best Collaboration at The One Awards" }
+    url: "https://youtu.be/KHMZWmp9k74"
+    stat: { fa: "۱۲۹ هزار بازدید", en: "129K views" }
+  - name: { fa: "امیرفانتوم", en: "AmirPhantom" }
+    about: { fa: "استریمر و یوتیوبر؛ مهمون قسمت اول", en: "Streamer and YouTuber; the first guest" }
+    url: "https://youtu.be/38_OhvScoT8"
+    stat: { fa: "۴۰ هزار بازدید", en: "40K views" }
+links:
+  - label: { fa: "Apple Podcasts", en: "Apple Podcasts" }
+    url: "https://podcasts.apple.com/us/podcast/45-minutes-%DA%86%D9%87%D9%84-%D9%88-%D9%BE%D9%86%D8%AC-%D8%AF%D9%82%DB%8C%D9%82%D9%87/id1827824631"

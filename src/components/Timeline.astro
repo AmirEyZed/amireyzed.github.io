@@ -1,0 +1,298 @@
+---
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+import { t, type Lang } from '../i18n/ui';
+import Milestone from './Milestone.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const entries = (await getCollection('timeline')).sort(
+  (a, b) => a.data.year - b.data.year || a.data.order - b.data.order || a.id.localeCompare(b.id),
+);
+
+const kick = site.socials.find((s) => s.id === 'kick');
+const email = site.email;
+---
+
+<section class="timeline" id="timeline" aria-labelledby="timeline-title">
+  <h2 id="timeline-title" class="visually-hidden">{t(lang, 'timeline.title')}</h2>
+
+  <div class="track" data-track>
+    <div class="axis" aria-hidden="true"><span class="axis-fill"></span></div>
+    <ol class="rows">
+      {
+        entries.map((entry, index) => (
+          <Milestone
+            entry={entry}
+            lang={lang}
+            index={index}
+            showYear={index === 0 || entries[index - 1]!.data.year !== entry.data.year}
+          />
+        ))
+      }
+    </ol>
+  </div>
+
+  <div class="today" data-today>
+    <span class="today-led" aria-hidden="true"></span>
+    <h2 class="today-title">{t(lang, 'today.title')}</h2>
+    <p class="today-body">{site.today[lang]}</p>
+    <div class="stats" role="group" aria-labelledby="stats-title">
+      <h3 id="stats-title" class="stats-title">{t(lang, 'stats.title')}</h3>
+      <dl class="stat-grid">
+        {
+          site.stats.items.map((stat) => (
+            <div class="stat">
+              <dt class="stat-label">{stat.label[lang]}</dt>
+              <dd class="stat-value">
+                {stat.value[lang]}
+                {'unit' in stat && stat.unit[lang] && <span class="stat-unit">{stat.unit[lang]}</span>}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="stats-note">{site.stats.note[lang]}</p>
+    </div>
+    {
+      (kick || email) && (
+        <div class="cta">
+          {kick && (
+            <a class="btn btn-kick" href={kick.url} target="_blank" rel="me noopener noreferrer" data-magnetic="0.3">
+              {t(lang, 'today.follow')}
+            </a>
+          )}
+          {email && (
+            <a class="btn" href={`mailto:${email}`} data-magnetic="0.3">
+              {t(lang, 'today.email')}
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .timeline {
+    width: min(100% - (var(--gutter) * 2), var(--maxw));
+    margin-inline: auto;
+  }
+
+  .track {
+    position: relative;
+  }
+
+  /* The wire. --progress (0..1) is set from JS; the lit part ends at the middle of the screen. */
+  .axis {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: calc(50% - 1px);
+    width: 2px;
+    border-radius: 2px;
+    background: var(--line);
+  }
+
+  .axis-fill {
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: calc(var(--progress, 0) * 100%);
+    border-radius: inherit;
+    background: linear-gradient(to bottom, var(--olive), var(--kick) 12rem);
+    box-shadow: 0 0 12px rgb(83 252 24 / 0.55);
+  }
+
+  html:not(.js) .axis-fill {
+    height: 100%;
+  }
+
+  /* ---------- Today: where the wire ends ---------- */
+  .today {
+    display: grid;
+    justify-items: center;
+    padding-block-end: clamp(4rem, 12vh, 8rem);
+    text-align: center;
+  }
+
+  .today::before {
+    content: '';
+    width: 2px;
+    height: 3.5rem;
+    background: var(--line);
+    transition:
+      background-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  .today-led {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-block: -2px 1.4rem;
+    border: 2px solid var(--fg-dim);
+    border-radius: 50%;
+    background: var(--bg);
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  .today.is-lit::before,
+  html:not(.js) .today::before {
+    background: var(--kick);
+    box-shadow: 0 0 12px rgb(83 252 24 / 0.55);
+  }
+
+  .today.is-lit .today-led,
+  html:not(.js) .today-led {
+    border-color: var(--kick);
+    background: var(--kick);
+    box-shadow:
+      0 0 0 6px rgb(83 252 24 / 0.15),
+      0 0 28px rgb(83 252 24 / 0.75);
+  }
+
+  .today-title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 700;
+  }
+
+  html[lang='fa'] .today-title {
+    font-weight: 900;
+  }
+
+  .today-body {
+    max-width: 30rem;
+    margin-block-start: 0.5rem;
+    color: var(--fg-soft);
+  }
+
+  /* ---------- The whole path in numbers ---------- */
+  .stats {
+    width: min(100%, 50rem);
+    margin-block-start: 2.4rem;
+  }
+
+  .stats-title {
+    color: var(--olive);
+    font-size: var(--step--1);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-block-start: 0.9rem;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding: 1.05rem 1rem 1.1rem;
+    border: 1px solid rgb(245 245 241 / 0.09);
+    border-radius: var(--radius);
+    background: rgb(27 26 27 / 0.5);
+    transition:
+      border-color 400ms ease,
+      box-shadow 400ms ease;
+  }
+
+  .stat-value {
+    color: var(--warm-white);
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 1.35rem + 1.5vw, 2.5rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 900;
+    line-height: 1.1;
+    transition: text-shadow 500ms ease;
+  }
+
+  .stat-unit {
+    margin-inline-start: 0.35rem;
+    font-size: 0.5em;
+    font-weight: 800;
+  }
+
+  .stat-label {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    line-height: 1.55;
+  }
+
+  /* When the wire reaches the end, the numbers light up like the years. */
+  .today.is-lit .stat,
+  html:not(.js) .stat {
+    border-color: rgb(226 229 101 / 0.22);
+    box-shadow: 0 0 40px -22px rgb(226 229 101 / 0.6);
+  }
+
+  .today.is-lit .stat-value,
+  html:not(.js) .stat-value {
+    text-shadow:
+      0 0 3px rgb(255 253 242 / 0.8),
+      0 0 16px rgb(244 237 153 / 0.45),
+      0 0 34px rgb(226 229 101 / 0.3);
+  }
+
+  .stats-note {
+    margin-block-start: 0.8rem;
+    color: var(--fg-dim);
+    font-size: calc(var(--step--1) * 0.92);
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-block-start: 1.9rem;
+  }
+
+  @media (max-width: 59.99rem) {
+    .axis {
+      inset-inline-start: calc(var(--axis-w-m) / 2 - 1px);
+    }
+
+    .today {
+      justify-items: start;
+      text-align: start;
+    }
+
+    .today::before {
+      margin-inline-start: calc(var(--axis-w-m) / 2 - 1px);
+    }
+
+    .today-led {
+      margin-inline-start: calc(var(--axis-w-m) / 2 - 0.7rem);
+    }
+
+    .today-title,
+    .today-body,
+    .stats,
+    .cta {
+      margin-inline-start: var(--axis-w-m);
+    }
+
+    .stats {
+      width: calc(100% - var(--axis-w-m));
+    }
+
+    .stat-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta {
+      justify-content: flex-start;
+    }
+  }
+</style>

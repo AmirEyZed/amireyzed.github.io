@@ -1,0 +1,141 @@
+---
+import { site } from '../data/site';
+import { formatYear, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  firstYear: number;
+}
+
+const { lang, firstYear } = Astro.props;
+---
+
+<section class="hero">
+  <div class="sign-wrap">
+    <h1 class="sign" data-neon>{site.name[lang]}</h1>
+  </div>
+  <p class="tagline">{site.tagline[lang]}</p>
+  <p class="intro">{site.intro[lang]}</p>
+  <p class="range">{t(lang, 'hero.range', { from: formatYear(firstYear, lang) })}</p>
+
+  <a class="cue" href="#timeline">
+    <span>{t(lang, 'hero.scroll')}</span>
+    <span class="cue-wire" aria-hidden="true"></span>
+  </a>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(3.5rem, 12vh, 8rem) var(--gutter) 0;
+    text-align: center;
+  }
+
+  .sign-wrap {
+    max-width: 100%;
+    perspective: 900px;
+  }
+
+  /* The neon sign: warm-white tube with a lime halo. --neon (0..1) is driven by the cursor distance. */
+  .sign {
+    --n: var(--neon, 0.7);
+    font-family: var(--font-display);
+    font-size: var(--step-hero);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #fffdf2;
+    text-shadow:
+      0 0 calc(1px + 3px * var(--n)) rgb(255 253 242 / 0.95),
+      0 0 calc(6px + 12px * var(--n)) rgb(244 237 153 / 0.75),
+      0 0 calc(16px + 34px * var(--n)) rgb(226 229 101 / 0.5),
+      0 0 calc(40px + 90px * var(--n)) rgb(147 148 88 / 0.45);
+    transform: rotateX(var(--srx, 0deg)) rotateY(var(--sry, 0deg));
+    transition: transform 250ms linear;
+    animation: neon-on 1.5s steps(1, end) 0.15s both;
+  }
+
+  html[lang='fa'] .sign {
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  /* The one autonomous moment on the page: the sign flickers on, like the neon in the studio. */
+  @keyframes neon-on {
+    0% {
+      opacity: 0.08;
+    }
+    8% {
+      opacity: 1;
+    }
+    11% {
+      opacity: 0.25;
+    }
+    18% {
+      opacity: 1;
+    }
+    21% {
+      opacity: 0.45;
+    }
+    25%,
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .tagline {
+    margin-block-start: 1.1rem;
+    color: var(--lemon);
+    font-size: var(--step-1);
+    font-weight: 500;
+  }
+
+  .intro {
+    max-width: 34rem;
+    margin-block-start: 1.6rem;
+    color: var(--fg-muted);
+    text-wrap: pretty;
+  }
+
+  .range {
+    margin-block-start: 0.8rem;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+
+  .cue {
+    display: grid;
+    justify-items: center;
+    gap: 0.9rem;
+    margin-block-start: 3rem;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+
+  .cue:hover {
+    color: var(--lime);
+  }
+
+  /* Continues straight into the timeline axis below. */
+  .cue-wire {
+    width: 2px;
+    height: clamp(3rem, 9vh, 5.5rem);
+    background: linear-gradient(to bottom, transparent, var(--line));
+  }
+
+  @media (max-width: 59.99rem) {
+    .cue-wire {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sign {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>

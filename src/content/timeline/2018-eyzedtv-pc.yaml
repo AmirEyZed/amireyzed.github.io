@@ -1,0 +1,12 @@
+# Source: Twitch handle EyZedTV from 5 Oct (#15707); logo by Shaho Karimi 18 Oct (#16110); first PC stream 29 Oct (#16419, #16481).
+year: 2018
+order: 6
+title:
+  fa: "EyZedTV، لوگو و کوچ به PC"
+  en: "EyZedTV, a logo and the move to PC"
+summary:
+  fa: "اکتبر اسم توییچم شد EyZedTV، لوگوی EyZed رو رونمایی کردم و از PS4 به PC کوچ کردم. اولین استریم PC رو ۲۹ اکتبر گذاشتم."
+  en: "In October my Twitch name became EyZedTV, I unveiled the EyZed logo and moved from PS4 to PC. My first PC stream was on October 29."
+images:
+  - src: ./2018-eyzed-logo.jpg
+    alt: { fa: "لوگوی EyZed", en: "The EyZed logo" }

@@ -1,0 +1,16 @@
+# Source: The Streamer Awards live on 7 Dec; official co-stream of The Game Awards on 11 Dec 2025 (#75036, #75139).
+year: 2025
+order: 9
+featured: true
+title:
+  fa: "کواستریم رسمی The Game Awards"
+  en: "Official co-stream of The Game Awards"
+summary:
+  fa: "بعد از پخش زندهٔ The Streamer Awards در ۷ دسامبر، ۱۱ دسامبر The Game Awards رو به‌صورت کواستریم رسمی و مجاز پخش کردم."
+  en: "After covering The Streamer Awards live on December 7, I co-streamed The Game Awards on December 11 as an official co-streamer."
+why:
+  fa: "پخش رسمی و مجاز بزرگ‌ترین مراسم جوایز بازی‌های ویدیویی دنیا، به زبان فارسی."
+  en: "An official, licensed co-stream of the world’s biggest video game awards, in Persian."
+images:
+  - src: ./2025-game-awards.jpg
+    alt: { fa: "پوستر کواستریم رسمی The Game Awards", en: "Official co-stream poster for The Game Awards" }

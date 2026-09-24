@@ -1,0 +1,12 @@
+# Source: Last stream 5–6 Jan 2026 (#76562); no streams after the events of 8–9 January and then the war, in his own words (2026-09-24; #76563); internet shutdowns, studio packed up (#75830, #76846, #76887); back live on Kick 28 May with the "After 3000 hours" poster (#77345, #77457).
+year: 2026
+order: 1
+title:
+  fa: "بازگشت به لایو"
+  en: "Back live"
+summary:
+  fa: "بعد از اتفاقات ۱۸ و ۱۹ دی و بعدش جنگ، لایو نرفتم و ماه‌ها قطعی اینترنت هم بیش از ۳ هزار ساعت از استریم دورم کرد؛ حتی استودیو رو جمع کردم. ۲۸ مه دوباره روی کیک لایو رفتم."
+  en: "After the events of January 8 and 9 and then the war, I stayed off air, and months of internet shutdowns kept me away for more than 3,000 hours; I even packed up the studio. On May 28 I went live on Kick again."
+images:
+  - src: ./2026-after-3000-hours.jpg
+    alt: { fa: "پوستر برگشت به لایو بعد از ۳۰۰۰ ساعت", en: "The “After 3000 hours” comeback poster" }

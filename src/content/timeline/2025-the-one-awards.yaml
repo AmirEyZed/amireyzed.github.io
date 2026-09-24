@@ -1,0 +1,36 @@
+# Source: TOA revealed 18 Feb 2025 (#66801, #66829, #66982); fully self-funded (#67349); nominations report 53,178 accounts, 20,523 forms, with The Streamer Awards comparison (#67464, #67468); winners by 70% public vote and 30% judges (#67532); sponsor declined for impartiality (#67738); in-person show of 8 Mar cancelled (#68009, #68332) after security bodies objected, about 800 tickets sold for 1,000 guests, recorded in secret the next morning, per his own account (2026-09-24; see also #76283); aired live 11 Mar, peak 36.5K, 3-hour average 24K (#68237, #68338, #68614); winners list from Vigiato (12 Mar 2025).
+year: 2025
+order: 1
+featured: true
+title:
+  fa: "The One Awards"
+  en: "The One Awards"
+summary:
+  fa: "۱۸ فوریه The One Awards رو معرفی کردم: جوایز یوتیوبرها و استریمرهای فارسی با ۳۰ بخش و ۹ داور، سال اول با هزینهٔ شخصی و بدون اسپانسر. حدود ۸۰۰ بلیت توی مدت کوتاهی فروش رفت و مراسم قرار بود ۸ مارس با حضور ۱۰۰۰ نفر برگزار بشه، ولی با مخالفت نهادهای امنیتی لغو شد و ضرر مالی سنگینی دادم. صبح روز بعد مراسم رو مخفیانه با همراهی تولیدکننده‌های محتوا ضبط کردیم و ۱۱ مارس لایو روی یوتیوب پخش شد."
+  en: "On February 18 I announced The One Awards, awards for Persian YouTubers and streamers with 30 categories and nine judges, self-funded in its first year with no sponsor. About 800 tickets sold out quickly for a March 8 ceremony with 1,000 guests, but it was cancelled after security bodies objected, at a heavy financial loss to me. The next morning we recorded the ceremony in secret with the creators, and on March 11 it aired live on YouTube."
+why:
+  fa: "اولین گردهمایی کامیونیتی یوتیوب و استریم فارسی؛ نامزدها رو خود مخاطب‌ها معرفی کردن و هیچ‌کس برای حضورش پولی نگرفت."
+  en: "The first gathering of the Persian YouTube and streaming community. The audience nominated the candidates, and nobody was paid to take part."
+highlights:
+  fa:
+    - "اوج ۳۶٫۵ هزار و میانگین ۲۴ هزار بینندهٔ هم‌زمان، بدون اینکه بشه پخش زنده رو تبلیغ کرد"
+    - "۵۳ هزار حساب کاربری و ۲۰ هزار فرم نامزدی؛ The Streamer Awards، نمونهٔ خارجیش، سال اولش با جامعه‌ای خیلی بزرگ‌تر و بدون فیلترینگ ۷۵ هزار فرم گرفته بود"
+    - "هم‌زمان دو برند بزرگ هم مراسم مشابهی برنامه‌ریزی کردن، ولی بیشتر تولیدکننده‌های محتوای مشهور به The One Awards اومدن"
+    - "برنده‌ها با ۷۰٪ رأی مردم و ۳۰٪ رأی داورها انتخاب شدن؛ بهترین استریمر سال و بهترین محتواساز ری‌اکشن به من رسید"
+  en:
+    - "Peak of 36.5K and an average of 24K concurrent viewers, with no chance to promote the broadcast"
+    - "53K accounts and 20K nomination forms; its foreign counterpart, The Streamer Awards, drew 75K forms in its first year from a far bigger, unfiltered audience"
+    - "Two big brands planned similar ceremonies at the same time, but most well-known creators came to The One Awards"
+    - "Winners were chosen 70% by public vote and 30% by the judges; I won Streamer of the Year and Best Reaction Creator"
+links:
+  - label: { fa: "معرفی مراسم", en: "The reveal" }
+    url: "https://www.youtube.com/watch?v=JXztkk5NrPM"
+  - label: { fa: "مراسم کامل", en: "Full ceremony" }
+    url: "https://www.youtube.com/watch?v=AnW73Zr1HaE"
+images:
+  - src: ./2025-toa-red-carpet.jpg
+    alt: { fa: "امیر ایزد در مراسم The One Awards", en: "Amir EyZed at The One Awards" }
+  - src: ./2025-toa-viewers.jpg
+    alt: { fa: "نمودار بینندهٔ هم‌زمان پخش مراسم", en: "Concurrent viewers during the premiere" }
+  - src: ./2025-toa-nominations.jpg
+    alt: { fa: "گزارش رسمی مرحلهٔ معرفی نامزدها", en: "The official report on the nomination stage" }

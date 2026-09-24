@@ -1,0 +1,14 @@
+# Source: Rebrand EyZedTV to AmirEyZed from 12 Jun 2020 (#33859, #33930, #33945, #35764); banana replaced the check on 23 Sep (#35645).
+year: 2020
+order: 4
+title:
+  fa: "AmirEyZed 🍌"
+  en: "AmirEyZed 🍌"
+summary:
+  fa: "۱۲ ژوئن اسمم رو از EyZedTV به AmirEyZed تغییر دادم؛ اول توییچ و بعد توییتر، تلگرام و یوتیوب. ۲۳ سپتامبر هم بعد از سال‌ها تیک ✅ کنار اسمم رو برداشتم و 🍌 جاش نشست."
+  en: "On June 12 I changed my name from EyZedTV to AmirEyZed, first on Twitch, then on X, Telegram and YouTube. On September 23, after years, the ✅ next to my name made way for a 🍌."
+images:
+  - src: ./2020-amireyzed.jpg
+    alt: { fa: "پوستر اسم جدید AmirEyZed", en: "The new AmirEyZed username poster" }
+  - src: ./2020-banana.jpg
+    alt: { fa: "پروفایل AmirEyZed با 🍌", en: "The AmirEyZed profile with its 🍌" }

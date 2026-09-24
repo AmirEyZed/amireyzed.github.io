@@ -1,0 +1,536 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+/* Lenis drives smooth scrolling itself. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html[lang='en'] body {
+  line-height: 1.65;
+}
+
+main {
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  transition:
+    color 200ms ease,
+    text-decoration-color 200ms ease;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: rgb(226 229 101 / 0.28);
+  color: var(--fg);
+}
+
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--maxw));
+  margin-inline: auto;
+}
+
+/* Latin strings inside Persian pages keep their own direction. */
+.latin {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: -100%;
+  z-index: 100;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: var(--lime);
+  color: var(--night);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Ambient layer: the lit wall, the lamp that follows the cursor, film grain ---------- */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-wall {
+  position: absolute;
+  inset-inline: -10%;
+  top: -35vh;
+  height: 95vh;
+  background: radial-gradient(
+    50% 55% at 50% 45%,
+    rgb(147 148 88 / 0.3),
+    rgb(60 79 52 / 0.14) 55%,
+    transparent 76%
+  );
+}
+
+.ambient-lamp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60vmax;
+  height: 60vmax;
+  margin: -30vmax 0 0 -30vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(226 229 101 / 0.12),
+    rgb(147 148 88 / 0.06) 32%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translate3d(50vw, 22vh, 0);
+  transition: opacity 900ms ease;
+  will-change: transform;
+}
+
+html.has-pointer .ambient-lamp {
+  opacity: 1;
+}
+
+.ambient-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Photo lightbox ---------- */
+
+/* The photo grows out of its thumbnail (app.ts), sits on a blurred, dimmed room light,
+   and can be browsed with arrows, keys or a swipe. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+}
+
+.lightbox[open] {
+  display: block;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lb-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 55% at 50% 45%, rgb(226 229 101 / 0.08), transparent 70%),
+    rgb(10 10 9 / 0.86);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
+  backdrop-filter: blur(18px) saturate(115%);
+  opacity: 0;
+  transition: opacity 380ms var(--ease-out);
+}
+
+.lightbox.is-open .lb-veil {
+  opacity: 1;
+}
+
+.lightbox.is-closing .lb-veil {
+  opacity: 0;
+  transition-duration: 320ms;
+}
+
+.lb-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(4rem, 8vh, 5rem) clamp(1rem, 7vw, 6.5rem) clamp(1.5rem, 5vh, 3rem);
+  touch-action: pinch-zoom;
+}
+
+.lb-figure {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.lb-frame {
+  position: relative;
+}
+
+.lb-img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 1400px);
+  height: auto;
+  max-height: calc(100dvh - 12rem);
+  border: 1px solid rgb(245 245 241 / 0.12);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.45),
+    0 40px 120px -30px rgb(0 0 0 / 0.95),
+    0 0 100px -30px rgb(226 229 101 / 0.35);
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* A thin light runs under the photo while the full-size version loads. */
+.lb-frame.is-loading::after {
+  content: '';
+  position: absolute;
+  inset-inline: 15%;
+  bottom: -0.55rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--lime), transparent) no-repeat;
+  background-size: 45% 100%;
+  animation: lb-load 1s linear infinite;
+}
+
+@keyframes lb-load {
+  from {
+    background-position: -60% 0;
+  }
+  to {
+    background-position: 160% 0;
+  }
+}
+
+.lb-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.35rem 0.9rem;
+  max-width: min(92vw, 44rem);
+  color: var(--fg-soft);
+  font-size: var(--step--1);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 300ms ease 140ms,
+    transform 420ms var(--ease-out) 140ms;
+}
+
+.lightbox.is-open .lb-caption {
+  opacity: 1;
+  transform: none;
+}
+
+.lightbox.is-closing .lb-caption {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.lb-count {
+  color: var(--lime);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lb-count:empty {
+  display: none;
+}
+
+.lb-btn {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid rgb(245 245 241 / 0.16);
+  border-radius: 50%;
+  background: rgb(27 26 27 / 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--warm-white);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 300ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.lightbox.is-open .lb-btn {
+  opacity: 1;
+}
+
+.lightbox.is-closing .lb-btn {
+  opacity: 0;
+}
+
+.lb-btn svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lb-btn:hover {
+  border-color: rgb(226 229 101 / 0.6);
+  background: rgb(37 36 38 / 0.85);
+  box-shadow: 0 0 28px -8px rgb(226 229 101 / 0.6);
+}
+
+.lb-btn:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.lb-close {
+  top: 1rem;
+  inset-inline-end: 1rem;
+}
+
+.lb-prev,
+.lb-next {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.lb-prev {
+  inset-inline-start: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.lb-next {
+  inset-inline-end: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* In Persian the previous photo is on the right, so the arrows turn around. */
+html[dir='rtl'] .lb-prev svg,
+html[dir='rtl'] .lb-next svg {
+  transform: scaleX(-1);
+}
+
+.lightbox.is-single .lb-prev,
+.lightbox.is-single .lb-next {
+  display: none;
+}
+
+@media (max-width: 40rem) {
+  .lb-stage {
+    padding-block-end: 5.5rem;
+  }
+
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: 1.25rem;
+    translate: none;
+  }
+
+  .lb-img {
+    max-height: calc(100dvh - 15rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-veil,
+  .lb-caption,
+  .lb-btn {
+    transition: none;
+  }
+
+  .lb-frame.is-loading::after {
+    animation: none;
+  }
+}
+
+/* ---------- Shared controls ---------- */
+
+/* Magnetic elements move toward the cursor; the transform is set from JS through --mx/--my. */
+[data-magnetic] {
+  translate: var(--mx, 0) var(--my, 0);
+  transition:
+    translate 450ms var(--ease-spring),
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+[data-magnetic].is-attracted {
+  transition:
+    translate 120ms linear,
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: rgb(245 245 241 / 0.04);
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* A slightly larger hit area gives the magnetic pull room to start. */
+.btn::before,
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+}
+
+.btn:hover {
+  border-color: var(--lime);
+  background: rgb(226 229 101 / 0.08);
+}
+
+.btn-kick {
+  border-color: var(--kick);
+  color: var(--kick);
+  background: rgb(83 252 24 / 0.07);
+}
+
+.btn-kick:hover {
+  border-color: var(--kick);
+  background: var(--kick);
+  color: var(--night);
+  box-shadow: 0 0 30px -6px rgb(83 252 24 / 0.7);
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: rgb(245 245 241 / 0.03);
+  color: var(--fg);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chip:hover {
+  border-color: var(--lime);
+  background: rgb(226 229 101 / 0.08);
+  box-shadow: 0 0 24px -8px rgb(226 229 101 / 0.6);
+}

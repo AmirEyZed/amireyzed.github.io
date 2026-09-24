@@ -1,0 +1,53 @@
+# Source: The MidNight premiered 10 Mar 2023 (#44010, #44031); studio still 10 Mar; guests (#44063, #44757, #45837, #46216, #47394, #47881, #50829); season 1 totals with analytics screenshots (#47865, #47869, #47870); The One Awards winners from Vigiato (12 Mar 2025).
+year: 2023
+order: 3
+featured: true
+title:
+  fa: "میدنایت"
+  en: "The MidNight"
+summary:
+  fa: "۱۰ مارس «میدنایت» روی کانال اصلیم شروع شد؛ برنامهٔ مصاحبهٔ شبانه‌ای که خودم تحقیق، کارگردانی و اجراش می‌کنم. فصل اول ۲۳ قسمت داشت، با مهمون‌هایی از یوتیوب و استریم تا رپ و دوبله."
+  en: "On March 10 The MidNight started on my main channel, a late-night interview show that I research, direct and host. Season one had 23 episodes, with guests from YouTube and streaming to rap and dubbing."
+why:
+  fa: "سه قسمتش به‌تنهایی بیش از نیم میلیون بار دیده شده؛ این برنامه کانالم رو از هایلایت گیم به گفت‌وگوهای بلند رسوند."
+  en: "Three of its episodes alone have been watched more than half a million times; the show took my channel from gaming highlights to long conversations."
+highlights:
+  fa:
+    - "بیش از ۵۰۰ هزار بازدید و ۲۲۵ هزار ساعت تماشا در فصل اول"
+  en:
+    - "500K+ views and 225K watch hours in season one"
+guests:
+  - name: { fa: "امید لنون", en: "Omid Lennon" }
+    about: { fa: "یوتیوبر و استریمر؛ بهترین استریمر بازی‌های تک‌نفره در The One Awards", en: "YouTuber and streamer; Best Single-Player Streamer at The One Awards" }
+    url: "https://youtu.be/D8aUalHUZWc"
+    stat: { fa: "۲۶۱ هزار بازدید", en: "261K views" }
+  - name: { fa: "امید صفیر", en: "Omid Safir" }
+    about: { fa: "رپر", en: "Rapper" }
+    url: "https://youtu.be/X0Pl_TDw_Dk"
+    stat: { fa: "۲۰۹ هزار بازدید", en: "209K views" }
+  - name: { fa: "پیکسی", en: "Pixie" }
+    about: { fa: "استریمر", en: "Streamer" }
+    url: "https://youtu.be/qCE4-NNDDNw"
+    stat: { fa: "۱۲۲ هزار بازدید", en: "122K views" }
+  - name: { fa: "سام صابری", en: "Sam Saberi" }
+    about: { fa: "استریمر؛ بهترین گیمر، بهترین استریمر بازی‌های آنلاین و بهترین دوناتون در The One Awards", en: "Streamer; Best Gamer, Best Online Games Streamer and Best Donathon at The One Awards" }
+    url: "https://youtu.be/G6LBhlbJirg"
+    stat: { fa: "۶۳ هزار بازدید", en: "63K views" }
+  - name: { fa: "نیک‌شاه", en: "Nikshaah" }
+    about: { fa: "هنرمند؛ بهترین محتواساز هنری در The One Awards", en: "Artist; Best Art Creator at The One Awards" }
+    url: "https://youtu.be/DsXoa6NZEq8"
+    stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
+  - name: { fa: "سپهر ترابی", en: "Sepehr Torabi" }
+    about: { fa: "صداپیشهٔ دوبلهٔ رسمی فارسی Prince of Persia: The Lost Crown", en: "Voice actor in the official Persian dub of Prince of Persia: The Lost Crown" }
+    url: "https://youtu.be/xqAzeqiU_rk"
+    stat: { fa: "۲۰ هزار بازدید", en: "20K views" }
+links:
+  - label: { fa: "قسمت اول", en: "Episode one" }
+    url: "https://www.youtube.com/watch?v=MJ_2-qiLGMc"
+images:
+  - src: ./2023-midnight-studio.jpg
+    alt: { fa: "استودیوی میدنایت در قسمت اول", en: "The MidNight studio in episode one" }
+  - src: ./2023-midnight-views.jpg
+    alt: { fa: "بازدید فصل اول میدنایت: ۵۶۱ هزار", en: "Season one views of The MidNight: 561K" }
+  - src: ./2023-midnight-watch-time.jpg
+    alt: { fa: "زمان تماشای فصل اول میدنایت: ۲۲۵ هزار ساعت", en: "Season one watch time of The MidNight: 225K hours" }

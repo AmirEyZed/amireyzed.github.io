@@ -1,0 +1,37 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languageNames, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const other: Lang = lang === 'fa' ? 'en' : 'fa';
+const href = getRelativeLocaleUrl(other, '');
+---
+
+<a
+  class="chip lang-switch"
+  href={href}
+  hreflang={other}
+  lang={other}
+  title={languageNames[other]}
+  aria-label={t(lang, 'lang.switch')}
+  data-magnetic="0.3"
+>
+  {other === 'en' ? 'EN' : 'فا'}
+</a>
+
+<style>
+  .lang-switch {
+    min-width: 2.75rem;
+    justify-content: center;
+    font-family: var(--font-display);
+    color: var(--fg-muted);
+  }
+
+  .lang-switch:hover {
+    color: var(--fg);
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import { t } from '../i18n/ui';
+
+const lang = 'fa';
+---
+
+<Base lang={lang} title={`${t(lang, 'notfound.title')} | AmirEyZed`}>
+  <Header lang={lang} />
+  <main id="main" class="notfound">
+    <p class="code latin" aria-hidden="true">404</p>
+    <h1>{t(lang, 'notfound.title')}</h1>
+    <p class="body">{t(lang, 'notfound.body')}</p>
+    <p class="body" lang="en" dir="ltr">{t('en', 'notfound.body')}</p>
+    <div class="actions">
+      <a class="btn" href="/" data-magnetic="0.3">{t(lang, 'notfound.back')}</a>
+      <a class="btn latin" href="/en/" lang="en" data-magnetic="0.3">{t('en', 'notfound.back')}</a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .notfound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: min(100% - (var(--gutter) * 2), 40rem);
+    min-height: 75dvh;
+    margin-inline: auto;
+    padding-block: 3rem;
+    text-align: center;
+  }
+
+  .code {
+    color: transparent;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 3rem + 6vw, 8rem);
+    font-weight: 800;
+    line-height: 1;
+    -webkit-text-stroke: 1.5px var(--taupe);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 900;
+  }
+
+  .body {
+    color: var(--fg-muted);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-block-start: 1.25rem;
+  }
+</style>

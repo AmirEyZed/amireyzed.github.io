@@ -1,0 +1,12 @@
+# Source: First-episode guest of Gem’s Gamer Show, aired 4 Dec 2024 on Gem Pixel and 6 Dec on Gem TV and Gem Plus (#63371, #63505, #63685, #63701).
+year: 2024
+order: 9
+title:
+  fa: "مهمون اولین قسمت گیمر شو"
+  en: "First guest of Gamer Show"
+summary:
+  fa: "مهمون قسمت اول «گیمر شو» از شبکه‌های جم بودم؛ ۴ دسامبر از جم پیکسل و جمعه‌اش از جم تی‌وی و جم پلاس پخش شد."
+  en: "I was the guest of the first episode of Gamer Show on the Gem networks. It aired on Gem Pixel on December 4 and again that Friday on Gem TV and Gem Plus."
+images:
+  - src: ./2024-gamer-show.jpg
+    alt: { fa: "گیمر شو روی جم پیکسل", en: "Gamer Show on Gem Pixel" }

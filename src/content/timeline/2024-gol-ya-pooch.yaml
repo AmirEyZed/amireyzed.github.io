@@ -1,0 +1,26 @@
+# Source: Ali Zodiac’s "Gol ya Pooch with YouTubers": final 30 Dec 2024 (#64837, #64858, #64870, #64884, #64889; #66638); episode views from YouTube.
+year: 2024
+order: 12
+featured: true
+title:
+  fa: "قهرمانی در گل یا پوچ با یوتوبرها"
+  en: "Champions of Gol ya Pooch with YouTubers"
+summary:
+  fa: "توی «گل یا پوچ با یوتوبرها»ی علی زودیاک، بعد از هفته‌ها رقابت، ۳۰ دسامبر با تیممون فینال رو بردیم؛ دومین برد بزرگم توی کمتر از سه ماه، بعد از مسابقهٔ بنیامین."
+  en: "In Ali Zodiac’s Gol ya Pooch with YouTubers, after weeks of competition, my team won the final on December 30, my second big win in under three months after TheBeniamin’s challenge."
+why:
+  fa: "مسابقه‌ای بین یوتیوبرهای فارسی که قسمت اولش بیش از ۶۵۰ هزار و فینالش بیش از ۴۶۰ هزار بار دیده شده."
+  en: "A competition between Persian YouTubers whose first episode has more than 650K views and its final more than 460K."
+highlights:
+  fa:
+    - "این مسابقه بهترین شوی سال در The One Awards شد"
+  en:
+    - "The series won Best Show at The One Awards"
+links:
+  - label: { fa: "فینال", en: "The final" }
+    url: "https://youtu.be/lXrJ4Cmx7N0"
+  - label: { fa: "قسمت اول", en: "Episode one" }
+    url: "https://youtu.be/Y5gYhlEKALo"
+images:
+  - src: ./2024-gol-ya-pooch.jpg
+    alt: { fa: "میز فینال گل یا پوچ با یوتوبرها", en: "The final table of Gol ya Pooch with YouTubers" }

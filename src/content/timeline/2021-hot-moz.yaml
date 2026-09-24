@@ -1,0 +1,34 @@
+# Source: Hot MoZ, six episodes 9 May to 6 Aug 2021 (#38356, #38519, #38584, #39138, #44537); episode views from YouTube.
+year: 2021
+order: 2
+title:
+  fa: "Hot MoZ"
+  en: "Hot MoZ"
+summary:
+  fa: "هات موز رو که ادامهٔ «صندلی داغ» بود با رضا آیینه ساختیم: یه برنامهٔ بردگیم با مهمون. شش قسمت از ۹ مه تا ۶ اوت منتشر شد."
+  en: "With Reza Ayeene we made Hot MoZ, the follow-up to Hot Seat: a board-game show with guests. Six episodes came out between May 9 and August 6."
+guests:
+  - name: { fa: "علی بیگزموگ", en: "Ali BigezMoge" }
+    about: { fa: "از شناخته‌شده‌ترین یوتیوبرهای فارسی", en: "One of the best-known Persian YouTubers" }
+    url: "https://youtu.be/nXljgoXZyO8"
+    stat: { fa: "۹۰ هزار بازدید", en: "90K views" }
+  - name: { fa: "سمیرا سالی", en: "Samira Saly" }
+    about: { fa: "استریمر", en: "Streamer" }
+    url: "https://youtu.be/K1izr_F7Xvk"
+    stat: { fa: "۷۰ هزار بازدید", en: "70K views" }
+  - name: { fa: "علی بروکس", en: "Ali Brox" }
+    about: { fa: "یوتیوبر", en: "YouTuber" }
+    url: "https://youtu.be/0uMa2IYR454"
+    stat: { fa: "۵۹ هزار بازدید", en: "59K views" }
+  - name: { fa: "فیمس حاجی", en: "Famous Haji" }
+    about: { fa: "یوتیوبر", en: "YouTuber" }
+    url: "https://youtu.be/6jSXjWbH5FU"
+    stat: { fa: "۴۶ هزار بازدید", en: "46K views" }
+  - name: { fa: "پاشا مجلسی", en: "Pasha Majlesi" }
+    about: { fa: "پادکستر", en: "Podcaster" }
+    url: "https://youtu.be/yaUJYOQtfDE"
+    stat: { fa: "۳۴ هزار بازدید", en: "34K views" }
+  - name: { fa: "حامی کی‌ام", en: "Hami KM" }
+    about: { fa: "یوتیوبر", en: "YouTuber" }
+    url: "https://youtu.be/2m6LYkWmfKY"
+    stat: { fa: "۳۷ هزار بازدید", en: "37K views" }

@@ -1,0 +1,88 @@
+export const locales = ['fa', 'en'] as const;
+export type Lang = (typeof locales)[number];
+export const defaultLang: Lang = 'fa';
+
+export const languageNames: Record<Lang, string> = {
+  fa: 'فارسی',
+  en: 'English',
+};
+
+export const dirOf = (lang: Lang): 'rtl' | 'ltr' => (lang === 'fa' ? 'rtl' : 'ltr');
+
+export const ui = {
+  fa: {
+    'meta.title': 'امیر ایزد | مسیر من، سال به سال',
+    'meta.description':
+      'مسیر امیر ایزد (AmirEyZed) سال به سال: از تیم‌های رقابتی رینبو سیکس و توییچ تا میدنایت، The One Awards و رکورد کیک ایران.',
+    'a11y.skip': 'پرش به محتوا',
+    'nav.home': 'خانه',
+    'lang.switch': 'English',
+    'hero.range': 'از {from} تا امروز',
+    'hero.scroll': 'از اول شروع کن',
+    'timeline.title': 'مسیر سال به سال',
+    'today.title': 'امروز',
+    'today.follow': 'دنبال کردن در کیک',
+    'today.email': 'ایمیل بزن',
+    'footer.find': 'هر جا باشی، با اسم {mark} پیدام می‌کنی.',
+    'photo.open': 'بزرگ کردن عکس',
+    'photo.close': 'بستن عکس',
+    'photo.prev': 'عکس قبلی',
+    'photo.next': 'عکس بعدی',
+    'photo.viewer': 'نمایش عکس',
+    'stats.title': 'کل مسیر در چند عدد',
+    'why': 'چرا مهمه؟',
+    'guests': 'مهمون‌های مهم',
+    'notfound.title': 'این صفحه پیدا نشد',
+    'notfound.body': 'شاید آدرس اشتباه باشه یا صفحه جابه‌جا شده.',
+    'notfound.back': 'برگرد به خانه',
+  },
+  en: {
+    'meta.title': 'Amir EyZed | My path, year by year',
+    'meta.description':
+      "Amir EyZed's path, year by year: from competitive Rainbow Six teams and Twitch to The MidNight, The One Awards and the Iranian Kick record.",
+    'a11y.skip': 'Skip to content',
+    'nav.home': 'Home',
+    'lang.switch': 'فارسی',
+    'hero.range': 'From {from} to today',
+    'hero.scroll': 'Start from the beginning',
+    'timeline.title': 'Year by year',
+    'today.title': 'Today',
+    'today.follow': 'Follow on Kick',
+    'today.email': 'Send an email',
+    'footer.find': 'Find me everywhere as {mark}.',
+    'photo.open': 'Enlarge photo',
+    'photo.close': 'Close photo',
+    'photo.prev': 'Previous photo',
+    'photo.next': 'Next photo',
+    'photo.viewer': 'Photo viewer',
+    'stats.title': 'The whole path in numbers',
+    'why': 'Why it matters:',
+    'guests': 'Notable guests',
+    'notfound.title': 'Page not found',
+    'notfound.body': 'The address may be wrong or the page has moved.',
+    'notfound.back': 'Back home',
+  },
+} as const satisfies Record<Lang, Record<string, string>>;
+
+export type UIKey = keyof (typeof ui)['fa'];
+
+/** Translate a key, with optional `{placeholders}`. */
+export function t(lang: Lang, key: UIKey, vars: Record<string, string | number> = {}): string {
+  let text: string = ui[lang][key] ?? ui[defaultLang][key] ?? key;
+  for (const [name, value] of Object.entries(vars)) {
+    text = text.replaceAll(`{${name}}`, String(value));
+  }
+  return text;
+}
+
+const PERSIAN_DIGITS = '۰۱۲۳۴۵۶۷۸۹';
+
+/** Convert Western digits to Persian digits. */
+export function toPersianDigits(input: string | number): string {
+  return String(input).replace(/\d/g, (d) => PERSIAN_DIGITS[Number(d)]!);
+}
+
+/** Year label per language (Gregorian year, Persian digits in Persian). */
+export function formatYear(year: number, lang: Lang): string {
+  return lang === 'fa' ? toPersianDigits(year) : String(year);
+}

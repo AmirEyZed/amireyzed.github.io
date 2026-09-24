@@ -1,0 +1,20 @@
+# Source: Ali Zodiac’s "Mafia with YouTubers", premiered 19 Dec 2025 (#74290, #74779, #75410, #75596); episode 1 views from YouTube.
+year: 2025
+order: 11
+title:
+  fa: "مافیا با یوتوبرها"
+  en: "Mafia with YouTubers"
+summary:
+  fa: "بعد از گل یا پوچ، توی «مافیا با یوتوبرها»ی علی زودیاک هم بازی کردم که از ۱۹ دسامبر پخش شد."
+  en: "After Gol ya Pooch, I also played in Ali Zodiac’s Mafia with YouTubers, which premiered on December 19."
+highlights:
+  fa:
+    - "قسمت اول: ۳۸۴ هزار بازدید"
+  en:
+    - "Episode one: 384K views"
+links:
+  - label: { fa: "قسمت اول", en: "Episode one" }
+    url: "https://youtu.be/0gJuBpYc8Ps"
+images:
+  - src: ./2025-mafia.jpg
+    alt: { fa: "پوستر مافیا با یوتوبرها", en: "Mafia with YouTubers poster" }

@@ -1,0 +1,758 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import { formatYear, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  entry: CollectionEntry<'timeline'>;
+  lang: Lang;
+  index: number;
+  /** False for the second and later milestones of the same year: the year is then shown small. */
+  showYear: boolean;
+}
+
+const { entry, lang, index, showYear } = Astro.props;
+const { year, title, summary, featured, why, highlights, guests, images, links } = entry.data;
+const flip = index % 2 === 1;
+const bullets = highlights?.[lang] ?? [];
+const yearLabel = formatYear(year, lang);
+
+// Each photo gets a responsive thumbnail and a large version for the lightbox.
+const shots = await Promise.all(
+  images.map(async (img) => ({
+    src: img.src,
+    alt: img.alt?.[lang] ?? title[lang],
+    portrait: img.src.height > img.src.width * 1.05,
+    full: (await getImage({ src: img.src, width: Math.min(img.src.width, 1600), format: 'webp' })).src,
+  })),
+);
+// The first photo sits large next to the year; the rest are thumbnails under the text.
+const [cover, ...thumbs] = shots;
+---
+
+<li class:list={['row', { flip, featured }]} data-row>
+  <div class="year-cell" data-lens>
+    <p class:list={['year', { minor: !showYear }]} data-year>
+      <time datetime={String(year)}>{yearLabel}</time>
+    </p>
+    {
+      cover && (
+        <button
+          type="button"
+          class:list={['cover', { portrait: cover.portrait }]}
+          data-full={cover.full}
+          data-alt={cover.alt}
+          aria-label={`${t(lang, 'photo.open')}: ${cover.alt}`}
+        >
+          <Image
+            src={cover.src}
+            alt={cover.alt}
+            widths={[480, 800, 1200]}
+            sizes="(max-width: 60rem) 90vw, 30rem"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+      )
+    }
+  </div>
+
+  <div class="axis-cell" aria-hidden="true"><span class="led"></span></div>
+
+  <div class="text-cell" data-lens>
+    <h3 class="title">{title[lang]}</h3>
+    <p class="summary">{summary[lang]}</p>
+    {
+      why && (
+        <p class="why">
+          <strong>{t(lang, 'why')}</strong> {why[lang]}
+        </p>
+      )
+    }
+    {
+      bullets.length > 0 && (
+        <ul class="highlights">
+          {bullets.map((line) => (
+            <li>
+              <span class="tick" aria-hidden="true" />
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    {
+      guests.length > 0 && (
+        <div class="guests">
+          <p class="guests-label">{t(lang, 'guests')}</p>
+          <ul class="guest-list">
+            {guests.map((guest) => {
+              const Tag = guest.url ? 'a' : 'div';
+              const linkProps = guest.url ? { href: guest.url, target: '_blank', rel: 'noopener noreferrer' } : {};
+              return (
+                <li>
+                  <Tag class="guest" {...linkProps}>
+                    <span class="guest-name">{guest.name[lang]}</span>
+                    <span class="guest-about">{guest.about[lang]}</span>
+                    {guest.stat && <span class="guest-stat">{guest.stat[lang]}</span>}
+                  </Tag>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )
+    }
+    {
+      links.length > 0 && (
+        <ul class="links">
+          {links.map((link) => (
+            <li>
+              <a class="chip" href={link.url} target="_blank" rel="noopener noreferrer" data-magnetic="0.25">
+                {link.label[lang]}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    {
+      thumbs.length > 0 && (
+        <div class="shots">
+          {thumbs.map((shot) => (
+            <button
+              type="button"
+              class="shot"
+              data-full={shot.full}
+              data-alt={shot.alt}
+              aria-label={`${t(lang, 'photo.open')}: ${shot.alt}`}
+            >
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                widths={[320, 640]}
+                sizes="(max-width: 60rem) 60vw, 18rem"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</li>
+
+<style>
+  /*
+    --e (0..1) and --dir (-1 top, 1 bottom) are set from JS on each [data-lens] cell:
+    0 in the middle of the screen, rising toward the top and bottom edges, where the
+    content bends through a glass lens (the reference from the tweet).
+  */
+  .row {
+    --start-origin: 100%;
+    --end-origin: 0%;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--axis-w) minmax(0, 1fr);
+    grid-template-areas: 'year axis text';
+    align-items: center;
+    padding-block: clamp(2.25rem, 6.5vh, 4.5rem);
+  }
+
+  html[dir='rtl'] .row {
+    --start-origin: 0%;
+    --end-origin: 100%;
+  }
+
+  .row.flip {
+    grid-template-areas: 'text axis year';
+  }
+
+  .year-cell,
+  .text-cell {
+    --e: 0;
+    --dir: 1;
+    opacity: calc(1 - var(--e) * 0.72);
+  }
+
+  /* Each cell hinges on the side that faces the wire and the middle of the screen. */
+  .year-cell {
+    grid-area: year;
+    text-align: end;
+    transform-origin: var(--start-origin) calc(50% - var(--dir) * 50%);
+  }
+
+  .text-cell {
+    grid-area: text;
+    justify-self: start;
+    max-width: var(--text-w);
+    text-align: start;
+    transform-origin: var(--end-origin) calc(50% - var(--dir) * 50%);
+    /* Colour fringes in the Kick chat-tag red and blue. */
+    text-shadow:
+      calc(var(--e) * -2.4px) 0 0 rgb(255 75 35 / calc(var(--e) * 0.85)),
+      calc(var(--e) * 2.4px) 0 0 rgb(58 116 255 / calc(var(--e) * 0.85));
+  }
+
+  .row.flip .year-cell {
+    text-align: start;
+    transform-origin: var(--end-origin) calc(50% - var(--dir) * 50%);
+  }
+
+  .row.flip .text-cell {
+    justify-self: end;
+    text-align: end;
+    transform-origin: var(--start-origin) calc(50% - var(--dir) * 50%);
+  }
+
+  /* Only refracting cells get a transform, so text in the focus zone stays crisp. */
+  .year-cell.is-refracting,
+  .text-cell.is-refracting {
+    filter: blur(calc(var(--e) * 2.2px));
+    transform: perspective(900px) rotateX(calc(var(--dir) * var(--e) * 34deg))
+      scale(calc(1 + var(--e) * 0.16), calc(1 + var(--e) * 0.08));
+  }
+
+  /* ---------- The year: an unlit neon sign until the wire reaches it ---------- */
+  .year {
+    --cx: 0px;
+    --cy: 0px;
+    --fr: 0;
+    --tx: 0deg;
+    --ty: 0deg;
+    /* Fringe strength: softer while the year is an unlit outline. */
+    --fk: 0.42;
+    --fringe-r: rgb(255 75 35 / calc(var(--fr) + var(--e) * var(--fk)));
+    --fringe-b: rgb(58 116 255 / calc(var(--fr) + var(--e) * var(--fk)));
+    display: inline-block;
+    padding: 0.08em 0.12em;
+    color: transparent;
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 1.5rem + 5.4vw, 6.6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    -webkit-text-stroke: 1.5px var(--taupe);
+    text-shadow:
+      calc(var(--cx) - var(--e) * 5px) var(--cy) 0 var(--fringe-r),
+      calc(var(--e) * 5px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b);
+    transform: perspective(700px) rotateX(var(--ty)) rotateY(var(--tx));
+    transition:
+      color 450ms ease,
+      -webkit-text-stroke-color 450ms ease,
+      text-shadow 250ms ease,
+      transform 300ms var(--ease-out);
+  }
+
+  html[lang='fa'] .year {
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  /* Later milestones of the same year: a small marker keeps both sides of the wire balanced. */
+  .year.minor {
+    font-size: clamp(1.5rem, 1.05rem + 1.5vw, 2.25rem);
+    letter-spacing: -0.01em;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .row.is-lit .year,
+  html:not(.js) .year {
+    --fk: 0.85;
+    color: #fffdf2;
+    -webkit-text-stroke-color: transparent;
+    text-shadow:
+      calc(var(--cx) - var(--e) * 5px) var(--cy) 0 var(--fringe-r),
+      calc(var(--e) * 5px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b),
+      0 0 3px rgb(255 253 242 / 0.9),
+      0 0 14px rgb(244 237 153 / 0.55),
+      0 0 36px rgb(226 229 101 / 0.35),
+      0 0 72px rgb(147 148 88 / 0.3);
+  }
+
+  .row.is-lit .year {
+    animation: year-on 650ms steps(1, end) 1;
+  }
+
+  @keyframes year-on {
+    0% {
+      opacity: 0.35;
+    }
+    15% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0.5;
+    }
+    45%,
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    .row:not(.is-lit):hover .year {
+      -webkit-text-stroke-color: var(--lime);
+    }
+  }
+
+  /* ---------- LED on the wire. Sticky, so it rides the lit tip of the wire through the row. ---------- */
+  .axis-cell {
+    grid-area: axis;
+    align-self: stretch;
+    display: grid;
+    justify-items: center;
+  }
+
+  .led {
+    position: sticky;
+    top: calc(50vh - 0.5rem);
+    align-self: center;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--fg-dim);
+    border-radius: 50%;
+    background: var(--bg);
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease,
+      transform 300ms var(--ease-spring);
+  }
+
+  .row.is-lit .led,
+  html:not(.js) .led {
+    border-color: var(--kick);
+    background: var(--kick);
+    box-shadow:
+      0 0 0 5px rgb(83 252 24 / 0.14),
+      0 0 18px rgb(83 252 24 / 0.7);
+  }
+
+  @media (hover: hover) {
+    .row:hover .led {
+      border-color: var(--lime);
+      transform: scale(1.3);
+    }
+  }
+
+  /* ---------- Text ---------- */
+  .title {
+    font-family: var(--font-display);
+    font-size: calc(var(--step-1) * 1.05);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  html[lang='fa'] .title {
+    font-size: calc(var(--step-1) * 1.14);
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .summary {
+    margin-block-start: 0.7rem;
+    color: var(--fg-soft);
+    text-wrap: pretty;
+  }
+
+  .highlights {
+    display: grid;
+    gap: 0.45rem;
+    margin-block-start: 1rem;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+  }
+
+  .highlights li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  /* The tick always sits on the side facing the wire. */
+  .row.flip .highlights li {
+    flex-direction: row-reverse;
+  }
+
+  .tick {
+    flex: none;
+    width: 0.5rem;
+    height: 2px;
+    background: var(--olive);
+    transform: translateY(-0.28em);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-start: 1.1rem;
+  }
+
+  .row.flip .links,
+  .row.flip .shots {
+    justify-content: flex-end;
+  }
+
+  /* Optional photos: same height, natural proportions; click opens the lightbox. */
+  .shots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-block-start: 1.25rem;
+  }
+
+  .shot {
+    display: block;
+    height: clamp(7rem, 5rem + 4vw, 9rem);
+    max-width: 100%;
+    min-width: 5.5rem;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgb(245 245 241 / 0.1);
+    border-radius: var(--radius);
+    background: var(--panel);
+    cursor: zoom-in;
+  }
+
+  .shot :global(img) {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 600ms var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .shot:hover :global(img) {
+      scale: 1.06;
+    }
+  }
+
+  .shot,
+  .cover {
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease,
+      translate 400ms var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .shot:hover,
+    .cover:hover {
+      border-color: rgb(226 229 101 / 0.55);
+      box-shadow:
+        0 0 0 1px rgb(226 229 101 / 0.2),
+        0 0 40px -12px rgb(226 229 101 / 0.55),
+        0 24px 60px -30px rgb(0 0 0 / 0.9);
+      translate: 0 -3px;
+    }
+  }
+
+  /* ---------- The main photo, next to the year (like the nas.co history page) ---------- */
+  .cover {
+    display: block;
+    width: min(100%, 26rem);
+    margin-block-start: 1.1rem;
+    margin-inline-start: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgb(245 245 241 / 0.1);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.9);
+    cursor: zoom-in;
+  }
+
+  .row.flip .cover {
+    margin-inline: 0 auto;
+  }
+
+  .cover :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 22rem;
+    object-fit: cover;
+    transition: scale 700ms var(--ease-out);
+  }
+
+  /* Posters and phone screenshots keep their full height instead of being cropped. */
+  .cover.portrait {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .cover.portrait :global(img) {
+    width: auto;
+    max-width: 100%;
+    height: 22rem;
+    max-height: none;
+  }
+
+  @media (hover: hover) {
+    .cover:hover :global(img) {
+      scale: 1.04;
+    }
+  }
+
+  /* ---------- Why it matters ---------- */
+  .why {
+    margin-block-start: 0.85rem;
+    padding-inline-start: 0.85rem;
+    border-inline-start: 2px solid var(--lime);
+    color: var(--lemon);
+    text-wrap: pretty;
+  }
+
+  .why strong {
+    margin-inline-end: 0.3rem;
+    color: var(--lime);
+    font-weight: 800;
+  }
+
+  .row.flip .why {
+    padding-inline: 0 0.85rem;
+    border-inline-start: 0;
+    border-inline-end: 2px solid var(--lime);
+  }
+
+  /* ---------- Notable guests: name, who they are, views; each opens the episode ---------- */
+  .guests {
+    margin-block-start: 1.15rem;
+  }
+
+  .guests-label {
+    margin-block-end: 0.5rem;
+    color: var(--olive);
+    font-size: var(--step--1);
+    font-weight: 800;
+  }
+
+  .guest-list {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .guest {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'name stat'
+      'about stat';
+    align-items: center;
+    column-gap: 1rem;
+    row-gap: 0.1rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgb(245 245 241 / 0.1);
+    border-radius: var(--radius);
+    background: rgb(27 26 27 / 0.55);
+    color: inherit;
+    text-align: start;
+    text-decoration: none;
+    transition:
+      border-color 250ms ease,
+      box-shadow 250ms ease,
+      translate 300ms var(--ease-out);
+  }
+
+  .guest-name {
+    grid-area: name;
+    color: var(--warm-white);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .guest-about {
+    grid-area: about;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    line-height: 1.55;
+  }
+
+  .guest-stat {
+    grid-area: stat;
+    color: var(--lime);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* In rows whose text faces the wire from the other side, the views sit on the outer edge. */
+  .row.flip .guest {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'stat name'
+      'stat about';
+    text-align: end;
+  }
+
+  @media (hover: hover) {
+    a.guest:hover {
+      border-color: rgb(226 229 101 / 0.5);
+      box-shadow: 0 0 32px -12px rgb(226 229 101 / 0.55);
+      translate: 0 -2px;
+    }
+  }
+
+  a.guest:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 2px;
+  }
+
+  /* Phones: the views drop under the description so nothing gets squeezed. */
+  @media (max-width: 30rem) {
+    .guest,
+    .row.flip .guest {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'name'
+        'about'
+        'stat';
+      text-align: start;
+    }
+
+    .guest-stat {
+      margin-block-start: 0.2rem;
+    }
+  }
+
+  /* ---------- Defining moments get more weight ---------- */
+  .row.featured .title {
+    font-size: var(--step-2);
+    line-height: 1.25;
+  }
+
+  .row.featured .cover {
+    width: min(100%, 30rem);
+  }
+
+  .row.featured .cover :global(img) {
+    max-height: 26rem;
+  }
+
+  .row.featured .cover.portrait {
+    width: fit-content;
+  }
+
+  .row.featured .cover.portrait :global(img) {
+    height: 26rem;
+  }
+
+  .row.featured .led {
+    top: calc(50vh - 0.7rem);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-width: 3px;
+  }
+
+  .row.featured .led::after {
+    content: '';
+    position: absolute;
+    inset: -9px;
+    border: 1px solid rgb(226 229 101 / 0.45);
+    border-radius: 50%;
+  }
+
+  .row.featured.is-lit .led {
+    box-shadow:
+      0 0 0 7px rgb(83 252 24 / 0.16),
+      0 0 30px rgb(83 252 24 / 0.9);
+  }
+
+  /* ---------- Narrow screens: the wire moves to the side, the year sits above the text ---------- */
+  @media (max-width: 59.99rem) {
+    .row,
+    .row.flip {
+      grid-template-columns: var(--axis-w-m) minmax(0, 1fr);
+      grid-template-areas:
+        'axis year'
+        'axis text';
+      row-gap: 0.6rem;
+      align-items: start;
+      padding-block: 1.75rem;
+    }
+
+    .axis-cell {
+      grid-row: 1 / span 2;
+    }
+
+    .year-cell,
+    .row.flip .year-cell {
+      text-align: start;
+      transform-origin: var(--end-origin) calc(50% - var(--dir) * 50%);
+    }
+
+    .text-cell,
+    .row.flip .text-cell {
+      justify-self: start;
+      text-align: start;
+      transform-origin: var(--end-origin) calc(50% - var(--dir) * 50%);
+    }
+
+    .row.flip .highlights li {
+      flex-direction: row;
+    }
+
+    .row.flip .links,
+    .row.flip .shots {
+      justify-content: flex-start;
+    }
+
+    .cover,
+    .row.flip .cover,
+    .row.featured .cover {
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    .cover.portrait,
+    .row.featured .cover.portrait {
+      width: fit-content;
+    }
+
+    .cover.portrait :global(img),
+    .row.featured .cover.portrait :global(img) {
+      height: 20rem;
+    }
+
+    .row.flip .why {
+      padding-inline: 0.85rem 0;
+      border-inline-start: 2px solid var(--lime);
+      border-inline-end: 0;
+    }
+
+    .row.flip .guest {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        'name stat'
+        'about stat';
+      text-align: start;
+    }
+
+    .row.featured .title {
+      font-size: calc(var(--step-1) * 1.3);
+    }
+
+    .year {
+      font-size: clamp(2.6rem, 1.4rem + 7vw, 3.8rem);
+    }
+
+    .led {
+      align-self: start;
+      margin-block-start: 1.35rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .year,
+    .row.is-lit .year {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>

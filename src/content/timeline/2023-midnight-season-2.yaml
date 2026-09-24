@@ -1,0 +1,40 @@
+# Source: The MidNight season 2 premiered 22 Nov 2023 with Ali Pazani (#50169, #50179); guests (#50254, #50361, #50597, #50771, #50808, #51112, #51195); views from YouTube; The One Awards winners from Vigiato (12 Mar 2025).
+year: 2023
+order: 8
+title:
+  fa: "میدنایت، فصل دوم"
+  en: "The MidNight, season two"
+summary:
+  fa: "۲۲ نوامبر فصل دوم میدنایت با علی پازانی شروع شد؛ از بنیامین تا کارن آراکلیان، تهیه‌کنندهٔ جلوه‌های ویژه در هالیوود."
+  en: "On November 22 The MidNight season two opened with Ali Pazani, and its guests ranged from TheBeniamin to Hollywood VFX producer Karen Arakelian."
+guests:
+  - name: { fa: "بنیامین", en: "TheBeniamin" }
+    about: { fa: "یوتیوبر؛ نوظهورترین استعداد یوتیوب و بهترین همکاری در The One Awards", en: "YouTuber; Most Promising YouTube Talent and Best Collaboration at The One Awards" }
+    url: "https://youtu.be/9TqI-oHdvHc"
+    stat: { fa: "۲۱۳ هزار بازدید", en: "213K views" }
+  - name: { fa: "کیمیا بهبودی", en: "Kimia Behboudi" }
+    about: { fa: "کارآفرین", en: "Entrepreneur" }
+    url: "https://youtu.be/bZi9rJaXj_8"
+    stat: { fa: "۱۶۵ هزار بازدید", en: "165K views" }
+  - name: { fa: "سینا کرش", en: "Sina Crash" }
+    about: { fa: "یوتیوبر", en: "YouTuber" }
+    url: "https://youtu.be/PW5fooYRQR0"
+    stat: { fa: "۴۲ هزار بازدید", en: "42K views" }
+  - name: { fa: "کارن آراکلیان", en: "Karen Arakelian" }
+    about: { fa: "تهیه‌کنندهٔ جلوه‌های ویژه در هالیوود؛ از The Mist تا پروژه‌ای برندهٔ امی", en: "Hollywood VFX producer, from The Mist to an Emmy-winning project" }
+    url: "https://youtu.be/pJkqgWdkDbQ"
+    stat: { fa: "۳۱ هزار بازدید", en: "31K views" }
+  - name: { fa: "علی پازانی", en: "Ali Pazani" }
+    about: { fa: "فیلم‌ساز", en: "Filmmaker" }
+    url: "https://youtu.be/5PGV90UlpVo"
+    stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
+  - name: { fa: "علی نودیسم", en: "Ali Nodism" }
+    about: { fa: "تهیه‌کنندهٔ اجرایی «یک ساعت با زیرزمین»", en: "Executive producer of Yek Saat ba Zirzamin" }
+    url: "https://youtu.be/ApMkRRHB_pM"
+    stat: { fa: "۱۵ هزار بازدید", en: "15K views" }
+links:
+  - label: { fa: "Apple Podcasts", en: "Apple Podcasts" }
+    url: "https://podcasts.apple.com/us/podcast/the-midnight-season-2/id1718918492"
+images:
+  - src: ./2023-midnight-arakelian.jpg
+    alt: { fa: "تامبنیل قسمت ویژهٔ میدنایت با کارن آراکلیان", en: "The MidNight special episode thumbnail with Karen Arakelian" }

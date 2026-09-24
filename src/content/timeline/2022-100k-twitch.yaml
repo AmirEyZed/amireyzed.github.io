@@ -1,0 +1,16 @@
+# Source: 100K Twitch followers celebrated on 8 Jan 2022 (#42218, #42226); 580 followers on 7 Mar 2018 (#479).
+year: 2022
+order: 1
+featured: true
+title:
+  fa: "۱۰۰ هزار فالوور توییچ"
+  en: "100K Twitch followers"
+summary:
+  fa: "۸ ژانویه با یه استریم نیمه‌شب رسیدن به ۱۰۰ هزار فالوور توییچ رو جشن گرفتیم و فصل تازهٔ JustChet رو شروع کردیم."
+  en: "On January 8 we celebrated 100,000 Twitch followers with a midnight stream and started a new JustChet season."
+why:
+  fa: "چهار سال بعد از استریم‌های آموزشی رینبو برای ۵۸۰ فالوور."
+  en: "Four years after teaching Rainbow Six plans to 580 followers."
+images:
+  - src: ./2022-justchet.jpg
+    alt: { fa: "پوستر شروع فصل تازهٔ JustChet", en: "Poster for the new JustChet season" }
