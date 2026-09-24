@@ -11,9 +11,10 @@ export const dirOf = (lang: Lang): 'rtl' | 'ltr' => (lang === 'fa' ? 'rtl' : 'lt
 
 export const ui = {
   fa: {
-    'meta.title': 'امیر ایزد | مسیر من، سال به سال',
+    'meta.title': 'امیر ایزد (AmirEyZed) | مسیر من، سال به سال',
     'meta.description':
-      'مسیر امیر ایزد (AmirEyZed) سال به سال: از تیم‌های رقابتی رینبو سیکس و توییچ تا میدنایت، The One Awards و رکورد کیک ایران.',
+      'مسیر کاری امیر ایزد (AmirEyZed) سال به سال: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards و کار برای کامیونیتی، با عکس، لینک و منبع.',
+    'meta.imageAlt': 'امیر ایزد پشت میز استریم',
     'a11y.skip': 'پرش به محتوا',
     'nav.home': 'خانه',
     'nav.years': 'سال‌ها',
@@ -43,9 +44,10 @@ export const ui = {
     'notfound.back': 'برگرد به خانه',
   },
   en: {
-    'meta.title': 'Amir EyZed | My path, year by year',
+    'meta.title': 'Amir EyZed (AmirEyZed) | My path, year by year',
     'meta.description':
-      "Amir EyZed's path, year by year: from competitive Rainbow Six teams and Twitch to The MidNight, The One Awards and the Iranian Kick record.",
+      "Amir EyZed's career, year by year: competitive teams, live streams, podcasts, The One Awards and community work, with photos, links and sources.",
+    'meta.imageAlt': 'Amir EyZed at his streaming desk',
     'a11y.skip': 'Skip to content',
     'nav.home': 'Home',
     'nav.years': 'Years',

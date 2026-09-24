@@ -1,75 +1,99 @@
-// Generates public/og.png (1200x630), the image shown when the site is shared.
-// Run: npm run og
+// Link-preview cards for Telegram, X, WhatsApp and search: public/og-fa.jpg and public/og-en.jpg.
+// Amir at his desk (the hero portrait) under the neon name, drawn by headless Chrome so the Persian
+// name uses Vazirmatn exactly like the site. Run with `npm run og` after changing the name or tagline.
+// Needs a local Chrome; set CHROME_PATH if it is not in the default Windows location.
+import { rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import puppeteer from 'puppeteer-core';
 import sharp from 'sharp';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { site } from '../src/data/site.ts';
 
-const out = fileURLToPath(new URL('../public/og.png', import.meta.url));
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const url = (p) => pathToFileURL(join(root, p)).href;
+const chrome = process.env.CHROME_PATH ?? 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 
 const W = 1200;
 const H = 630;
-const night = '#0f0e0e';
-const warm = '#fffdf2';
-const muted = '#aaa698';
-const line = '#2c2a29';
-const olive = '#939458';
-const lime = '#e2e565';
-const kick = '#53fc18';
 
-// The wire: lit up to "today", LEDs on the way.
-const railY = 486;
-const x1 = 96;
-const x2 = W - 96;
-const stops = [0, 0.18, 0.36, 0.54, 0.72, 0.9];
-const lit = 0.9;
-const leds = stops
-  .map((p) => {
-    const x = x1 + (x2 - x1) * p;
-    const on = p <= lit;
-    const last = p === lit;
-    return `${last ? `<circle cx="${x}" cy="${railY}" r="24" fill="${kick}" fill-opacity="0.18"/>` : ''}
-      <circle cx="${x}" cy="${railY}" r="${last ? 11 : 8}" fill="${on ? kick : night}" stroke="${on ? kick : '#77746a'}" stroke-width="3"/>`;
-  })
-  .join('');
+const card = (lang) => `<!doctype html>
+<html lang="${lang}" dir="${lang === 'fa' ? 'rtl' : 'ltr'}">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="${url('node_modules/@fontsource-variable/vazirmatn/index.css')}" />
+<style>
+  html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: #141313; }
+  .card {
+    position: relative; width: ${W}px; height: ${H}px; overflow: hidden;
+    font-family: 'Vazirmatn Variable', sans-serif; text-align: center;
+    background:
+      radial-gradient(55% 65% at 50% 30%, rgb(147 148 88 / 0.3), rgb(60 79 52 / 0.12) 55%, transparent 78%),
+      #141313;
+  }
+  /* The portrait, lit on him and faded at the edges, as on the page. */
+  .portrait {
+    position: absolute; top: 22px; left: 50%; width: 940px; aspect-ratio: 1226 / 624; transform: translateX(-50%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 66% at 50% 38%, #000 52%, transparent 100%);
+  }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .dim { opacity: 0.32; filter: saturate(0.45) brightness(0.85); }
+  .lit { -webkit-mask-image: radial-gradient(circle 330px at 50.2% 40%, #000 0%, rgb(0 0 0 / 0.6) 45%, transparent 100%); }
+  .neon { -webkit-mask-image: radial-gradient(ellipse 9.5% 23% at 86.9% 52%, #000 62%, transparent 100%); }
+  .halo {
+    position: absolute; top: 52%; left: 86.9%; width: 30%; aspect-ratio: 1; border-radius: 50%;
+    transform: translate(-50%, -50%); mix-blend-mode: screen;
+    background: radial-gradient(circle, rgb(255 238 160 / 0.32), rgb(226 229 101 / 0.1) 40%, transparent 70%);
+  }
+  .name {
+    position: absolute; top: 368px; inset-inline: 0; margin: 0;
+    color: #fffdf2; font-size: 124px; font-weight: ${lang === 'fa' ? 900 : 800}; line-height: 1.1;
+    letter-spacing: ${lang === 'fa' ? '0' : '-0.02em'};
+    text-shadow:
+      0 0 4px rgb(255 253 242 / 0.95),
+      0 0 16px rgb(244 237 153 / 0.75),
+      0 0 44px rgb(226 229 101 / 0.5),
+      0 0 110px rgb(147 148 88 / 0.45);
+  }
+  .tagline { position: absolute; top: 520px; inset-inline: 0; margin: 0; color: #f4ed99; font-size: 31px; font-weight: 600; }
+  .domain { position: absolute; top: 578px; inset-inline: 0; margin: 0; color: rgb(245 245 241 / 0.5); font-size: 21px; font-weight: 600; direction: ltr; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="portrait">
+      <img class="dim" src="${url('src/assets/hero/amireyzed-studio.png')}" alt="" />
+      <img class="neon" src="${url('src/assets/hero/amireyzed-studio.png')}" alt="" />
+      <img class="lit" src="${url('src/assets/hero/amireyzed-studio.png')}" alt="" />
+      <span class="halo"></span>
+    </div>
+    <p class="name">${site.name[lang]}</p>
+    <p class="tagline">${site.tagline[lang]}</p>
+    <p class="domain">amireyzed.com</p>
+  </div>
+</body>
+</html>`;
 
-// The MozGang banana (official mark, the same path as the favicon), in brand yellow with a soft glow.
-const bananaPath = readFileSync(fileURLToPath(new URL('../public/favicon.svg', import.meta.url)), 'utf8').match(/ d="([^"]+)"/)[1];
-const banana = `
-  <g transform="translate(905 44) scale(0.8)">
-    <path d="${bananaPath}" fill="#f4d037" opacity="0.5" filter="url(#glow)"/>
-    <path d="${bananaPath}" fill="#f4d037"/>
-  </g>`;
-
-const svg = `
-<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs>
-    <radialGradient id="wall" cx="30%" cy="10%" r="80%">
-      <stop offset="0" stop-color="${olive}" stop-opacity="0.38"/>
-      <stop offset="0.5" stop-color="#3c4f34" stop-opacity="0.14"/>
-      <stop offset="1" stop-color="${night}" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
-    <filter id="neon" x="-20%" y="-40%" width="140%" height="180%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="b1"/>
-      <feFlood flood-color="${lime}" flood-opacity="0.55"/>
-      <feComposite in2="b1" operator="in" result="g1"/>
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="b2"/>
-      <feFlood flood-color="#f4ed99" flood-opacity="0.7"/>
-      <feComposite in2="b2" operator="in" result="g2"/>
-      <feMerge><feMergeNode in="g1"/><feMergeNode in="g2"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="${W}" height="${H}" fill="${night}"/>
-  <rect width="${W}" height="${H}" fill="url(#wall)"/>
-  ${banana}
-  <text x="92" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="124" font-weight="800" fill="${warm}" letter-spacing="-4" filter="url(#neon)">AmirEyZed</text>
-  <text x="96" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="${lime}">Streamer, YouTuber, podcaster and organizer of The One Awards</text>
-  <text x="96" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="${muted}">My path, year by year, from 2017 to today</text>
-  <rect x="${x1}" y="${railY - 2}" width="${x2 - x1}" height="4" rx="2" fill="${line}"/>
-  <rect x="${x1}" y="${railY - 2}" width="${(x2 - x1) * lit}" height="4" rx="2" fill="${kick}"/>
-  ${leds}
-  <text x="96" y="578" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600" fill="${warm}">amireyzed.com</text>
-</svg>`;
-
-await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(out);
-console.log(`og image written to ${out}`);
+const browser = await puppeteer.launch({
+  executablePath: chrome,
+  headless: true,
+  args: ['--no-first-run', '--allow-file-access-from-files'],
+});
+try {
+  const page = await browser.newPage();
+  await page.setViewport({ width: W, height: H, deviceScaleFactor: 2 });
+  for (const lang of ['fa', 'en']) {
+    // A file page, so the portrait and the font load from disk.
+    const html = join(tmpdir(), `amireyzed-og-${lang}.html`);
+    writeFileSync(html, card(lang));
+    await page.goto(pathToFileURL(html).href, { waitUntil: 'load' });
+    await page.evaluate(() => document.fonts.ready);
+    const shot = await page.screenshot({ type: 'png' });
+    const out = join(root, 'public', `og-${lang}.jpg`);
+    await sharp(shot).resize(W, H).jpeg({ quality: 86, mozjpeg: true }).toFile(out);
+    rmSync(html);
+    console.log(`card written to ${out}`);
+  }
+} finally {
+  await browser.close();
+}

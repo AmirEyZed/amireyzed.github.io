@@ -70,7 +70,7 @@ git add . && git commit -m "Add 2027" && git push
 | رفتار اسکرول، لنز و موس | `src/scripts/app.ts` |
 | ردیف‌های تایم‌لاین | `src/components/Milestone.astro` |
 | آیکون سایت (موز نئونی) | `public/favicon.svg` |
-| تصویر اشتراک‌گذاری | `public/og.png` که با `npm run og` ساخته می‌شود |
+| تصویر اشتراک‌گذاری | `public/og-fa.jpg` و `public/og-en.jpg` که با `npm run og` ساخته می‌شوند (کروم لازم است) |
 
 ## دیپلوی
 

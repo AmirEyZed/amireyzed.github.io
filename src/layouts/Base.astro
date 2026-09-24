@@ -22,7 +22,8 @@ const alternates = {
   fa: new URL('/', siteUrl),
   en: new URL('/en/', siteUrl),
 };
-const ogImage = new URL('/og.png', siteUrl);
+/* Link-preview card per language, built by scripts/og.mjs. */
+const ogImage = new URL(`/og-${lang}.jpg`, siteUrl);
 const ogLocale = lang === 'fa' ? 'fa_IR' : 'en_US';
 
 const jsonLd = {
@@ -57,11 +58,17 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={ogImage.href} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t(lang, 'meta.imageAlt')} />
     <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={lang === 'fa' ? 'en_US' : 'fa_IR'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage.href} />
+    <meta name="twitter:image:alt" content={t(lang, 'meta.imageAlt')} />
 
     <script is:inline>
       document.documentElement.classList.add('js');
