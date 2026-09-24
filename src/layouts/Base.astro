@@ -30,8 +30,10 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: site.name[lang],
-  alternateName: site.name[lang === 'fa' ? 'en' : 'fa'],
+  alternateName: [site.name[lang === 'fa' ? 'en' : 'fa'], site.mark],
   url: siteUrl.href,
+  image: new URL(site.photo, siteUrl).href,
+  jobTitle: site.role[lang],
   ...(site.email ? { email: `mailto:${site.email}` } : {}),
   sameAs: site.socials.map((s) => s.url),
 };
