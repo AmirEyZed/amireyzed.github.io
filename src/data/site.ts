@@ -23,16 +23,16 @@ export const site = {
     en: 'Streamer, YouTuber, podcaster and organizer of The One Awards',
   } satisfies Localized,
   intro: {
-    fa: 'اینجا مسیر کاری من رو سال به سال می‌بینی: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards، کار برای کامیونیتی و موضع‌هام. کنار هر اتفاق عکس و لینک اصلش هست و آخر صفحه، کل مسیر در چند عدد.',
-    en: 'Here you’ll find my career, year by year: competitive teams, live streams, podcasts, The One Awards, community work and the stances I took. Each moment comes with its photos and original links, and the end of the page sums it all up in numbers.',
+    fa: 'اینجا مسیر کاری منو سال به سال می‌بینی؛ از رینبو و مسابقات رقابتی تا استریم، یوتیوب، پادکست، The One Awards و پروژه‌هایی که برای کامیونیتی ساختم. کنار اتفاق‌های مهم عکس و لینک منبعش هست و آخر صفحه هم کل این مسیر رو تو چند عدد جمع کردم.',
+    en: 'Here you’ll find my career, year by year: from Rainbow Six and competitive play to streaming, YouTube, podcasts, The One Awards and the projects I built for the community. The key moments come with photos and links to their sources, and the end of the page sums the whole path up in a few numbers.',
   } satisfies Localized,
   /**
    * Closing line under "Today" at the end of the timeline.
    * Numbers: snapshot of 24 Sep 2026 (Kick 45,130 followers; YouTube 65.9K main, 55K EyZed Reacts, 11.6K EyZed Gaming).
    */
   today: {
-    fa: 'از ۵۸۰ فالوور توییچ در ۲۰۱۸ تا امروز، هر بار که مجبور شدم بایستم، دوباره برگشتم. حالا لایوهام روی Kick پخش می‌شه و داستان هنوز داره نوشته می‌شه.',
-    en: 'From 580 Twitch followers in 2018 to today, every time I had to stop, I came back. These days I stream live on Kick, and the story is still being written.',
+    fa: 'از ۵۸۰ فالوور توییچ تا امروز، چند بار مجبور شدم دوباره از صفر شروع کنم. الان خونه لایوهام کیکه؛ بقیه‌ش رو همین‌جا اضافه می‌کنم.',
+    en: 'From 580 Twitch followers to today, I’ve had to start over from scratch more than once. Kick is home for my streams now; I’ll add the rest right here.',
   } satisfies Localized,
   /**
    * Career totals under "Today". Snapshot of 24 Sep 2026:
@@ -63,7 +63,7 @@ export const site = {
       {
         value: { fa: '۳۲۶', en: '326K' },
         unit: { fa: 'هزار', en: '' },
-        label: { fa: 'مجموع دنبال‌کردن‌ها در توییچ، یوتیوب و کیک', en: 'follows across Twitch, YouTube and Kick' },
+        label: { fa: 'مجموع فالوورها و سابسکرایبرها در Twitch، YouTube و Kick', en: 'followers and subscribers across Twitch, YouTube and Kick' },
       },
       {
         value: { fa: '۳۶٫۵', en: '36.5K' },
@@ -84,8 +84,8 @@ export const site = {
     ],
     notes: [
       {
-        fa: 'دنبال‌کردن‌ها در سه پلتفرم جمع زده شده‌اند؛ یک نفر ممکنه چند بار حساب شده باشه.',
-        en: 'Follows are added up across the three platforms, so one person may be counted more than once.',
+        fa: 'فالوورها و سابسکرایبرهای سه پلتفرم با هم جمع شده‌اند؛ بنابراین ممکنه یک نفر روی چند پلتفرم جداگانه حساب شده باشه.',
+        en: 'Followers and subscribers from the three platforms are added together, so one person may be counted on more than one platform.',
       },
       { fa: 'ساعت‌های لایو کیک توی این عددها حساب نشده.', en: 'Hours streamed on Kick are not included.' },
     ] satisfies Localized[],
