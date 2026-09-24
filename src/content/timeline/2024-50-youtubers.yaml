@@ -3,14 +3,14 @@ year: 2024
 order: 6
 featured: true
 title:
-  fa: "برندهٔ مسابقهٔ ۵۰ یوتیوبر"
+  fa: "برنده مسابقه ۵۰ یوتیوبر"
   en: "Winning the 50-YouTuber challenge"
 summary:
-  fa: "۶ اکتبر توی «مسابقهٔ ۵۰ یوتوبر برای ۱۰۰ میلیون» بنیامین، بین پنجاه یوتیوبر فارسی اول مشترک شدم. دو ماه بعد هم برای «راز هیتلر تو دنیای واقعی» دوباره دعوتم کرد."
+  fa: "۶ اکتبر توی «مسابقه ۵۰ یوتوبر برای ۱۰۰ میلیون» بنیامین، بین پنجاه یوتیوبر فارسی اول مشترک شدم. دو ماه بعد هم برای «راز هیتلر تو دنیای واقعی» دوباره دعوتم کرد."
   en: "On October 6, in TheBeniamin’s 50 YouTubers for 100 Million, I finished joint first among fifty Persian YouTubers. Two months later he invited me back for Secret Hitler in Real Life."
 why:
-  fa: "از بین پنجاه یوتیوبر فارسی، یکی از دو برندهٔ ویدیویی بودم که بیش از ۳ میلیون بار دیده شده."
-  en: "Out of fifty Persian YouTubers, I was one of the two winners, in a video watched more than 3 million times."
+  fa: "یکی از دو برنده ویدیویی که بیش از ۳ میلیون بار دیده شده."
+  en: "One of two winners in a video watched more than 3 million times."
 highlights:
   fa:
     - "این ویدیو بهترین همکاری سال در The One Awards شد"
@@ -19,10 +19,10 @@ highlights:
     - "The video won Best Collaboration at The One Awards"
     - "Secret Hitler: 602K views"
 links:
-  - label: { fa: "ویدیوی مسابقهٔ ۵۰ یوتوبر", en: "The 50 YouTubers video" }
+  - label: { fa: "ویدیوی مسابقه ۵۰ یوتوبر", en: "The 50 YouTubers video" }
     url: "https://youtu.be/n4flU7MCPug"
   - label: { fa: "ویدیوی راز هیتلر", en: "The Secret Hitler video" }
     url: "https://youtu.be/730OxmX1yfs"
 images:
   - src: ./2024-50-youtubers.jpg
-    alt: { fa: "تامبنیل مسابقهٔ ۵۰ یوتوبر؛ امیر ایزد با هودی قرمز", en: "The 50-YouTuber challenge thumbnail, with Amir EyZed in the red hoodie" }
+    alt: { fa: "تامبنیل مسابقه ۵۰ یوتوبر؛ امیر ایزد با هودی قرمز", en: "The 50-YouTuber challenge thumbnail, with Amir EyZed in the red hoodie" }

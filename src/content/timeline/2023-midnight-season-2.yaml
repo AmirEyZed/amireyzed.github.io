@@ -5,7 +5,7 @@ title:
   fa: "میدنایت، فصل دوم"
   en: "The MidNight, season two"
 summary:
-  fa: "۲۲ نوامبر فصل دوم میدنایت با علی پازانی شروع شد؛ از بنیامین تا کارن آراکلیان، تهیه‌کنندهٔ جلوه‌های ویژه در هالیوود."
+  fa: "۲۲ نوامبر فصل دوم میدنایت با علی پازانی شروع شد؛ از بنیامین تا کارن آراکلیان، تهیه‌کننده جلوه‌های ویژه در هالیوود."
   en: "On November 22 The MidNight season two opened with Ali Pazani, and its guests ranged from TheBeniamin to Hollywood VFX producer Karen Arakelian."
 guests:
   - name: { fa: "بنیامین", en: "TheBeniamin" }
@@ -21,7 +21,7 @@ guests:
     url: "https://youtu.be/PW5fooYRQR0"
     stat: { fa: "۴۲ هزار بازدید", en: "42K views" }
   - name: { fa: "کارن آراکلیان", en: "Karen Arakelian" }
-    about: { fa: "تهیه‌کنندهٔ جلوه‌های ویژه در هالیوود؛ از The Mist تا پروژه‌ای برندهٔ امی", en: "Hollywood VFX producer, from The Mist to an Emmy-winning project" }
+    about: { fa: "تهیه‌کننده جلوه‌های ویژه در هالیوود؛ از The Mist تا پروژه‌ای برنده امی", en: "Hollywood VFX producer, from The Mist to an Emmy-winning project" }
     url: "https://youtu.be/pJkqgWdkDbQ"
     stat: { fa: "۳۱ هزار بازدید", en: "31K views" }
   - name: { fa: "علی پازانی", en: "Ali Pazani" }
@@ -29,7 +29,7 @@ guests:
     url: "https://youtu.be/5PGV90UlpVo"
     stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
   - name: { fa: "علی نودیسم", en: "Ali Nodism" }
-    about: { fa: "تهیه‌کنندهٔ اجرایی «یک ساعت با زیرزمین»", en: "Executive producer of Yek Saat ba Zirzamin" }
+    about: { fa: "تهیه‌کننده اجرایی «یک ساعت با زیرزمین»", en: "Executive producer of Yek Saat ba Zirzamin" }
     url: "https://youtu.be/ApMkRRHB_pM"
     stat: { fa: "۱۵ هزار بازدید", en: "15K views" }
 links:
@@ -37,4 +37,4 @@ links:
     url: "https://podcasts.apple.com/us/podcast/the-midnight-season-2/id1718918492"
 images:
   - src: ./2023-midnight-arakelian.jpg
-    alt: { fa: "تامبنیل قسمت ویژهٔ میدنایت با کارن آراکلیان", en: "The MidNight special episode thumbnail with Karen Arakelian" }
+    alt: { fa: "تامبنیل قسمت ویژه میدنایت با کارن آراکلیان", en: "The MidNight special episode thumbnail with Karen Arakelian" }

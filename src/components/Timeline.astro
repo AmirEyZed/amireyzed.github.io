@@ -47,16 +47,31 @@ const email = site.email;
         {
           site.stats.items.map((stat) => (
             <div class="stat">
-              <dt class="stat-label">{stat.label[lang]}</dt>
+              <dt class="stat-label">
+                {'href' in stat ? (
+                  <a class="stat-link" href={stat.href} data-jump>
+                    {stat.label[lang]}
+                  </a>
+                ) : (
+                  stat.label[lang]
+                )}
+              </dt>
               <dd class="stat-value">
-                {stat.value[lang]}
+                <span class="stat-number">{stat.value[lang]}</span>
                 {'unit' in stat && stat.unit[lang] && <span class="stat-unit">{stat.unit[lang]}</span>}
               </dd>
             </div>
           ))
         }
       </dl>
-      <p class="stats-note">{site.stats.note[lang]}</p>
+      <p class="stats-note">
+        {site.stats.asOf[lang]} {t(lang, 'stats.sources')}:{' '}
+        {site.stats.sources.map((source, i) => [
+          i > 0 ? (lang === 'fa' ? '، ' : ', ') : '',
+          <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label[lang]}</a>,
+        ])}.
+      </p>
+      {site.stats.notes.map((note) => <p class="stats-note">{note[lang]}</p>)}
     </div>
     {
       (kick || email) && (
@@ -197,7 +212,9 @@ const email = site.email;
     margin-block-start: 0.9rem;
   }
 
+  /* Each card is a size container, so its number scales with the card, not the window. */
   .stat {
+    container-type: inline-size;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -211,18 +228,28 @@ const email = site.email;
       box-shadow 400ms ease;
   }
 
+  /* dd keeps no browser indent. If a unit ever runs out of room, it drops under the number instead of spilling out. */
   .stat-value {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.4rem;
+    min-width: 0;
+    margin: 0;
     color: var(--warm-white);
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 1.35rem + 1.5vw, 2.5rem);
+    font-size: clamp(1.5rem, 17cqi, 2.5rem);
     font-variant-numeric: tabular-nums;
     font-weight: 900;
     line-height: 1.1;
     transition: text-shadow 500ms ease;
   }
 
+  .stat-number {
+    white-space: nowrap;
+  }
+
   .stat-unit {
-    margin-inline-start: 0.35rem;
     font-size: 0.5em;
     font-weight: 800;
   }
@@ -246,6 +273,32 @@ const email = site.email;
       0 0 3px rgb(255 253 242 / 0.8),
       0 0 16px rgb(244 237 153 / 0.45),
       0 0 34px rgb(226 229 101 / 0.3);
+  }
+
+  .stat-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgb(226 229 101 / 0.45);
+    text-underline-offset: 0.2em;
+  }
+
+  .stat-link:hover {
+    color: var(--lime);
+  }
+
+  .stats-note a {
+    color: var(--fg-muted);
+    text-decoration: underline;
+    text-decoration-color: rgb(245 245 241 / 0.25);
+    text-underline-offset: 0.2em;
+  }
+
+  .stats-note a:hover {
+    color: var(--lime);
+  }
+
+  .stats-note + .stats-note {
+    margin-block-start: 0.2rem;
   }
 
   .stats-note {
@@ -293,6 +346,12 @@ const email = site.email;
 
     .stat-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 23.5rem) {
+    .stat-grid {
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .cta {

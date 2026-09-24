@@ -63,7 +63,7 @@ const svg = `
   <rect width="${W}" height="${H}" fill="url(#wall)"/>
   ${banana}
   <text x="92" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="124" font-weight="800" fill="${warm}" letter-spacing="-4" filter="url(#neon)">AmirEyZed</text>
-  <text x="96" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="${lime}">Streamer, YouTuber, podcaster and creator of The One Awards</text>
+  <text x="96" y="318" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="${lime}">Streamer, YouTuber, podcaster and organizer of The One Awards</text>
   <text x="96" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="${muted}">My path, year by year, from 2017 to today</text>
   <rect x="${x1}" y="${railY - 2}" width="${x2 - x1}" height="4" rx="2" fill="${line}"/>
   <rect x="${x1}" y="${railY - 2}" width="${(x2 - x1) * lit}" height="4" rx="2" fill="${kick}"/>

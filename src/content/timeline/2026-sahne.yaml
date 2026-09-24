@@ -9,12 +9,12 @@ summary:
   fa: "۲۲ اوت «صحنه» رو معرفی کردم: اپ دسکتاپی که با کمک هوش مصنوعی ساختم تا اورلی استریم رو مدیریت کنه، از تعداد بیننده و چت تا هدف دونیت و تایمر دوناتون. ۱۸ سپتامبر هم «صحنه پلاس» رو منتشر کردم؛ یه اپ جدا و ساده‌تر که فقط گیف‌های هشدار دونیت، ساب و گیفت‌ساب کیک رو پخش می‌کنه."
   en: "On August 22 I introduced SAHNE, a desktop app I built with AI help to run stream overlays, from viewer count and chat to donation goals and a donathon timer. On September 18 I released SAHNE+, a separate, simpler app that only plays GIF alerts for Kick donations, subs and gifted subs."
 why:
-  fa: "ابزارهایی برای بقیهٔ استریمرها، بدون هیچ منفعت شخصی: صحنه پلاس رایگانه و خود صحنه هم قراره اپن‌سورس منتشر بشه."
-  en: "Tools for other streamers, with no personal gain: SAHNE+ is free, and SAHNE itself is set to be released as open source."
+  fa: "ابزاری برای بقیه استریمرها، بدون هیچ منفعت شخصی."
+  en: "Tools for other streamers, with no personal gain."
 highlights:
   fa:
-    - "صحنه: در نسخهٔ بتای خصوصی؛ هنوز عمومی منتشر نشده"
-    - "صحنه پلاس: رایگان و اپن‌سورس برای ویندوز، با مجوز Apache-2.0؛ فایل نصب از صفحهٔ رسمیش در GitHub"
+    - "صحنه: در نسخه بتای خصوصی؛ هنوز عمومی منتشر نشده"
+    - "صحنه پلاس: رایگان و اپن‌سورس برای ویندوز، با مجوز Apache-2.0؛ فایل نصب از صفحه رسمیش در GitHub"
   en:
     - "SAHNE: in private beta, not publicly released yet"
     - "SAHNE+: free and open source for Windows under Apache-2.0; the installer is on its official GitHub page"

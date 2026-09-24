@@ -5,7 +5,7 @@ title:
   fa: "هر روز یه ویدیو"
   en: "A video every day"
 summary:
-  fa: "نوامبر هر روز یه ویدیو روی یوتیوب گذاشتم. از ماه مه هم عضو برنامهٔ پارتنری یوتیوب شده بودم."
+  fa: "نوامبر هر روز یه ویدیو روی یوتیوب گذاشتم. از ماه مه هم عضو برنامه پارتنری یوتیوب شده بودم."
   en: "In November I posted a YouTube video every day. I had joined the YouTube Partner Program in May."
 highlights:
   fa:
@@ -14,6 +14,6 @@ highlights:
     - "412K views in 28 days"
 images:
   - src: ./2020-daily-videos.jpg
-    alt: { fa: "آمار ۲۸ روزهٔ کانال یوتیوب", en: "YouTube channel stats for 28 days" }
+    alt: { fa: "آمار ۲۸ روزه کانال یوتیوب", en: "YouTube channel stats for 28 days" }
   - src: ./2020-youtube-partner.jpg
-    alt: { fa: "ایمیل پذیرش در برنامهٔ پارتنری یوتیوب", en: "The YouTube Partner Programme acceptance email" }
+    alt: { fa: "ایمیل پذیرش در برنامه پارتنری یوتیوب", en: "The YouTube Partner Programme acceptance email" }

@@ -46,7 +46,10 @@ const home = getRelativeLocaleUrl(lang, '');
       <!-- Narrow screens: the same links in a small menu. -->
       {hasYears && (
       <details class="years-menu" data-years-menu>
-        <summary class="chip years-toggle" aria-label={t(lang, 'nav.jump')}>{t(lang, 'nav.years')}</summary>
+        <summary class="chip years-toggle" aria-label={t(lang, 'nav.jump')}>
+          <span>{t(lang, 'nav.years')}</span>
+          <span class="years-current" data-years-current aria-hidden="true"></span>
+        </summary>
         <nav class="years-panel" aria-label={t(lang, 'nav.jump')}>
           <ul class="years-grid">
             {
@@ -172,10 +175,20 @@ const home = getRelativeLocaleUrl(lang, '');
 
   /* ---------- Years menu (narrow screens) ---------- */
   .years-toggle {
+    gap: 0.45rem;
     min-height: 2.75rem;
     color: var(--fg-muted);
     cursor: pointer;
     list-style: none;
+  }
+
+  .years-current {
+    color: var(--lime);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .years-current:empty {
+    display: none;
   }
 
   .years-toggle::-webkit-details-marker {
@@ -188,10 +201,12 @@ const home = getRelativeLocaleUrl(lang, '');
   }
 
   .years-panel {
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    inset-inline-end: 0;
+    position: fixed;
+    top: 4.9rem;
+    inset-inline-end: var(--gutter);
     width: min(19rem, calc(100vw - (var(--gutter) * 2)));
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
     padding: 0.75rem;
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);

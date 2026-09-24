@@ -70,13 +70,20 @@ document.fonts?.ready.then(measure);
 const yearLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-year-link]'));
 let shownYear: string | null = null;
 
+const yearsCurrent = document.querySelector<HTMLElement>('[data-years-current]');
+
 function setCurrentYear(year: string) {
   if (year === shownYear) return;
   shownYear = year;
+  let label = '';
   for (const link of yearLinks) {
-    if (link.dataset.yearLink === year) link.setAttribute('aria-current', 'true');
-    else link.removeAttribute('aria-current');
+    if (link.dataset.yearLink === year) {
+      link.setAttribute('aria-current', 'true');
+      label = link.textContent?.trim() ?? label;
+    } else link.removeAttribute('aria-current');
   }
+  // On phones the years menu button shows the year you are reading.
+  if (yearsCurrent) yearsCurrent.textContent = label;
 }
 
 /** Scroll so a milestone (or Today) sits in the calm middle of the screen, below the sticky header. */

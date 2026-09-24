@@ -19,12 +19,12 @@ export const site = {
     en: 'Amir EyZed',
   } satisfies Localized,
   tagline: {
-    fa: 'استریمر، یوتیوبر، پادکستر و سازندهٔ The One Awards',
-    en: 'Streamer, YouTuber, podcaster and creator of The One Awards',
+    fa: 'استریمر، یوتیوبر، پادکستر و برگزارکننده The One Awards',
+    en: 'Streamer, YouTuber, podcaster and organizer of The One Awards',
   } satisfies Localized,
   intro: {
-    fa: 'از تیم‌های رقابتی رینبو سیکس روی PS4 تا لایوهای امروز روی کیک. این صفحه همون مسیره، سال به سال.',
-    en: 'From competitive Rainbow Six teams on PS4 to live shows on Kick today. This page is that path, year by year.',
+    fa: 'اینجا مسیر کاری من رو سال به سال می‌بینی: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards، کار برای کامیونیتی و موضع‌هام. کنار هر اتفاق عکس و لینک اصلش هست و آخر صفحه، کل مسیر در چند عدد.',
+    en: 'Here you’ll find my career, year by year: competitive teams, live streams, podcasts, The One Awards, community work and the stances I took. Each moment comes with its photos and original links, and the end of the page sums it all up in numbers.',
   } satisfies Localized,
   /**
    * Closing line under "Today" at the end of the timeline.
@@ -63,18 +63,32 @@ export const site = {
       {
         value: { fa: '۳۲۶', en: '326K' },
         unit: { fa: 'هزار', en: '' },
-        label: { fa: 'دنبال‌کننده روی توییچ، یوتیوب و کیک', en: 'followers on Twitch, YouTube and Kick' },
+        label: { fa: 'مجموع دنبال‌کردن‌ها در توییچ، یوتیوب و کیک', en: 'follows across Twitch, YouTube and Kick' },
       },
       {
         value: { fa: '۳۶٫۵', en: '36.5K' },
         unit: { fa: 'هزار', en: '' },
-        label: { fa: 'اوج بینندهٔ هم‌زمان، The One Awards', en: 'peak concurrent viewers, The One Awards' },
+        label: { fa: 'اوج بیننده هم‌زمان، The One Awards', en: 'peak concurrent viewers, The One Awards' },
+        /** The YouTube Studio screenshot sits in this milestone. */
+        href: '#2025-the-one-awards',
       },
     ],
-    note: {
-      fa: 'تا ۲۴ سپتامبر ۲۰۲۶. منبع: TwitchTracker، یوتیوب و کیک. ساعت‌های لایو کیک توی این عددها حساب نشده.',
-      en: 'As of 24 September 2026. Sources: TwitchTracker, YouTube and Kick. Hours streamed on Kick are not included.',
-    } satisfies Localized,
+    asOf: { fa: 'تا ۲۴ سپتامبر ۲۰۲۶.', en: 'As of 24 September 2026.' } satisfies Localized,
+    /** Public pages where each number can be checked. */
+    sources: [
+      { label: { fa: 'آمار توییچ در TwitchTracker', en: 'Twitch stats on TwitchTracker' }, url: 'https://twitchtracker.com/amireyzed/statistics' },
+      { label: { fa: 'یوتیوب AmirEyZed', en: 'AmirEyZed on YouTube' }, url: 'https://www.youtube.com/@AmirEyZed' },
+      { label: { fa: 'یوتیوب EyZed Reacts', en: 'EyZed Reacts on YouTube' }, url: 'https://www.youtube.com/@EyZedMoments' },
+      { label: { fa: 'یوتیوب EyZed Gaming', en: 'EyZed Gaming on YouTube' }, url: 'https://www.youtube.com/@EyZedGaming' },
+      { label: { fa: 'کیک', en: 'Kick' }, url: 'https://kick.com/amireyzed' },
+    ],
+    notes: [
+      {
+        fa: 'دنبال‌کردن‌ها در سه پلتفرم جمع زده شده‌اند؛ یک نفر ممکنه چند بار حساب شده باشه.',
+        en: 'Follows are added up across the three platforms, so one person may be counted more than once.',
+      },
+      { fa: 'ساعت‌های لایو کیک توی این عددها حساب نشده.', en: 'Hours streamed on Kick are not included.' },
+    ] satisfies Localized[],
   },
   /** Contact email. Empty = hidden everywhere. */
   email: '',

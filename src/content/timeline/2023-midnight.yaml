@@ -6,7 +6,7 @@ title:
   fa: "میدنایت"
   en: "The MidNight"
 summary:
-  fa: "۱۰ مارس «میدنایت» روی کانال اصلیم شروع شد؛ برنامهٔ مصاحبهٔ شبانه‌ای که خودم تحقیق، کارگردانی و اجراش می‌کنم. فصل اول ۲۳ قسمت داشت، با مهمون‌هایی از یوتیوب و استریم تا رپ و دوبله."
+  fa: "۱۰ مارس «میدنایت» روی کانال اصلیم شروع شد؛ برنامه مصاحبه شبانه‌ای که خودم تحقیق، کارگردانی و اجراش می‌کنم. فصل اول ۲۳ قسمت داشت، با مهمون‌هایی از یوتیوب و استریم تا رپ و دوبله."
   en: "On March 10 The MidNight started on my main channel, a late-night interview show that I research, direct and host. Season one had 23 episodes, with guests from YouTube and streaming to rap and dubbing."
 why:
   fa: "سه قسمتش به‌تنهایی بیش از نیم میلیون بار دیده شده؛ این برنامه کانالم رو از هایلایت گیم به گفت‌وگوهای بلند رسوند."
@@ -38,7 +38,7 @@ guests:
     url: "https://youtu.be/DsXoa6NZEq8"
     stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
   - name: { fa: "سپهر ترابی", en: "Sepehr Torabi" }
-    about: { fa: "صداپیشهٔ دوبلهٔ رسمی فارسی Prince of Persia: The Lost Crown", en: "Voice actor in the official Persian dub of Prince of Persia: The Lost Crown" }
+    about: { fa: "صداپیشه دوبله رسمی فارسی Prince of Persia: The Lost Crown", en: "Voice actor in the official Persian dub of Prince of Persia: The Lost Crown" }
     url: "https://youtu.be/xqAzeqiU_rk"
     stat: { fa: "۲۰ هزار بازدید", en: "20K views" }
 links:

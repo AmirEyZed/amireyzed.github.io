@@ -5,7 +5,7 @@ title:
   fa: "EyZed Gaming"
   en: "EyZed Gaming"
 summary:
-  fa: "۲۰ اوت کانال EyZed Gaming رو ساختم. استریم لانچ Black Myth: Wukong به ۶٬۰۹۷ بینندهٔ هم‌زمان رسید، بهترین عددم بعد از فیلتر شدن توییچ در ایران. سپتامبر هم EyZedMoments ده‌هزارتایی شد."
+  fa: "۲۰ اوت کانال EyZed Gaming رو ساختم. استریم لانچ Black Myth: Wukong به ۶٬۰۹۷ بیننده هم‌زمان رسید، بهترین عددم بعد از فیلتر شدن توییچ در ایران. سپتامبر هم EyZedMoments ده‌هزارتایی شد."
   en: "On August 20 I started the EyZed Gaming channel. My Black Myth: Wukong launch stream peaked at 6,097 concurrent viewers, my best since Twitch was filtered in Iran. In September EyZedMoments reached 10,000 subscribers."
 links:
   - label: { fa: "اولین ویدیوی EyZed Gaming", en: "EyZed Gaming’s first video" }
@@ -14,4 +14,4 @@ images:
   - src: ./2024-eyzed-reacts-10k.jpg
     alt: { fa: "کانال EyZed Reacts با ۱۰ هزار سابسکرایبر", en: "The EyZed Reacts channel at 10K subscribers" }
   - src: ./2024-peak-6097.jpg
-    alt: { fa: "اوج ۶٬۰۹۷ بینندهٔ هم‌زمان", en: "A peak of 6,097 concurrent viewers" }
+    alt: { fa: "اوج ۶٬۰۹۷ بیننده هم‌زمان", en: "A peak of 6,097 concurrent viewers" }
