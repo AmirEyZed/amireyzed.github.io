@@ -30,7 +30,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: site.name[lang],
-  alternateName: [site.name[lang === 'fa' ? 'en' : 'fa'], site.mark],
+  alternateName: [site.name[lang === 'fa' ? 'en' : 'fa'], site.mark, site.realName.fa, site.realName.en],
   url: siteUrl.href,
   image: new URL(site.photo, siteUrl).href,
   jobTitle: site.role[lang],

@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
-import { formatYear, t, type Lang } from '../i18n/ui';
+import { formatYear, t, toPersianDigits, type Lang } from '../i18n/ui';
 
 interface Props {
   entry: CollectionEntry<'timeline'>;
@@ -28,6 +28,16 @@ const shots = await Promise.all(
 );
 // The first photo sits large next to the year; the rest are thumbnails under the text.
 const [cover, ...thumbs] = shots;
+
+// Guests come sorted by views. The first few are cards; the rest open under "more guests"
+// (a list of one or two extra guests is shown in full instead).
+const GUESTS_SHOWN = 5;
+const foldGuests = guests.length > GUESTS_SHOWN + 2;
+const shownGuests = foldGuests ? guests.slice(0, GUESTS_SHOWN) : guests;
+const moreGuests = foldGuests ? guests.slice(GUESTS_SHOWN) : [];
+const moreLabel = t(lang, 'guests.more', {
+  n: lang === 'fa' ? toPersianDigits(moreGuests.length) : moreGuests.length,
+});
 ---
 
 <li id={entry.id} class:list={['row', { flip, featured }]} data-row data-row-year={year}>
@@ -88,7 +98,7 @@ const [cover, ...thumbs] = shots;
         <div class="guests">
           <p class="guests-label">{t(lang, 'guests')}</p>
           <ul class="guest-list">
-            {guests.map((guest) => {
+            {shownGuests.map((guest) => {
               const Tag = guest.url ? 'a' : 'div';
               const linkProps = guest.url ? { href: guest.url, target: '_blank', rel: 'noopener noreferrer' } : {};
               return (
@@ -102,6 +112,26 @@ const [cover, ...thumbs] = shots;
               );
             })}
           </ul>
+          {moreGuests.length > 0 && (
+            <details class="guest-more">
+              <summary class="guest-more-toggle">{moreLabel}</summary>
+              <ul class="guest-list">
+                {moreGuests.map((guest) => {
+                  const Tag = guest.url ? 'a' : 'div';
+                  const linkProps = guest.url ? { href: guest.url, target: '_blank', rel: 'noopener noreferrer' } : {};
+                  return (
+                    <li>
+                      <Tag class="guest" {...linkProps}>
+                        <span class="guest-name">{guest.name[lang]}</span>
+                        <span class="guest-about">{guest.about[lang]}</span>
+                        {guest.stat && <span class="guest-stat">{guest.stat[lang]}</span>}
+                      </Tag>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          )}
         </div>
       )
     }
@@ -645,6 +675,63 @@ const [cover, ...thumbs] = shots;
     font-variant-numeric: tabular-nums;
     font-weight: 700;
     white-space: nowrap;
+  }
+
+  /* Everyone after the first few: a quiet toggle that opens the rest of the list. */
+  .guest-more {
+    margin-block-start: 0.45rem;
+  }
+
+  .guest-more-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgb(245 245 241 / 0.14);
+    border-radius: 999px;
+    color: var(--fg-soft);
+    font-size: var(--step--1);
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+    transition:
+      border-color 250ms ease,
+      color 250ms ease;
+  }
+
+  .guest-more-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .guest-more-toggle::after {
+    content: '';
+    width: 0.45rem;
+    height: 0.45rem;
+    border-block-end: 2px solid currentColor;
+    border-inline-end: 2px solid currentColor;
+    transform: translateY(-0.15rem) rotate(45deg);
+    transition: transform 250ms ease;
+  }
+
+  .guest-more[open] > .guest-more-toggle::after {
+    transform: translateY(0.1rem) rotate(-135deg);
+  }
+
+  .guest-more[open] > .guest-list {
+    margin-block-start: 0.45rem;
+  }
+
+  @media (hover: hover) {
+    .guest-more-toggle:hover {
+      border-color: rgb(226 229 101 / 0.5);
+      color: var(--lime);
+    }
+  }
+
+  .guest-more-toggle:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 2px;
   }
 
   /* In rows whose text faces the wire from the other side, the views sit on the outer edge. */

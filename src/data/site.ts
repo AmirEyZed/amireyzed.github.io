@@ -22,6 +22,11 @@ export const site = {
     fa: 'استریمر، یوتیوبر، پادکستر و برگزارکننده The One Awards',
     en: 'Streamer, YouTuber, podcaster and organizer of The One Awards',
   } satisfies Localized,
+  /** His real name (he chose to show it on 2026-09-25). */
+  realName: {
+    fa: 'امیرصالح زارع',
+    en: 'Amirsaleh Zare',
+  } satisfies Localized,
   /** Short role for search engines (JSON-LD jobTitle). */
   role: {
     fa: 'استریمر و یوتیوبر',
@@ -30,8 +35,8 @@ export const site = {
   /** His official photo (The One Awards red carpet), at a fixed address for search engines. */
   photo: '/amir-eyzed-the-one-awards.jpg',
   intro: {
-    fa: 'اینجا مسیر کاری منو سال به سال می‌بینی؛ از رینبو و مسابقات رقابتی تا استریم، یوتیوب، پادکست، The One Awards و پروژه‌هایی که برای کامیونیتی ساختم. کنار اتفاق‌های مهم عکس و لینک منبعش هست و آخر صفحه هم کل این مسیر رو تو چند عدد جمع کردم.',
-    en: 'Here you’ll find my career, year by year: from Rainbow Six and competitive play to streaming, YouTube, podcasts, The One Awards and the projects I built for the community. The key moments come with photos and links to their sources, and the end of the page sums the whole path up in a few numbers.',
+    fa: 'امیرصالح زارع هستم، ملقب به امیر ایزد (AmirEyZed). اینجا مسیر کاری منو سال به سال می‌بینی؛ از رینبو و مسابقات رقابتی تا استریم، یوتیوب، پادکست، The One Awards و پروژه‌هایی که برای کامیونیتی ساختم. کنار اتفاق‌های مهم عکس و لینک منبعش هست و آخر صفحه هم کل این مسیر رو تو چند عدد جمع کردم.',
+    en: 'I’m Amirsaleh Zare, known as AmirEyZed. Here you’ll find my career, year by year: from Rainbow Six and competitive play to streaming, YouTube, podcasts, The One Awards and the projects I built for the community. The key moments come with photos and links to their sources, and the end of the page sums the whole path up in a few numbers.',
   } satisfies Localized,
   /**
    * Closing line under "Today" at the end of the timeline.

@@ -1,4 +1,4 @@
-# Source: Fuse Podcast #34 with Arash Nalchegar, 8 May 2025, 21,422 views (YouTube 72344phGXqo); Binosha 13 May (#69394); Cozy Corner #73 14 Aug (#72354); Digikala Plus Khodemooni first episode 28 Aug (#72827); Hasht-e Shab news magazine #14 on YouTubers’ income, 10 Oct (#74008, #74009); Karnakon podcast 25 Oct, 57,401 views (#74293), not linked because its video title carries his full name.
+# Source: Fuse Podcast #34 with Arash Nalchegar, 8 May 2025, 21,422 views (YouTube 72344phGXqo); Binosha 13 May (#69394); Cozy Corner #73 14 Aug (#72354); Digikala Plus Khodemooni first episode 28 Aug (#72827); Hasht-e Shab news magazine #14 on YouTubers’ income, 10 Oct (#74008, #74009); Karnakon podcast 25 Oct, 57,401 views (#74293; YouTube ybWBg37VOGU).
 year: 2025
 order: 4
 title:
@@ -23,6 +23,8 @@ links:
     url: "https://cozycorner.cc/corner-73-amir-eyzed"
   - label: { fa: "هشت شب، قسمت ۱۴", en: "Hasht-e Shab, episode 14" }
     url: "https://youtu.be/CxK1_I4HQ7c"
+  - label: { fa: "پادکست کارنکن", en: "Karnakon podcast" }
+    url: "https://youtu.be/ybWBg37VOGU"
 images:
   - src: ./2025-interviews-fuse.jpg
     alt: { fa: "تامبنیل فیوز ۳۴ با آرش نعلچگر", en: "Fuse Podcast #34 thumbnail" }

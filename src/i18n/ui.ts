@@ -13,7 +13,7 @@ export const ui = {
   fa: {
     'meta.title': 'امیر ایزد (AmirEyZed) | مسیر من، سال به سال',
     'meta.description':
-      'مسیر کاری امیر ایزد (AmirEyZed) سال به سال: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards و کار برای کامیونیتی، با عکس، لینک و منبع.',
+      'امیرصالح زارع، ملقب به امیر ایزد (AmirEyZed)؛ مسیر کاری سال به سال: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards و کار برای کامیونیتی، با عکس، لینک و منبع.',
     'meta.imageAlt': 'امیر ایزد پشت میز استریم',
     'a11y.skip': 'پرش به محتوا',
     'nav.home': 'خانه',
@@ -38,7 +38,8 @@ export const ui = {
     'stats.sources': 'منبع‌ها',
     'why': 'چرا مهمه؟',
     'featured': 'لحظه مهم',
-    'guests': 'چند قسمت منتخب',
+    'guests': 'مهمون‌ها، به ترتیب بازدید',
+    'guests.more': 'بقیه مهمون‌ها ({n})',
     'notfound.title': 'این صفحه پیدا نشد',
     'notfound.body': 'شاید آدرس اشتباه باشه یا صفحه جابه‌جا شده.',
     'notfound.back': 'برگرد به خانه',
@@ -46,7 +47,7 @@ export const ui = {
   en: {
     'meta.title': 'Amir EyZed (AmirEyZed) | My path, year by year',
     'meta.description':
-      "Amir EyZed's career, year by year: competitive teams, live streams, podcasts, The One Awards and community work, with photos, links and sources.",
+      "Amirsaleh Zare, known as Amir EyZed (AmirEyZed): his career year by year, competitive teams, live streams, podcasts, The One Awards and community work, with photos, links and sources.",
     'meta.imageAlt': 'Amir EyZed at his streaming desk',
     'a11y.skip': 'Skip to content',
     'nav.home': 'Home',
@@ -71,7 +72,8 @@ export const ui = {
     'stats.sources': 'Sources',
     'why': 'Why it matters:',
     'featured': 'Key moment',
-    'guests': 'Selected episodes',
+    'guests': 'Guests, by views',
+    'guests.more': '{n} more guests',
     'notfound.title': 'Page not found',
     'notfound.body': 'The address may be wrong or the page has moved.',
     'notfound.back': 'Back home',

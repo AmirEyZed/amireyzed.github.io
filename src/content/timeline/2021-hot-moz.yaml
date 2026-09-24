@@ -24,14 +24,14 @@ guests:
     about: { fa: "یوتیوبر", en: "YouTuber" }
     url: "https://youtu.be/6jSXjWbH5FU"
     stat: { fa: "۴۶ هزار بازدید", en: "46K views" }
-  - name: { fa: "پاشا مجلسی", en: "Pasha Majlesi" }
-    about: { fa: "پادکستر", en: "Podcaster" }
-    url: "https://youtu.be/yaUJYOQtfDE"
-    stat: { fa: "۳۴ هزار بازدید", en: "34K views" }
   - name: { fa: "حامی کی‌ام", en: "Hami KM" }
     about: { fa: "یوتیوبر", en: "YouTuber" }
     url: "https://youtu.be/2m6LYkWmfKY"
     stat: { fa: "۳۷ هزار بازدید", en: "37K views" }
+  - name: { fa: "پاشا مجلسی", en: "Pasha Majlesi" }
+    about: { fa: "پادکستر", en: "Podcaster" }
+    url: "https://youtu.be/yaUJYOQtfDE"
+    stat: { fa: "۳۴ هزار بازدید", en: "34K views" }
 images:
   - src: ./2021-hot-moz-bigezmoge.jpg
     alt: { fa: "تامبنیل هات موز با علی بیگزموگ", en: "Hot MoZ thumbnail with Ali BigezMoge" }
