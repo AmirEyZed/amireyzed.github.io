@@ -33,7 +33,7 @@ guests:
     url: "https://youtu.be/ApMkRRHB_pM"
     stat: { fa: "۱۵ هزار بازدید", en: "15K views" }
 links:
-  - label: { fa: "Apple Podcasts", en: "Apple Podcasts" }
+  - label: { fa: "میدنایت فصل دوم در Apple Podcasts", en: "The MidNight season 2 on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/the-midnight-season-2/id1718918492"
 images:
   - src: ./2023-midnight-arakelian.jpg

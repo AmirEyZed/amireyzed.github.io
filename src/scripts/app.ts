@@ -19,7 +19,7 @@ const smoothstep = (a: number, b: number, x: number) => {
 };
 
 /* ---------- Smooth scroll ---------- */
-const lenis = reduced ? null : new Lenis({ lerp: 0.09, smoothWheel: true, anchors: true, autoRaf: false });
+const lenis = reduced ? null : new Lenis({ lerp: 0.09, smoothWheel: true, anchors: false, autoRaf: false });
 
 /* ---------- Elements ---------- */
 const header = document.querySelector<HTMLElement>('.header');
@@ -66,6 +66,74 @@ measure();
 new ResizeObserver(measure).observe(document.body);
 document.fonts?.ready.then(measure);
 
+/* ---------- Year links in the header ---------- */
+const yearLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-year-link]'));
+let shownYear: string | null = null;
+
+function setCurrentYear(year: string) {
+  if (year === shownYear) return;
+  shownYear = year;
+  for (const link of yearLinks) {
+    if (link.dataset.yearLink === year) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  }
+}
+
+/** Scroll so a milestone (or Today) sits in the calm middle of the screen, below the sticky header. */
+function jumpTo(target: HTMLElement) {
+  const block = target.closest<HTMLElement>('[data-row], [data-today]');
+  const headerHeight = header?.getBoundingClientRect().height ?? 0;
+  const rect = (block ?? target).getBoundingClientRect();
+  const room = window.innerHeight - headerHeight;
+  const offset = block ? Math.max(16, (room - Math.min(rect.height, room)) / 2) : 16;
+  const top = Math.max(0, window.scrollY + rect.top - headerHeight - offset);
+  if (lenis) lenis.scrollTo(top, { duration: 1.1 });
+  else window.scrollTo({ top, behavior: 'auto' });
+  if (block) {
+    block.setAttribute('tabindex', '-1');
+    block.focus({ preventScroll: true });
+  }
+}
+
+const yearsMenu = document.querySelector<HTMLDetailsElement>('[data-years-menu]');
+
+document.addEventListener('click', (event) => {
+  const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-jump]');
+  if (link) {
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    if (!target) return;
+    event.preventDefault();
+    yearsMenu?.removeAttribute('open');
+    history.replaceState(null, '', link.hash);
+    jumpTo(target);
+    return;
+  }
+  // A tap outside the open years menu closes it.
+  if (yearsMenu?.open && !(event.target as HTMLElement).closest('[data-years-menu]')) {
+    yearsMenu.removeAttribute('open');
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && yearsMenu?.open) {
+    yearsMenu.removeAttribute('open');
+    yearsMenu.querySelector('summary')?.focus();
+  }
+});
+
+/* ---------- Photos: stop the loading shimmer once each photo has arrived ---------- */
+const markLoaded = (img: HTMLImageElement) => img.closest('.cover, .shot')?.classList.add('is-loaded');
+document.addEventListener(
+  'load',
+  (event) => {
+    if (event.target instanceof HTMLImageElement) markLoaded(event.target);
+  },
+  true,
+);
+document.querySelectorAll<HTMLImageElement>('.cover img, .shot img').forEach((img) => {
+  if (img.complete && img.naturalWidth > 0) markLoaded(img);
+});
+
 /* ---------- Scroll-linked state ---------- */
 const rowTops: number[] = new Array(rows.length).fill(0);
 
@@ -79,18 +147,24 @@ function updateScrollState(viewportHeight: number) {
     today?.classList.toggle('is-lit', progress >= 0.999);
   }
 
+  let currentYear = '';
   rows.forEach((row, i) => {
     const rect = row.getBoundingClientRect();
     rowTops[i] = rect.top;
-    row.classList.toggle('is-lit', rect.top + rect.height / 2 <= mid + 1);
+    const lit = rect.top + rect.height / 2 <= mid + 1;
+    row.classList.toggle('is-lit', lit);
+    // The header marks the year of the row that has reached the middle of the screen.
+    if (rect.top <= mid) currentYear = row.dataset.rowYear ?? '';
   });
+  if (today?.classList.contains('is-lit')) currentYear = 'today';
+  setCurrentYear(currentYear);
 
   if (reduced) return;
 
   for (const cell of cells) {
     const center = rowTops[cell.rowIndex]! + cell.top + cell.height / 2;
     const d = (center - mid) / mid; // -1 at the top edge, 1 at the bottom edge
-    const e = smoothstep(0.55, 1.08, Math.abs(d));
+    const e = smoothstep(0.65, 1.12, Math.abs(d));
     const dir = d < 0 ? -1 : 1;
     // Blur and transforms only for cells on or near the screen.
     const refracting = e > 0.02 && Math.abs(d) < 1.4;

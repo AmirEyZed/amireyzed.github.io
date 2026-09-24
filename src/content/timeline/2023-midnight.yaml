@@ -42,7 +42,7 @@ guests:
     url: "https://youtu.be/xqAzeqiU_rk"
     stat: { fa: "۲۰ هزار بازدید", en: "20K views" }
 links:
-  - label: { fa: "قسمت اول", en: "Episode one" }
+  - label: { fa: "قسمت اول میدنایت", en: "The MidNight, episode 1" }
     url: "https://www.youtube.com/watch?v=MJ_2-qiLGMc"
 images:
   - src: ./2023-midnight-studio.jpg

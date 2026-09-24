@@ -14,10 +14,11 @@ interface Props {
 const { lang } = Astro.props;
 const entries = await getCollection('timeline');
 const firstYear = entries.length ? Math.min(...entries.map((e) => e.data.year)) : new Date().getFullYear();
+const years = [...new Set(entries.map((e) => e.data.year))].sort((a, b) => a - b);
 ---
 
 <Base lang={lang}>
-  <Header lang={lang} />
+  <Header lang={lang} years={years} />
   <main id="main">
     <Hero lang={lang} firstYear={firstYear} />
     <Timeline lang={lang} />

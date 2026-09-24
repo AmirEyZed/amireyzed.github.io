@@ -29,5 +29,5 @@ guests:
     url: "https://youtu.be/38_OhvScoT8"
     stat: { fa: "۴۰ هزار بازدید", en: "40K views" }
 links:
-  - label: { fa: "Apple Podcasts", en: "Apple Podcasts" }
+  - label: { fa: "چهل‌وپنج دقیقه در Apple Podcasts", en: "45 Minutes on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/45-minutes-%DA%86%D9%87%D9%84-%D9%88-%D9%BE%D9%86%D8%AC-%D8%AF%D9%82%DB%8C%D9%82%D9%87/id1827824631"

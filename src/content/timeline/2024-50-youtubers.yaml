@@ -19,9 +19,9 @@ highlights:
     - "The video won Best Collaboration at The One Awards"
     - "Secret Hitler: 602K views"
 links:
-  - label: { fa: "مسابقهٔ ۵۰ یوتوبر", en: "50 YouTubers" }
+  - label: { fa: "ویدیوی مسابقهٔ ۵۰ یوتوبر", en: "The 50 YouTubers video" }
     url: "https://youtu.be/n4flU7MCPug"
-  - label: { fa: "راز هیتلر", en: "Secret Hitler" }
+  - label: { fa: "ویدیوی راز هیتلر", en: "The Secret Hitler video" }
     url: "https://youtu.be/730OxmX1yfs"
 images:
   - src: ./2024-50-youtubers.jpg

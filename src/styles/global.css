@@ -489,12 +489,17 @@ html[dir='rtl'] .lb-next svg {
   text-decoration: none;
 }
 
-/* A slightly larger hit area gives the magnetic pull room to start. */
-.btn::before,
-.chip::before {
-  content: '';
-  position: absolute;
-  inset: -12px;
+/* Hit areas stay inside each control, so a tap never lands on the neighbouring link.
+   On touch screens the controls themselves grow to a comfortable 44px instead. */
+@media (pointer: coarse) {
+  .chip {
+    min-height: 2.75rem;
+  }
+}
+
+/* Anchor targets clear the sticky header. */
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 .btn:hover {

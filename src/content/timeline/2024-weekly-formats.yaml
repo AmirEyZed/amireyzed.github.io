@@ -8,9 +8,9 @@ summary:
   fa: "آخر مارس دو فرمت هفتگی راه انداختم: «مزه‌تایم»، گپ گروهی با پیکسی، امیرفانتوم، سام صابری، علی زلزله، سمیرا سالی و سیابچ؛ و «ویک‌واچ»، نقد هفتگی ویدیوهای تازهٔ یوتیوب فارسی که چند سازنده نقدهاش رو توی ویدیوی بعدیشون اعمال کردن."
   en: "At the end of March I launched two weekly formats: MazzeTime, a group talk show with Pixie, AmirPhantom, Sam Saberi, Ali Zelzele, Samira Saly and Siabach; and WeekWatch, a weekly review of new Persian YouTube videos whose notes several creators applied in their next video."
 links:
-  - label: { fa: "مزه‌تایم", en: "MazzeTime" }
+  - label: { fa: "قسمت صفر مزه‌تایم", en: "MazzeTime, episode 0" }
     url: "https://youtu.be/gl0s0ebAYPw"
-  - label: { fa: "ویک‌واچ", en: "WeekWatch" }
+  - label: { fa: "قسمت اول ویک‌واچ", en: "WeekWatch, episode 1" }
     url: "https://youtu.be/C49Ew2MisLI"
 images:
   - src: ./2024-mazzetime.jpg

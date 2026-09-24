@@ -10,7 +10,7 @@ summary:
 links:
   - label: { fa: "MoZ Rap Reaction", en: "MoZ Rap Reaction" }
     url: "https://www.youtube.com/@MoZRapReaction"
-  - label: { fa: "Spotify", en: "Spotify" }
+  - label: { fa: "موزکست در Spotify", en: "MoZCast on Spotify" }
     url: "https://open.spotify.com/episode/0s6sVSKU07TGQfaVSN4tXz"
 images:
   - src: ./2023-mozcast-dalu.jpg

@@ -30,7 +30,8 @@ const shots = await Promise.all(
 const [cover, ...thumbs] = shots;
 ---
 
-<li class:list={['row', { flip, featured }]} data-row>
+<li id={entry.id} class:list={['row', { flip, featured }]} data-row data-row-year={year}>
+  {showYear && <span id={`y${year}`} class="year-anchor" aria-hidden="true"></span>}
   <div class="year-cell" data-lens>
     <p class:list={['year', { minor: !showYear }]} data-year>
       <time datetime={String(year)}>{yearLabel}</time>
@@ -60,6 +61,7 @@ const [cover, ...thumbs] = shots;
   <div class="axis-cell" aria-hidden="true"><span class="led"></span></div>
 
   <div class="text-cell" data-lens>
+    {featured && <p class="badge">{t(lang, 'featured')}</p>}
     <h3 class="title">{title[lang]}</h3>
     <p class="summary">{summary[lang]}</p>
     {
@@ -173,7 +175,7 @@ const [cover, ...thumbs] = shots;
   .text-cell {
     --e: 0;
     --dir: 1;
-    opacity: calc(1 - var(--e) * 0.72);
+    opacity: calc(1 - var(--e) * 0.55);
   }
 
   /* Each cell hinges on the side that faces the wire and the middle of the screen. */
@@ -191,8 +193,8 @@ const [cover, ...thumbs] = shots;
     transform-origin: var(--end-origin) calc(50% - var(--dir) * 50%);
     /* Colour fringes in the Kick chat-tag red and blue. */
     text-shadow:
-      calc(var(--e) * -2.4px) 0 0 rgb(255 75 35 / calc(var(--e) * 0.85)),
-      calc(var(--e) * 2.4px) 0 0 rgb(58 116 255 / calc(var(--e) * 0.85));
+      calc(var(--e) * -1.2px) 0 0 rgb(255 75 35 / calc(var(--e) * 0.55)),
+      calc(var(--e) * 1.2px) 0 0 rgb(58 116 255 / calc(var(--e) * 0.55));
   }
 
   .row.flip .year-cell {
@@ -209,9 +211,9 @@ const [cover, ...thumbs] = shots;
   /* Only refracting cells get a transform, so text in the focus zone stays crisp. */
   .year-cell.is-refracting,
   .text-cell.is-refracting {
-    filter: blur(calc(var(--e) * 2.2px));
-    transform: perspective(900px) rotateX(calc(var(--dir) * var(--e) * 34deg))
-      scale(calc(1 + var(--e) * 0.16), calc(1 + var(--e) * 0.08));
+    filter: blur(calc(var(--e) * 0.7px));
+    transform: perspective(900px) rotateX(calc(var(--dir) * var(--e) * 16deg))
+      scale(calc(1 + var(--e) * 0.05), calc(1 + var(--e) * 0.03));
   }
 
   /* ---------- The year: an unlit neon sign until the wire reaches it ---------- */
@@ -235,8 +237,8 @@ const [cover, ...thumbs] = shots;
     letter-spacing: -0.02em;
     -webkit-text-stroke: 1.5px var(--taupe);
     text-shadow:
-      calc(var(--cx) - var(--e) * 5px) var(--cy) 0 var(--fringe-r),
-      calc(var(--e) * 5px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b);
+      calc(var(--cx) - var(--e) * 3px) var(--cy) 0 var(--fringe-r),
+      calc(var(--e) * 3px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b);
     transform: perspective(700px) rotateX(var(--ty)) rotateY(var(--tx));
     transition:
       color 450ms ease,
@@ -263,8 +265,8 @@ const [cover, ...thumbs] = shots;
     color: #fffdf2;
     -webkit-text-stroke-color: transparent;
     text-shadow:
-      calc(var(--cx) - var(--e) * 5px) var(--cy) 0 var(--fringe-r),
-      calc(var(--e) * 5px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b),
+      calc(var(--cx) - var(--e) * 3px) var(--cy) 0 var(--fringe-r),
+      calc(var(--e) * 3px - var(--cx)) calc(-1 * var(--cy)) 0 var(--fringe-b),
       0 0 3px rgb(255 253 242 / 0.9),
       0 0 14px rgb(244 237 153 / 0.55),
       0 0 36px rgb(226 229 101 / 0.35),
@@ -518,6 +520,69 @@ const [cover, ...thumbs] = shots;
     padding-inline: 0 0.85rem;
     border-inline-start: 0;
     border-inline-end: 2px solid var(--lime);
+  }
+
+  /* A jump from the header focuses the row; keep that quiet for mouse users. */
+  .row:focus {
+    outline: none;
+  }
+
+  .row:focus-visible {
+    outline: 1px dashed rgb(226 229 101 / 0.4);
+    outline-offset: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  /* The target of the header's year links sits at the top of the first milestone of each year. */
+  .year-anchor {
+    position: absolute;
+    top: 0;
+  }
+
+  /* ---------- "Key moment" label on defining milestones ---------- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-block-end: 0.45rem;
+    color: var(--lime);
+    font-size: var(--step--1);
+    font-weight: 800;
+  }
+
+  .badge::before {
+    content: '';
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 8px rgb(226 229 101 / 0.7);
+  }
+
+  /* ---------- Photos show a soft moving light until they load ---------- */
+  .cover,
+  .shot {
+    background: linear-gradient(100deg, rgb(37 36 38) 35%, rgb(58 56 52) 50%, rgb(37 36 38) 65%) 0 0 / 250% 100%;
+    animation: photo-wait 1.3s linear infinite;
+  }
+
+  .cover.is-loaded,
+  .shot.is-loaded {
+    background: var(--panel);
+    animation: none;
+  }
+
+  @keyframes photo-wait {
+    to {
+      background-position: -150% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cover,
+    .shot {
+      animation: none;
+    }
   }
 
   /* ---------- Notable guests: name, who they are, views; each opens the episode ---------- */

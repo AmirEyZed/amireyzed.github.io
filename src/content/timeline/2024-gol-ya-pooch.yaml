@@ -17,9 +17,9 @@ highlights:
   en:
     - "The series won Best Show at The One Awards"
 links:
-  - label: { fa: "فینال", en: "The final" }
+  - label: { fa: "فینال گل یا پوچ", en: "Gol ya Pooch, the final" }
     url: "https://youtu.be/lXrJ4Cmx7N0"
-  - label: { fa: "قسمت اول", en: "Episode one" }
+  - label: { fa: "قسمت اول گل یا پوچ", en: "Gol ya Pooch, episode 1" }
     url: "https://youtu.be/Y5gYhlEKALo"
 images:
   - src: ./2024-gol-ya-pooch.jpg

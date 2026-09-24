@@ -37,7 +37,7 @@ const email = site.email;
     </ol>
   </div>
 
-  <div class="today" data-today>
+  <div class="today" id="today" data-today>
     <span class="today-led" aria-hidden="true"></span>
     <h2 class="today-title">{t(lang, 'today.title')}</h2>
     <p class="today-body">{site.today[lang]}</p>
@@ -117,6 +117,10 @@ const email = site.email;
     justify-items: center;
     padding-block-end: clamp(4rem, 12vh, 8rem);
     text-align: center;
+  }
+
+  .today:focus {
+    outline: none;
   }
 
   .today::before {

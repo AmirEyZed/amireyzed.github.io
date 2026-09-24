@@ -1,14 +1,17 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { site } from '../data/site';
-import { t, type Lang } from '../i18n/ui';
+import { formatYear, t, type Lang } from '../i18n/ui';
 import LangSwitch from './LangSwitch.astro';
 
 interface Props {
   lang: Lang;
+  /** Years that have milestones, oldest first; each links to the first milestone of that year. */
+  years?: number[];
 }
 
-const { lang } = Astro.props;
+const { lang, years = [] } = Astro.props;
+const hasYears = years.length > 0;
 const home = getRelativeLocaleUrl(lang, '');
 ---
 
@@ -18,7 +21,52 @@ const home = getRelativeLocaleUrl(lang, '');
       <span class="mark-led" aria-hidden="true"></span>
       <span class="mark-text">{site.mark}</span>
     </a>
-    <LangSwitch lang={lang} />
+
+    <!-- Wide screens: every year in one line, then Today. -->
+    {hasYears && (
+    <nav class="years" aria-label={t(lang, 'nav.jump')}>
+      <ul class="years-list">
+        {
+          years.map((year) => (
+            <li>
+              <a class="year-link" href={`#y${year}`} data-jump data-year-link={year}>
+                {formatYear(year, lang)}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a class="year-link year-today" href="#today" data-jump data-year-link="today">{t(lang, 'today.title')}</a>
+        </li>
+      </ul>
+    </nav>
+    )}
+
+    <div class="end">
+      <!-- Narrow screens: the same links in a small menu. -->
+      {hasYears && (
+      <details class="years-menu" data-years-menu>
+        <summary class="chip years-toggle" aria-label={t(lang, 'nav.jump')}>{t(lang, 'nav.years')}</summary>
+        <nav class="years-panel" aria-label={t(lang, 'nav.jump')}>
+          <ul class="years-grid">
+            {
+              years.map((year) => (
+                <li>
+                  <a class="year-cell-link" href={`#y${year}`} data-jump data-year-link={year}>
+                    {formatYear(year, lang)}
+                  </a>
+                </li>
+              ))
+            }
+            <li class="years-grid-today">
+              <a class="year-cell-link" href="#today" data-jump data-year-link="today">{t(lang, 'today.title')}</a>
+            </li>
+          </ul>
+        </nav>
+      </details>
+      )}
+      <LangSwitch lang={lang} />
+    </div>
   </div>
 </header>
 
@@ -57,17 +105,143 @@ const home = getRelativeLocaleUrl(lang, '');
     text-decoration: none;
   }
 
+  /* A small lime lamp, not a green "live" light. */
   .mark-led {
     width: 0.55rem;
     height: 0.55rem;
     border-radius: 50%;
-    background: var(--kick);
-    box-shadow: 0 0 10px rgb(83 252 24 / 0.8);
+    background: var(--lime);
+    box-shadow: 0 0 10px rgb(226 229 101 / 0.7);
   }
 
   .mark-text {
     font-family: var(--font-display);
     font-size: 1.02rem;
     font-weight: 800;
+  }
+
+  .end {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ---------- Year bar (wide screens) ---------- */
+  .years-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.15rem;
+  }
+
+  .year-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--radius-sm);
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      color 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .year-link:hover {
+    color: var(--fg);
+    background: rgb(245 245 241 / 0.05);
+  }
+
+  .year-link[aria-current='true'] {
+    color: var(--lime);
+    background: rgb(226 229 101 / 0.08);
+  }
+
+  .year-today {
+    margin-inline-start: 0.35rem;
+    color: var(--lemon);
+  }
+
+  .years-menu {
+    display: none;
+    position: relative;
+  }
+
+  /* ---------- Years menu (narrow screens) ---------- */
+  .years-toggle {
+    min-height: 2.75rem;
+    color: var(--fg-muted);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .years-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .years-menu[open] .years-toggle {
+    border-color: var(--lime);
+    color: var(--fg);
+  }
+
+  .years-panel {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    inset-inline-end: 0;
+    width: min(19rem, calc(100vw - (var(--gutter) * 2)));
+    padding: 0.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: rgb(20 19 19 / 0.97);
+    box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.9);
+  }
+
+  .years-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+
+  .years-grid-today {
+    grid-column: 1 / -1;
+  }
+
+  .year-cell-link {
+    display: grid;
+    place-items: center;
+    min-height: 2.75rem;
+    border: 1px solid rgb(245 245 241 / 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--fg);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .year-cell-link:hover,
+  .year-cell-link:focus-visible {
+    border-color: var(--lime);
+  }
+
+  .year-cell-link[aria-current='true'] {
+    border-color: rgb(226 229 101 / 0.6);
+    color: var(--lime);
+  }
+
+  .years-grid-today .year-cell-link {
+    color: var(--lemon);
+  }
+
+  @media (max-width: 59.99rem) {
+    .years {
+      display: none;
+    }
+
+    .years-menu {
+      display: block;
+    }
   }
 </style>

@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { lang, firstYear } = Astro.props;
+const kick = site.socials.find((s) => s.id === 'kick');
+const youtube = site.socials.find((s) => s.id === 'youtube');
 ---
 
 <section class="hero">
@@ -16,9 +18,29 @@ const { lang, firstYear } = Astro.props;
   </div>
   <p class="tagline">{site.tagline[lang]}</p>
   <p class="intro">{site.intro[lang]}</p>
+  <ul class="channels">
+    {
+      kick && (
+        <li>
+          <a class="chip chip-kick" href={kick.url} target="_blank" rel="me noopener noreferrer">
+            {t(lang, 'hero.kick')}
+          </a>
+        </li>
+      )
+    }
+    {
+      youtube && (
+        <li>
+          <a class="chip" href={youtube.url} target="_blank" rel="me noopener noreferrer">
+            {t(lang, 'hero.youtube')}
+          </a>
+        </li>
+      )
+    }
+  </ul>
   <p class="range">{t(lang, 'hero.range', { from: formatYear(firstYear, lang) })}</p>
 
-  <a class="cue" href="#timeline">
+  <a class="cue" href="#timeline" data-jump>
     <span>{t(lang, 'hero.scroll')}</span>
     <span class="cue-wire" aria-hidden="true"></span>
   </a>
@@ -97,6 +119,26 @@ const { lang, firstYear } = Astro.props;
     margin-block-start: 1.6rem;
     color: var(--fg-muted);
     text-wrap: pretty;
+  }
+
+  /* Two quiet doors to where Amir is active now; the timeline stays the main road. */
+  .channels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-block-start: 1.4rem;
+  }
+
+  .chip-kick {
+    border-color: rgb(83 252 24 / 0.55);
+    color: var(--kick);
+  }
+
+  .chip-kick:hover {
+    border-color: var(--kick);
+    background: rgb(83 252 24 / 0.1);
+    box-shadow: 0 0 24px -8px rgb(83 252 24 / 0.6);
   }
 
   .range {

@@ -19,7 +19,7 @@ export const site = {
     en: 'Amir EyZed',
   } satisfies Localized,
   tagline: {
-    fa: 'استریمر، یوتیوبر، پادکستر و سازندهٔ The One Awards',
+    fa: 'استریمر، یوتیوبر، پادکستر و سازندهٔ The One Awards',
     en: 'Streamer, YouTuber, podcaster and creator of The One Awards',
   } satisfies Localized,
   intro: {
@@ -68,7 +68,7 @@ export const site = {
       {
         value: { fa: '۳۶٫۵', en: '36.5K' },
         unit: { fa: 'هزار', en: '' },
-        label: { fa: 'اوج بینندهٔ هم‌زمان، The One Awards', en: 'peak concurrent viewers, The One Awards' },
+        label: { fa: 'اوج بینندهٔ هم‌زمان، The One Awards', en: 'peak concurrent viewers, The One Awards' },
       },
     ],
     note: {
