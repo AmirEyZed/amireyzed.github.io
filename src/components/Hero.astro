@@ -1,6 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
 import { site } from '../data/site';
 import { formatYear, t, type Lang } from '../i18n/ui';
+import studio from '../assets/hero/amireyzed-studio.png';
 
 interface Props {
   lang: Lang;
@@ -10,9 +12,28 @@ interface Props {
 const { lang, firstYear } = Astro.props;
 const kick = site.socials.find((s) => s.id === 'kick');
 const youtube = site.socials.find((s) => s.id === 'youtube');
+
+/* Amir at his desk, cut out of the green screen. One file serves all three layers below. */
+const art = await getImage({ src: studio, widths: [480, 760, 1000, 1226], format: 'webp', quality: 80 });
+const artSizes = '(max-width: 28rem) 28rem, (max-width: 46rem) 100vw, 46rem';
+const artImg = {
+  src: art.src,
+  srcset: art.srcSet.attribute,
+  sizes: artSizes,
+  width: studio.width,
+  height: studio.height,
+  alt: '',
+  decoding: 'async' as const,
+};
 ---
 
 <section class="hero">
+  <div class="portrait" data-portrait aria-hidden="true">
+    <img class="portrait-img portrait-dim" {...artImg} loading="eager" fetchpriority="high" />
+    <img class="portrait-img portrait-neon" {...artImg} />
+    <img class="portrait-img portrait-lit" {...artImg} />
+    <span class="portrait-halo"></span>
+  </div>
   <div class="sign-wrap">
     <h1 class="sign" data-neon>{site.name[lang]}</h1>
   </div>
@@ -51,8 +72,74 @@ const youtube = site.socials.find((s) => s.id === 'youtube');
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(3.5rem, 12vh, 8rem) var(--gutter) 0;
+    padding: clamp(0.75rem, 3vh, 2rem) var(--gutter) 0;
     text-align: center;
+    isolation: isolate;
+  }
+
+  /* ---------- The portrait: faded at the top of the page, lit where the cursor points ----------
+     A dim, desaturated picture sits under the name. A full-colour copy shows only inside a soft
+     circle at --px/--py (app.ts): the cursor on desktop, his face or the last tap on touch screens.
+     The neon banana on the wall stays on and flickers on with the sign. */
+  .portrait {
+    --pw: clamp(28rem, calc(100% + var(--gutter) * 2), 46rem);
+    position: relative;
+    z-index: -1;
+    flex: none;
+    width: var(--pw);
+    aspect-ratio: 1226 / 624;
+    margin-block-end: calc(var(--pw) * -0.13);
+    pointer-events: none;
+    user-select: none;
+    -webkit-mask-image: radial-gradient(ellipse 60% 64% at 50% 38%, #000 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 64% at 50% 38%, #000 50%, transparent 100%);
+  }
+
+  .portrait-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .portrait-dim {
+    opacity: 0.2;
+    filter: saturate(0.35) brightness(0.85);
+  }
+
+  .portrait-neon {
+    -webkit-mask-image: radial-gradient(ellipse 9.5% 23% at 86.9% 52%, #000 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 9.5% 23% at 86.9% 52%, #000 62%, transparent 100%);
+    animation: neon-on 1.5s steps(1, end) 0.15s both;
+  }
+
+  .portrait-halo {
+    position: absolute;
+    top: 52%;
+    left: 86.9%;
+    width: 30%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(255 238 160 / 0.3), rgb(226 229 101 / 0.1) 40%, transparent 70%);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    animation: neon-on 1.5s steps(1, end) 0.15s both;
+  }
+
+  .portrait-lit {
+    --pr: clamp(6.5rem, 15vw, 11rem);
+    -webkit-mask-image: radial-gradient(
+      circle var(--pr) at var(--px, 50.2%) var(--py, 40%),
+      #000 0%,
+      rgb(0 0 0 / 0.55) 42%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      circle var(--pr) at var(--px, 50.2%) var(--py, 40%),
+      #000 0%,
+      rgb(0 0 0 / 0.55) 42%,
+      transparent 100%
+    );
   }
 
   .sign-wrap {
@@ -175,7 +262,9 @@ const youtube = site.socials.find((s) => s.id === 'youtube');
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sign {
+    .sign,
+    .portrait-neon,
+    .portrait-halo {
       animation: none;
       transition: none;
     }

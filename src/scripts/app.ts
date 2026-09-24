@@ -232,6 +232,55 @@ function updateSign() {
   }
 }
 
+/* ---------- Hero portrait: the light over Amir at his desk ----------
+   Desktop: the light follows the cursor. Touch: it rests on his face, moves to where a finger lands,
+   then drifts back. --px/--py are in px from the portrait's top-left corner. */
+const portrait = document.querySelector<HTMLElement>('[data-portrait]');
+let portraitRect: DOMRect | null = null;
+const glow = { x: Number.NaN, y: Number.NaN, lastX: Number.NaN, lastY: Number.NaN, touchX: 0, touchY: 0, touchUntil: 0 };
+
+if (portrait && !finePointer) {
+  const onTouch = (event: PointerEvent) => {
+    if (event.pointerType === 'mouse') return;
+    glow.touchX = event.clientX;
+    glow.touchY = event.clientY;
+    glow.touchUntil = performance.now() + 2600;
+  };
+  const hero = portrait.closest<HTMLElement>('.hero');
+  hero?.addEventListener('pointerdown', onTouch, { passive: true });
+  hero?.addEventListener('pointermove', onTouch, { passive: true });
+}
+
+function measurePortrait() {
+  portraitRect = portrait ? portrait.getBoundingClientRect() : null;
+}
+
+function updatePortrait(now: number) {
+  const r = portraitRect;
+  if (!portrait || !r || r.bottom < 0 || r.top > window.innerHeight) return;
+  let tx = r.width * 0.502;
+  let ty = r.height * 0.4;
+  let ease = 0.06;
+  if (pointer.active) {
+    tx = pointer.sx - r.left;
+    ty = pointer.sy - r.top;
+    ease = 0.35;
+  } else if (now < glow.touchUntil) {
+    tx = glow.touchX - r.left;
+    ty = glow.touchY - r.top;
+    ease = 0.18;
+  }
+  if (reduced || Number.isNaN(glow.x)) ease = 1;
+  glow.x = ease === 1 ? tx : glow.x + (tx - glow.x) * ease;
+  glow.y = ease === 1 ? ty : glow.y + (ty - glow.y) * ease;
+  if (Math.abs(glow.x - glow.lastX) > 0.3 || Math.abs(glow.y - glow.lastY) > 0.3 || Number.isNaN(glow.lastX)) {
+    glow.lastX = glow.x;
+    glow.lastY = glow.y;
+    portrait.style.setProperty('--px', `${glow.x.toFixed(1)}px`);
+    portrait.style.setProperty('--py', `${glow.y.toFixed(1)}px`);
+  }
+}
+
 /* ---------- Years: colour fringes and tilt follow the cursor, like looking through a lens ---------- */
 if (finePointer && !reduced) {
   for (const el of document.querySelectorAll<HTMLElement>('[data-year]')) {
@@ -470,6 +519,7 @@ function frame(time: number) {
     header?.classList.toggle('is-scrolled', y > 8);
     updateScrollState(h);
     updateSign();
+    measurePortrait();
   }
 
   const dx = pointer.x - pointer.sx;
@@ -481,6 +531,8 @@ function frame(time: number) {
     if (lamp) lamp.style.transform = `translate3d(${pointer.sx.toFixed(1)}px, ${pointer.sy.toFixed(1)}px, 0)`;
     updateSign();
   }
+
+  updatePortrait(time);
 
   requestAnimationFrame(frame);
 }
