@@ -1,14 +1,25 @@
-# Source: Binosha 13 May (#69394), Cozy Corner #73 14 Aug (#72354), Digikala Plus Khodemooni first episode 28 Aug (#72827).
+# Source: Fuse Podcast #34 with Arash Nalchegar, 8 May 2025, 21,422 views (YouTube 72344phGXqo); Binosha 13 May (#69394); Cozy Corner #73 14 Aug (#72354); Digikala Plus Khodemooni first episode 28 Aug (#72827); Hasht-e Shab news magazine #14 on YouTubers’ income, 10 Oct (#74008, #74009); Karnakon podcast 25 Oct, 57,401 views (#74293), not linked because its video title carries his full name.
 year: 2025
 order: 4
 title:
   fa: "مصاحبه‌ها"
   en: "Interviews"
 summary:
-  fa: "سال ۲۰۲۵ مهمون چند برنامه بودم: بینوشا درباره The One Awards، Cozy Corner و اولین قسمت پادکست «خودمونی» دیجی‌کالا پلاس."
-  en: "In 2025 I was a guest on several shows: Binosha about The One Awards, Cozy Corner, and the first episode of Digikala Plus’s podcast Khodemooni."
+  fa: "سال ۲۰۲۵ مهمون چند برنامه بودم: پادکست فیوز با آرش نالچگر، بینوشا درباره The One Awards، Cozy Corner، اولین قسمت پادکست «خودمونی» دیجی‌کالا پلاس، مجله خبری «هشت شب» درباره درآمد یوتیوبرها و پادکست کارنکن."
+  en: "In 2025 I was a guest on several shows: Fuse Podcast with Arash Nalchegar, Binosha about The One Awards, Cozy Corner, the first episode of Digikala Plus’s podcast Khodemooni, the Hasht-e Shab news magazine on YouTubers’ income, and the Karnakon podcast."
+highlights:
+  fa:
+    - "فیوز ۳۴: بیش از ۲۱ هزار بازدید"
+    - "کارنکن: بیش از ۵۷ هزار بازدید"
+  en:
+    - "Fuse #34: 21K+ views"
+    - "Karnakon: 57K+ views"
 links:
+  - label: { fa: "فیوز ۳۴ با آرش نالچگر", en: "Fuse Podcast #34 with Arash Nalchegar" }
+    url: "https://youtu.be/72344phGXqo"
   - label: { fa: "مصاحبه با بینوشا", en: "Binosha interview" }
     url: "https://youtu.be/df-pHTSQtG4"
   - label: { fa: "مصاحبه در Cozy Corner", en: "Cozy Corner interview" }
     url: "https://cozycorner.cc/2025/08/14/corner-73-amir-eyzed/"
+  - label: { fa: "هشت شب، قسمت ۱۴", en: "Hasht-e Shab, episode 14" }
+    url: "https://youtu.be/CxK1_I4HQ7c"
