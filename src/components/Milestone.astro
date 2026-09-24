@@ -150,7 +150,7 @@ const moreLabel = t(lang, 'guests.more', {
     }
     {
       thumbs.length > 0 && (
-        <div class="shots">
+        <div class:list={['shots', { many: thumbs.length > 1 }]}>
           {thumbs.map((shot) => (
             <button
               type="button"
@@ -447,6 +447,13 @@ const moreLabel = t(lang, 'guests.more', {
     border-radius: var(--radius);
     background: var(--panel);
     cursor: zoom-in;
+  }
+
+  /* Desktop: with several thumbnails, a little smaller so two sit side by side in the text column. */
+  @media (min-width: 60rem) {
+    .shots.many .shot {
+      height: 7rem;
+    }
   }
 
   .shot :global(img) {
@@ -756,22 +763,6 @@ const moreLabel = t(lang, 'guests.more', {
     outline-offset: 2px;
   }
 
-  /* Phones: the views drop under the description so nothing gets squeezed. */
-  @media (max-width: 30rem) {
-    .guest,
-    .row.flip .guest {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-areas:
-        'name'
-        'about'
-        'stat';
-      text-align: start;
-    }
-
-    .guest-stat {
-      margin-block-start: 0.2rem;
-    }
-  }
 
   /* ---------- Defining moments get more weight ---------- */
   .row.featured .title {
@@ -903,6 +894,24 @@ const moreLabel = t(lang, 'guests.more', {
     .led {
       align-self: start;
       margin-block-start: 1.35rem;
+    }
+  }
+
+  /* Phones: the views drop under the description so nothing gets squeezed.
+     It comes after the mobile layout above so it also wins in rows that face the other way. */
+  @media (max-width: 30rem) {
+    .guest,
+    .row.flip .guest {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'name'
+        'about'
+        'stat';
+      text-align: start;
+    }
+
+    .guest-stat {
+      margin-block-start: 0.2rem;
     }
   }
 

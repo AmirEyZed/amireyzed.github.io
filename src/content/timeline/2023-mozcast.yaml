@@ -5,8 +5,20 @@ title:
   fa: "موزکست"
   en: "MoZCast"
 summary:
-  fa: "۶ مارس با علی زودیاک موزکست رو روی کانال MoZ Rap Reaction شروع کردیم: گفت‌وگوهای حدودا سه‌ساعته با رپرها درباره مسیر کاریشون. قسمت اول با دلو بود و نسخه صوتیش روی Castbox و Spotify هم اومد."
-  en: "On March 6 Ali Zodiac and I launched MoZCast on the MoZ Rap Reaction channel: roughly three-hour conversations with rappers about their careers. Episode one featured Dalu, with audio on Castbox and Spotify."
+  fa: "۶ مارس با علی زودیاک موزکست رو روی کانال MoZ Rap Reaction شروع کردیم: گفت‌وگوهای حدودا سه‌ساعته با رپرها درباره مسیر کاریشون. قسمت اول با اردلان دلو بود و نسخه صوتیش روی Castbox و Spotify هم اومد."
+  en: "On March 6 Ali Zodiac and I launched MoZCast on the MoZ Rap Reaction channel: roughly three-hour conversations with rappers about their careers. Episode one featured Ardalan Dalu, with audio on Castbox and Spotify."
+guests:
+  - name: { fa: "پرشین رپ ری‌اکشن (سهراب و رهام)", en: "Persian Rap Reaction (Sohrab and Roham)" }
+    about: { fa: "سهراب و رهام، از قدیمی‌های فضای رپ فارسی؛ بیش از ۵۶ هزار سابسکرایبر", en: "Sohrab and Roham, long-time names in Persian rap; 56K+ subscribers" }
+    url: "https://youtu.be/rEZS-XDuwnI"
+    stat: { fa: "۱۳ هزار بازدید", en: "13K views" }
+  - name: { fa: "اردلان دلو", en: "Ardalan Dalu" }
+    about: { fa: "رپر؛ «مدرسه» و «لایو لوک» با ریبار", en: "Rapper; MADRESE and Live Loc with Ribar" }
+    url: "https://youtu.be/u-eW2djAFLg"
+    stat: { fa: "۱۳ هزار بازدید", en: "13K views" }
+  - name: { fa: "علرضو", en: "Alerzo" }
+    about: { fa: "رپر ملودیک ترپ؛ فیت «استرس» امین تیجی و ترک «طوقی»", en: "Melodic trap rapper; featured on Amin Tijay’s Stress, plus the track Toughi" }
+    stat: { fa: "۳ هزار بازدید تا آوریل ۲۰۲۳", en: "3K views by April 2023" }
 links:
   - label: { fa: "MoZ Rap Reaction", en: "MoZ Rap Reaction" }
     url: "https://www.youtube.com/@MoZRapReaction"
@@ -14,4 +26,4 @@ links:
     url: "https://open.spotify.com/episode/0s6sVSKU07TGQfaVSN4tXz"
 images:
   - src: ./2023-mozcast-dalu.jpg
-    alt: { fa: "تامبنیل قسمت اول موزکست با دلو", en: "MoZCast episode one thumbnail with Dalu" }
+    alt: { fa: "تامبنیل قسمت اول موزکست با اردلان دلو", en: "MoZCast episode one thumbnail with Ardalan Dalu" }

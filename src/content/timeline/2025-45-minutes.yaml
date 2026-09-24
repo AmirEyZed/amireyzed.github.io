@@ -12,28 +12,64 @@ why:
   fa: "گفت‌وگوهای بلند و بدون عجله با بعضی از شناخته‌شده‌ترین یوتیوبرهای فارسی."
   en: "Long, unhurried conversations with some of the best-known Persian YouTubers."
 guests:
-  - name: { fa: "کوروش زراندوز", en: "Kourosh Zarandouz" }
-    about: { fa: "از کومان؛ بهترین یوتیوبر سال، محبوب‌ترین کامیونیتی و خیرخواه‌ترین محتواساز در The One Awards", en: "Of Kouman; YouTuber of the Year, Most Popular Community and Most Charitable Creator at The One Awards" }
+  - name: { fa: "کورش زراندوز", en: "Kourosh Zarandooz" }
+    about: { fa: "از کومان، برنده سه جایزه The One Awards از جمله بهترین یوتیوبر سال", en: "Of Kouman, which won three The One Awards including YouTuber of the Year" }
     url: "https://youtu.be/6W19VgHPMTc"
     stat: { fa: "۵۹۲ هزار بازدید در دو قسمت", en: "592K views in two episodes" }
+  - name: { fa: "ایمان دست‌پاک", en: "Iman Dastpak" }
+    about: { fa: "از اعضای کومان؛ مجری «دگم نباش»، برنده جایزه بهترین پادکست سال در The One Awards", en: "Kouman member; co-host of Dogm Nabash, winner of Best Podcast of the Year at The One Awards" }
+    url: "https://youtu.be/8qYOGIayhwU"
+    stat: { fa: "۳۳۵ هزار بازدید در دو قسمت", en: "335K views in two episodes" }
   - name: { fa: "علی بیگزموگ", en: "Ali BigezMoge" }
-    about: { fa: "از شناخته‌شده‌ترین یوتیوبرهای فارسی", en: "One of the best-known Persian YouTubers" }
+    about: { fa: "یوتیوبر و استریمر با بیش از ۲۹۰ هزار فالوور توییچ", en: "YouTuber and streamer with 290K+ Twitch followers" }
     url: "https://youtu.be/kx7ZJNM5WFI"
-    stat: { fa: "۲۴۶ هزار بازدید", en: "246K views" }
+    stat: { fa: "۲۴۷ هزار بازدید", en: "247K views" }
+  - name: { fa: "سام صابری", en: "Sam Saberi" }
+    about: { fa: "استریمر؛ همراه دوناتون مشترک ۲۰۲۵ از استودیو موزلند", en: "Streamer; my partner in the 2025 joint donathon from the MoZ Land studio" }
+    url: "https://youtu.be/1IVNt00tbP0"
+    stat: { fa: "۱۳۰ هزار بازدید", en: "130K views" }
   - name: { fa: "بنیامین", en: "TheBeniamin" }
-    about: { fa: "یوتیوبر؛ نوظهورترین استعداد یوتیوب و بهترین همکاری در The One Awards", en: "YouTuber; Most Promising YouTube Talent and Best Collaboration at The One Awards" }
+    about: { fa: "یوتیوبر؛ مجری «مسابقه ۵۰ یوتوبر برای ۱۰۰ میلیون» با بیش از ۳ میلیون بازدید", en: "YouTuber; host of 50 YouTubers for 100 Million, watched more than 3 million times" }
     url: "https://youtu.be/KHMZWmp9k74"
     stat: { fa: "۱۲۹ هزار بازدید", en: "129K views" }
+  - name: { fa: "حامد شاهانی و میلاد فاضلی", en: "Hamed Shahani and Milad Fazeli" }
+    about: { fa: "یوتیوبرهایی با حدود ۷۰ هزار سابسکرایبر؛ چالش‌های گروهی با یوتیوبرهای دیگه", en: "YouTubers with about 70K subscribers each, known for group challenges with other YouTubers" }
+    url: "https://youtu.be/VqMEq4yAhfQ"
+    stat: { fa: "۱۲۱ هزار بازدید", en: "121K views" }
   - name: { fa: "امیرفانتوم", en: "AmirPhantom" }
-    about: { fa: "استریمر و یوتیوبر؛ مهمون قسمت اول", en: "Streamer and YouTuber; the first guest" }
+    about: { fa: "استریمر با بیش از ۱۱۰ هزار فالوور توییچ؛ مهمون قسمت اول", en: "Streamer with 110K+ Twitch followers; the first episode’s guest" }
     url: "https://youtu.be/38_OhvScoT8"
     stat: { fa: "۴۰ هزار بازدید", en: "40K views" }
+  - name: { fa: "حامی کی‌ام", en: "Hami KM" }
+    about: { fa: "مبارز PYB 1، اولین بوکس خیریه یوتیوبرهای فارسی", en: "Fought in PYB 1, the first Persian YouTubers’ charity boxing match" }
+    url: "https://youtu.be/wqZWjqDAQD0"
+    stat: { fa: "۳۶ هزار بازدید", en: "36K views" }
+  - name: { fa: "سینا کرش", en: "Sina Crash" }
+    about: { fa: "یوتیوبر گیمینگ با ۵۶ هزار سابسکرایبر؛ از میزبان‌های شورگج روی کیک", en: "Gaming YouTuber with 56K subscribers; a SHEVARGEJ co-host on Kick" }
+    url: "https://youtu.be/u7nU6-hskR4"
+    stat: { fa: "۳۰ هزار بازدید", en: "30K views" }
+  - name: { fa: "احسان میرزاد و مصطفی", en: "Ehsan Mirzad and Mostafa" }
+    about: { fa: "احسان یوتیوبر طنز با ۴۳۸ هزار سابسکرایبر و مصطفی همراه ثابت ویدیوهاش", en: "Ehsan, a comedy YouTuber with 438K subscribers, and Mostafa, his regular co-star" }
+    url: "https://youtu.be/_OgQdUCxsTg"
+    stat: { fa: "۲۸ هزار بازدید", en: "28K views" }
+  - name: { fa: "فرنود سیدی", en: "Farnood Seyedi" }
+    about: { fa: "یوتیوبر ورزشی؛ حریف حامی کی‌ام در PYB 1، اولین بوکس خیریه یوتیوب فارسی", en: "Sports YouTuber who fought Hami KM at PYB 1, the first Persian YouTube charity boxing match" }
+    url: "https://youtu.be/F87zhg8udf0"
+    stat: { fa: "۲۲ هزار بازدید", en: "22K views" }
+  - name: { fa: "رضا آیینه و سون کوروش", en: "Reza Ayeene and Se7en Kourosh" }
+    about: { fa: "رضا آیینه، یوتیوبر قدیمی با ۱۱۲ هزار فالوور اینستاگرام، و سون کوروش، یوتیوبر ویدیوهای گروهی با یوتیوبرها", en: "Reza Ayeene, a veteran YouTuber with 112K Instagram followers, and Se7en Kourosh, a YouTuber of group videos with other YouTubers" }
+    url: "https://youtu.be/-D2HGK6WqI8"
+    stat: { fa: "۲۰ هزار بازدید", en: "20K views" }
+  - name: { fa: "سیدسجاد احمدی", en: "Seyed Sajjad Ahmadi" }
+    about: { fa: "آتش‌نشان عملیاتی تهران که شغلش رو به ۲۳۹ هزار فالوور نشون می‌ده", en: "Tehran firefighter who shows the job to 239K Instagram followers" }
+    url: "https://youtu.be/AD4JSTCpSgw"
+    stat: { fa: "۱۵ هزار بازدید", en: "15K views" }
 links:
   - label: { fa: "چهل‌وپنج دقیقه در Apple Podcasts", en: "45 Minutes on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/45-minutes-%DA%86%D9%87%D9%84-%D9%88-%D9%BE%D9%86%D8%AC-%D8%AF%D9%82%DB%8C%D9%82%D9%87/id1827824631"
 images:
   - src: ./2025-45-minutes-kourosh.jpg
-    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با کوروش زراندوز", en: "45 Minutes thumbnail with Kourosh Zarandouz" }
+    alt: { fa: "تامبنیل چهل‌وپنج دقیقه با کورش زراندوز", en: "45 Minutes thumbnail with Kourosh Zarandooz" }
   - src: ./2025-45-minutes-iman.jpg
     alt: { fa: "تامبنیل چهل‌وپنج دقیقه با ایمان دست‌پاک", en: "45 Minutes thumbnail with Iman Dastpak" }
   - src: ./2025-45-minutes-bigezmoge.jpg

@@ -9,29 +9,61 @@ summary:
   en: "On November 22 The MidNight season two opened with Ali Pazani, and its guests ranged from TheBeniamin to Hollywood VFX producer Karen Arakelian."
 guests:
   - name: { fa: "بنیامین", en: "TheBeniamin" }
-    about: { fa: "یوتیوبر؛ نوظهورترین استعداد یوتیوب و بهترین همکاری در The One Awards", en: "YouTuber; Most Promising YouTube Talent and Best Collaboration at The One Awards" }
+    about: { fa: "یوتیوبر؛ برنده جایزه‌های نوظهورترین استعداد یوتیوب و بهترین همکاری در The One Awards", en: "YouTuber; won Most Promising YouTube Talent and Best Collaboration at The One Awards" }
     url: "https://youtu.be/9TqI-oHdvHc"
     stat: { fa: "۲۱۳ هزار بازدید", en: "213K views" }
   - name: { fa: "کیمیا بهبودی", en: "Kimia Behboudi" }
-    about: { fa: "کارآفرین", en: "Entrepreneur" }
+    about: { fa: "کارآفرین؛ میم‌ره، فروشگاه استیکر آنلاین و حضوری با ۱۳۷ هزار فالوور اینستاگرام", en: "Entrepreneur; Mimre, an online and in-store sticker shop with 137K Instagram followers" }
     url: "https://youtu.be/bZi9rJaXj_8"
     stat: { fa: "۱۶۵ هزار بازدید", en: "165K views" }
+  - name: { fa: "هادی هایروکس", en: "Hadi Hyrox" }
+    about: { fa: "یوتیوبر با بیش از ۱۱۰ هزار سابسکرایبر؛ معروف به چالش با یوتیوبرهای دیگه", en: "YouTuber with 110K+ subscribers, known for challenge videos with other YouTubers" }
+    url: "https://youtu.be/rDxcrPciQP4"
+    stat: { fa: "۸۱ هزار بازدید", en: "81K views" }
   - name: { fa: "سینا کرش", en: "Sina Crash" }
-    about: { fa: "یوتیوبر", en: "YouTuber" }
+    about: { fa: "یوتیوبر و استریمر ماینکرفت؛ پارتنر توییچ با بیش از ۶۰ هزار فالوور", en: "Minecraft YouTuber and streamer; Twitch Partner with 60K+ followers" }
     url: "https://youtu.be/PW5fooYRQR0"
     stat: { fa: "۴۲ هزار بازدید", en: "42K views" }
+  - name: { fa: "علی حسن‌پور (Dentaristt)", en: "Ali Hassanpour (Dentaristt)" }
+    about: { fa: "دندانپزشک و یوتیوبر؛ با ویدیوهای دوران طرحش در روستایی در آبادان شناخته شد", en: "Dentist and YouTuber, known for videos from his service posting in a village near Abadan" }
+    url: "https://youtu.be/VXxt8Pob2OA"
+    stat: { fa: "۳۶ هزار بازدید", en: "36K views" }
   - name: { fa: "کارن آراکلیان", en: "Karen Arakelian" }
-    about: { fa: "تهیه‌کننده جلوه‌های ویژه در هالیوود؛ از The Mist تا پروژه‌ای برنده امی", en: "Hollywood VFX producer, from The Mist to an Emmy-winning project" }
+    about: { fa: "تهیه‌کننده جلوه‌های ویژه در هالیوود؛ از The Mist تا پروژه‌ای برنده امی", en: "Hollywood VFX producer, from The Mist to an Emmy-winning project" }
     url: "https://youtu.be/pJkqgWdkDbQ"
     stat: { fa: "۳۱ هزار بازدید", en: "31K views" }
+  - name: { fa: "حمید ابراهیم‌نیا", en: "Hamid Ebrahimnia" }
+    about: { fa: "آرتیست جلوه‌های ویژه با ۴۵۹ هزار فالوور؛ ویدیوی وایرال والیبال پهپادها کار اونه", en: "VFX artist with 459K followers; the viral CGI video of drones playing volleyball is his" }
+    url: "https://youtu.be/4jb3M38sRSs"
+    stat: { fa: "۲۷ هزار بازدید", en: "27K views" }
   - name: { fa: "علی پازانی", en: "Ali Pazani" }
-    about: { fa: "فیلم‌ساز", en: "Filmmaker" }
+    about: { fa: "فیلم‌ساز؛ کارگردان موزیک ویدیوهای شروین حاجی‌پور، از جمله «تلفن»", en: "Filmmaker; directed Shervin Hajipour music videos, including Telephone" }
     url: "https://youtu.be/5PGV90UlpVo"
     stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
-  - name: { fa: "علی نودیسم", en: "Ali Nodism" }
-    about: { fa: "تهیه‌کننده اجرایی «یک ساعت با زیرزمین»", en: "Executive producer of Yek Saat ba Zirzamin" }
+  - name: { fa: "بهروز (پادکست دونده)", en: "Behrooz (Davandeh Podcast)" }
+    about: { fa: "میزبان پادکست دونده؛ ۵۳ قسمت گفت‌وگو درباره رپ فارسی و جامعه", en: "Host of Davandeh, a podcast on Persian rap and society, 53 episodes" }
+    url: "https://youtu.be/p8MhfOrPEtc"
+    stat: { fa: "۱۷ هزار بازدید", en: "17K views" }
+  - name: { fa: "عباس SLP", en: "Abbas SLP" }
+    about: { fa: "کارگردان موزیک ویدیوی «یالا» از کوروش و بهزاد لیتو با ۱٫۵ میلیون بازدید", en: "Directed Koorosh and Behzad Leito’s Yallah music video (1.5M views)" }
+    url: "https://youtu.be/lf3cb8lrPEc"
+    stat: { fa: "۱۶ هزار بازدید", en: "16K views" }
+  - name: { fa: "علی ندیسم", en: "Ali Nodism" }
+    about: { fa: "تهیه‌کننده و مجری «یک ساعت با زیرزمین»، با مهمون‌هایی مثل عرفان و رضا پیشرو", en: "Producer and co-host of Yek Saat ba Zirzamin, with guests like Erfan and Reza Pishro" }
     url: "https://youtu.be/ApMkRRHB_pM"
     stat: { fa: "۱۵ هزار بازدید", en: "15K views" }
+  - name: { fa: "حسین کشاورز", en: "Hosein Keshavarz" }
+    about: { fa: "آرایشگر مردانه؛ آرایشگر علی قاف", en: "Men’s hairstylist; Ali Ghaf’s barber" }
+    url: "https://youtu.be/SRRcD5uL-nY"
+    stat: { fa: "۱۳ هزار بازدید", en: "13K views" }
+  - name: { fa: "سپهر سینجیم", en: "Sepehr Cnjim" }
+    about: { fa: "رپر و پرودیوسر؛ همکاری با بهزاد لیتو در «هربارشو» و ۷۹ هزار شنونده ماهانه", en: "Rapper and producer on Behzad Leito’s Harbaresho; 79K monthly Spotify listeners" }
+    url: "https://youtu.be/6u72GoAer6w"
+    stat: { fa: "۱۲ هزار بازدید", en: "12K views" }
+  - name: { fa: "سجاد صالحی", en: "Sajjad Salehi" }
+    about: { fa: "ویدیوگرافر مشهدی با ۱۲۳ هزار فالوور اینستاگرام", en: "Mashhad videographer with 123K Instagram followers" }
+    url: "https://youtu.be/WvHzV90Sq6Y"
+    stat: { fa: "۵ هزار بازدید", en: "5K views" }
 links:
   - label: { fa: "میدنایت فصل دوم در Apple Podcasts", en: "The MidNight season 2 on Apple Podcasts" }
     url: "https://podcasts.apple.com/us/podcast/the-midnight-season-2/id1718918492"

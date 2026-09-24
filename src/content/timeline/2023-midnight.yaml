@@ -18,29 +18,97 @@ highlights:
     - "500K+ views and 225K watch hours in season one"
 guests:
   - name: { fa: "امید لنون", en: "Omid Lennon" }
-    about: { fa: "یوتیوبر و استریمر؛ بهترین استریمر بازی‌های تک‌نفره در The One Awards", en: "YouTuber and streamer; Best Single-Player Streamer at The One Awards" }
+    about: { fa: "یوتیوبر و استریمر؛ برنده جایزه بهترین استریمر بازی‌های تک‌نفره در The One Awards", en: "YouTuber and streamer; won Best Single-Player Games Streamer at The One Awards" }
     url: "https://youtu.be/D8aUalHUZWc"
     stat: { fa: "۲۶۱ هزار بازدید", en: "261K views" }
   - name: { fa: "امید صفیر", en: "Omid Safir" }
-    about: { fa: "رپر", en: "Rapper" }
+    about: { fa: "رپر باسابقه؛ از گروه چریک با اشکان فدایی تا همکاری با علی قاف در «جیب»", en: "Veteran rapper; from the Cherik crew with Ashkan Fadaei to Ali Quf’s track Jib" }
     url: "https://youtu.be/X0Pl_TDw_Dk"
     stat: { fa: "۲۰۹ هزار بازدید", en: "209K views" }
+  - name: { fa: "سهیل پرنک", en: "Soheil Prank" }
+    about: { fa: "یوتیوبر دوربین مخفی با بیش از ۵۰۰ هزار سابسکرایبر؛ سری «منطقه ترس»", en: "Hidden-camera YouTuber with 500K+ subscribers, known for the Fear Zone series" }
+    url: "https://youtu.be/C11--CNIjig"
+    stat: { fa: "۱۲۷ هزار بازدید", en: "127K views" }
   - name: { fa: "پیکسی", en: "Pixie" }
-    about: { fa: "استریمر", en: "Streamer" }
+    about: { fa: "استریمر و یوتیوبر با بیش از ۹۵ هزار فالوور در توییچ", en: "Streamer and YouTuber with 95K+ Twitch followers" }
     url: "https://youtu.be/qCE4-NNDDNw"
     stat: { fa: "۱۲۲ هزار بازدید", en: "122K views" }
+  - name: { fa: "سک شات", en: "SECSHOT" }
+    about: { fa: "یوتیوبر طنز با حدود ۸۵ هزار سابسکرایبر؛ مجری «دماغ شو»", en: "Comedy YouTuber with about 85K subscribers, host of Damagh Show" }
+    url: "https://youtu.be/-hd7gTPGHrs"
+    stat: { fa: "۶۸ هزار بازدید", en: "68K views" }
+  - name: { fa: "امیرفانتوم", en: "AmirPhantom" }
+    about: { fa: "استریمر دوتا ۲ تیم Alliance از ۲۰۲۰", en: "Dota 2 streamer for Alliance since 2020" }
+    url: "https://youtu.be/b-H5EACDtnQ"
+    stat: { fa: "۶۳ هزار بازدید", en: "63K views" }
   - name: { fa: "سام صابری", en: "Sam Saberi" }
-    about: { fa: "استریمر؛ بهترین گیمر، بهترین استریمر بازی‌های آنلاین و بهترین دوناتون در The One Awards", en: "Streamer; Best Gamer, Best Online Games Streamer and Best Donathon at The One Awards" }
+    about: { fa: "استریمر؛ برنده جایزه‌های بهترین گیمر، بهترین استریمر بازی‌های آنلاین و بهترین دوناتون در The One Awards", en: "Streamer; won Best Gamer, Best Online Games Streamer and Best Donathon at The One Awards" }
     url: "https://youtu.be/G6LBhlbJirg"
     stat: { fa: "۶۳ هزار بازدید", en: "63K views" }
+  - name: { fa: "فیمس حاجی", en: "Famous Haji" }
+    about: { fa: "خواننده؛ موزیک ویدیوهای «کارما» و «دیگه پیر شدین» هر کدوم بیش از ۶۰۰ هزار بازدید", en: "Singer; his music videos Karma and Dige Pir Shodin each passed 600K views" }
+    url: "https://youtu.be/mCP73tOV1Xo"
+    stat: { fa: "۵۲ هزار بازدید", en: "52K views" }
+  - name: { fa: "سواد و بهراد", en: "Sevaaad and Behrad" }
+    about: { fa: "بهراد بنیان‌گذار فروشگاه اسنیکر اکسو و سواد هنرمند تصویری هیپ‌هاپ فارسی", en: "Behrad founded the sneaker store OXO; Sevaaad is a Persian hip-hop visual artist" }
+    url: "https://youtu.be/-VP9AgH0wW0"
+    stat: { fa: "۴۷ هزار بازدید", en: "47K views" }
+  - name: { fa: "بیگ آتی", en: "BigAAti" }
+    about: { fa: "استریمر و خواننده؛ از ۲۰۲۱ در توییچ با بیش از ۳۸ هزار فالوور", en: "Streamer and singer; on Twitch since 2021 with 38K+ followers" }
+    url: "https://youtu.be/2NJiAFXHsws"
+    stat: { fa: "۴۷ هزار بازدید", en: "47K views" }
+  - name: { fa: "پرشین رپ ری‌اکشن (سهراب و رهام)", en: "Persian Rap Reaction (Sohrab and Roham)" }
+    about: { fa: "کانال ری‌اکشن و تحلیل رپ فارسی از ۲۰۲۰ با ۳۱ میلیون بازدید", en: "Persian rap reaction and analysis channel since 2020, with 31M+ views" }
+    url: "https://youtu.be/LROdvGXiWBQ"
+    stat: { fa: "۴۴ هزار بازدید", en: "44K views" }
+  - name: { fa: "اردلان دلو", en: "Ardalan Dalu" }
+    about: { fa: "رپر؛ ترک «ARDALONE» و همکاری‌هایی مثل «Many Men» با 021kid", en: "Rapper; ARDALONE and collaborations like Many Men with 021kid" }
+    url: "https://youtu.be/t2qNouhPDgM"
+    stat: { fa: "۴۲ هزار بازدید", en: "42K views" }
+  - name: { fa: "رضا آیینه", en: "Reza Ayeene" }
+    about: { fa: "یوتیوبر قدیمی فارسی؛ هم‌طراح هات موز و تهیه‌کننده «گل یا پوچ با یوتیوبرها»", en: "Veteran Persian YouTuber; helped design Hot MoZ and co-produced Gol ya Pooch with YouTubers" }
+    url: "https://youtu.be/MJ_2-qiLGMc"
+    stat: { fa: "۴۱ هزار بازدید", en: "41K views" }
+  - name: { fa: "بوگی", en: "BogyTV" }
+    about: { fa: "استریمر و یوتیوبر؛ ۵۷ هزار فالوور توییچ و ۲۴ هزار سابسکرایبر یوتیوب", en: "Streamer and YouTuber: 57K Twitch followers, 24K YouTube subscribers" }
+    url: "https://youtu.be/IJxZ69rWKCw"
+    stat: { fa: "۳۶ هزار بازدید", en: "36K views" }
+  - name: { fa: "شایان وندال", en: "Shayan Vandal" }
+    about: { fa: "استریمر با نزدیک ۱۷ هزار فالوور توییچ؛ دوتا ۲ و جی‌تی‌ای رول‌پلی", en: "Streamer with nearly 17K Twitch followers; Dota 2 and GTA V roleplay" }
+    url: "https://youtu.be/RfBMQ44REVw"
+    stat: { fa: "۲۵ هزار بازدید", en: "25K views" }
+  - name: { fa: "امین خلیقی", en: "Amin Khalighi" }
+    about: { fa: "هم‌بنیان‌گذار بینوشا، رسانه تکنولوژی با ۵۷ هزار سابسکرایبر یوتیوب", en: "Co-founder of Binosha, a tech outlet with 57K YouTube subscribers" }
+    url: "https://youtu.be/fXlKsjQe8Z0"
+    stat: { fa: "۲۵ هزار بازدید", en: "25K views" }
   - name: { fa: "نیک‌شاه", en: "Nikshaah" }
-    about: { fa: "هنرمند؛ بهترین محتواساز هنری در The One Awards", en: "Artist; Best Art Creator at The One Awards" }
+    about: { fa: "خواننده و یوتیوبر با ۲۱۶ هزار سابسکرایبر؛ برنده جایزه بهترین محتواساز هنری در The One Awards", en: "Singer and YouTuber with 216K subscribers; won Best Art Creator at The One Awards" }
     url: "https://youtu.be/DsXoa6NZEq8"
     stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
+  - name: { fa: "منچ تی وی", en: "menchTV" }
+    about: { fa: "استریمر؛ دهم در فهرست بهترین استریمرهای ایرانی ۲۰۲۱ پارسی‌گیمز", en: "Streamer; 10th on Par30Games’ list of the best Iranian Twitch streamers of 2021" }
+    url: "https://youtu.be/8iabCVSzC3s"
+    stat: { fa: "۲۴ هزار بازدید", en: "24K views" }
+  - name: { fa: "آلین جوهرچی", en: "Alin Joharchi" }
+    about: { fa: "خواننده، ترانه‌سرا و گیتاریست؛ پسر زنده‌یاد حسن جوهرچی", en: "Singer-songwriter and guitarist; son of the late actor Hassan Joharchi" }
+    url: "https://youtu.be/jd9DcgdaT3Q"
+    stat: { fa: "۲۱ هزار بازدید", en: "21K views" }
   - name: { fa: "سپهر ترابی", en: "Sepehr Torabi" }
-    about: { fa: "صداپیشه دوبله رسمی فارسی Prince of Persia: The Lost Crown", en: "Voice actor in the official Persian dub of Prince of Persia: The Lost Crown" }
+    about: { fa: "صداپیشه؛ صدای چند شخصیت در دوبله رسمی فارسی Prince of Persia: The Lost Crown", en: "Voice actor; voiced several characters in the official Persian dub of Prince of Persia: The Lost Crown" }
     url: "https://youtu.be/xqAzeqiU_rk"
     stat: { fa: "۲۰ هزار بازدید", en: "20K views" }
+  - name: { fa: "اشکورت", en: "Eshkoort" }
+    about: { fa: "مجله صنعت موسیقی و تحلیل متن رپ فارسی با ۲۰ هزار فالوور", en: "Music-industry magazine and Persian rap lyric analysis, with 20K followers" }
+    url: "https://youtu.be/_10YEZEyIEQ"
+    stat: { fa: "۱۶ هزار بازدید", en: "16K views" }
+  - name: { fa: "اکسترا دریمز", en: "Extradreamz" }
+    about: { fa: "تیم کارگردانی موزیک ویدیو؛ کارگردان «شیر» از هیپهاپولوژیست و کاگان", en: "Music-video directors; directed Hiphopologist and Kagan’s Shir" }
+    url: "https://youtu.be/M6A7PrOELhU"
+    stat: { fa: "۱۴ هزار بازدید", en: "14K views" }
+  - name: { fa: "بهروز ساسانی", en: "Behrouz Sasani" }
+    about: { fa: "عکاس خواننده‌ها از ۲۰۰۷؛ عکس پست شب گرمی شروین حاجی‌پور کار اونه", en: "Music photographer since 2007; took the photo in Shervin Hajipour’s Grammy-night post" }
+    url: "https://youtu.be/ptXcph227BM"
+    stat: { fa: "۱۱ هزار بازدید", en: "11K views" }
 links:
   - label: { fa: "قسمت اول میدنایت", en: "The MidNight, episode 1" }
     url: "https://www.youtube.com/watch?v=MJ_2-qiLGMc"

@@ -2,13 +2,13 @@
 year: 2018
 order: 3
 title:
-  fa: "تیم The Myth"
+  fa: "تیم The Myth"
   en: "Team The Myth"
 summary:
-  fa: "The Myth رو با بازیکن‌هایی ساختم که اون موقع تیم نداشتن. از لیگ الماس پرشین پرولیگ خودمون رو به رویال لیگ، بالاترین سطح مسابقات، رسوندیم و ۲۷ مه نایب‌قهرمان ProLeague by ESL IR شدیم."
+  fa: "The Myth رو با بازیکن‌هایی ساختم که اون موقع تیم نداشتن. از لیگ الماس پرشین پرولیگ خودمون رو به رویال لیگ، بالاترین سطح مسابقات، رسوندیم و ۲۷ مه نایب‌قهرمان ProLeague by ESL IR شدیم."
   en: "I built The Myth from players who had no team at the time. We worked our way up from the Persian Pro League Diamond League to the Royale League, the top tier, and on May 27 we finished runner-up in ProLeague by ESL IR."
 images:
   - src: ./2018-the-myth-final.jpg
-    alt: { fa: "پوستر فینال The Myth", en: "The Myth final poster" }
+    alt: { fa: "پوستر فینال The Myth", en: "The Myth final poster" }
   - src: ./2018-myth-logo.jpg
-    alt: { fa: "لوگوی تیم The Myth", en: "The Myth team logo" }
+    alt: { fa: "لوگوی تیم The Myth", en: "The Myth team logo" }

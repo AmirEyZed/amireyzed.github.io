@@ -2,36 +2,36 @@
 year: 2021
 order: 2
 title:
-  fa: "Hot MoZ"
+  fa: "Hot MoZ"
   en: "Hot MoZ"
 summary:
   fa: "هات موز رو با رضا آیینه به‌عنوان ادامه «صندلی داغ» ساختیم؛ یه برنامه بردگیم با مهمون‌های مختلف. شش قسمت از ۹ مه تا ۶ اوت منتشر شد."
   en: "With Reza Ayeene we made Hot MoZ, the follow-up to Hot Seat: a board-game show with guests. Six episodes came out between May 9 and August 6."
 guests:
   - name: { fa: "علی بیگزموگ", en: "Ali BigezMoge" }
-    about: { fa: "از شناخته‌شده‌ترین یوتیوبرهای فارسی", en: "One of the best-known Persian YouTubers" }
+    about: { fa: "یوتیوبر با بیش از ۲۴۰ هزار سابسکرایبر؛ دو قسمت «کمپ با یوتیوبرا»ش میلیونی شد", en: "YouTuber with 240K+ subscribers; two of his Camp with YouTubers episodes passed 1M views" }
     url: "https://youtu.be/nXljgoXZyO8"
     stat: { fa: "۹۰ هزار بازدید", en: "90K views" }
   - name: { fa: "سمیرا سالی", en: "Samira Saly" }
-    about: { fa: "استریمر", en: "Streamer" }
+    about: { fa: "استریمر ولورانت و کانتر؛ پارتنر توییچ با بیش از ۹۵ هزار فالوور", en: "Valorant and CS streamer; Twitch Partner with 95K+ followers" }
     url: "https://youtu.be/K1izr_F7Xvk"
     stat: { fa: "۷۰ هزار بازدید", en: "70K views" }
   - name: { fa: "علی بروکس", en: "Ali Brox" }
-    about: { fa: "یوتیوبر", en: "YouTuber" }
+    about: { fa: "یوتیوبر با بیش از ۸۵ هزار سابسکرایبر و ولاگ‌هایی از زندگی در اروپا", en: "YouTuber with 85K+ subscribers and vlogs about life in Europe" }
     url: "https://youtu.be/0uMa2IYR454"
     stat: { fa: "۵۹ هزار بازدید", en: "59K views" }
   - name: { fa: "فیمس حاجی", en: "Famous Haji" }
-    about: { fa: "یوتیوبر", en: "YouTuber" }
+    about: { fa: "یوتیوبر و خواننده با بیش از ۲۱۰ هزار سابسکرایبر و ۹۰ میلیون بازدید", en: "YouTuber and singer with 210K+ subscribers and 90M+ channel views" }
     url: "https://youtu.be/6jSXjWbH5FU"
-    stat: { fa: "۴۶ هزار بازدید", en: "46K views" }
+    stat: { fa: "۴۵ هزار بازدید", en: "45K views" }
   - name: { fa: "حامی کی‌ام", en: "Hami KM" }
-    about: { fa: "یوتیوبر", en: "YouTuber" }
+    about: { fa: "یوتیوبر با نزدیک ۱۰۰ میلیون بازدید در کانالش", en: "YouTuber with nearly 100M channel views" }
     url: "https://youtu.be/2m6LYkWmfKY"
     stat: { fa: "۳۷ هزار بازدید", en: "37K views" }
   - name: { fa: "پاشا مجلسی", en: "Pasha Majlesi" }
-    about: { fa: "پادکستر", en: "Podcaster" }
+    about: { fa: "پادکستر و یوتیوبر با بیش از ۷۰ هزار سابسکرایبر؛ مجری Chillin with و PLANET", en: "Podcaster and YouTuber with 70K+ subscribers; host of Chillin with and PLANET" }
     url: "https://youtu.be/yaUJYOQtfDE"
-    stat: { fa: "۳۴ هزار بازدید", en: "34K views" }
+    stat: { fa: "۳۳ هزار بازدید", en: "33K views" }
 images:
   - src: ./2021-hot-moz-bigezmoge.jpg
     alt: { fa: "تامبنیل هات موز با علی بیگزموگ", en: "Hot MoZ thumbnail with Ali BigezMoge" }
