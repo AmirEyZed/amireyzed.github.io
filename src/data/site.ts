@@ -50,7 +50,9 @@ export const site = {
    * Career totals under "Today". Snapshot of 24 Sep 2026:
    * Twitch lifetime from TwitchTracker (7,717 h live, 1,368 days, 2,206,296 h watched, 148,339 followers);
    * YouTube from each channel (12,461,385 + 20,501,540 + 1,476,806 views; 370 + 530 + 194 videos;
-   * 65.9K + 55K + 11.6K subscribers); Kick 45,130 followers (kick.com API); peak from The One Awards.
+   * 65.9K + 55K + 11.6K subscribers); Kick 45,153 followers (kick.com API, 25 Sep); peak from The One Awards.
+   * Kick records: 15.4K peak on 17 Aug 2026 (Kick stats), 2 billion toman in one stream on 4 Jun 2026,
+   * 5,724 subs gifted by one supporter (Kick gifter leaderboard). Kick does not publish total hours streamed.
    */
   stats: {
     items: [
@@ -64,6 +66,29 @@ export const site = {
         label: { fa: 'ساعت تماشا روی توییچ', en: 'hours watched on Twitch' },
       },
       {
+        value: { fa: '۳۲۶', en: '326K' },
+        unit: { fa: 'هزار', en: '' },
+        label: { fa: 'مجموع فالوورها و سابسکرایبرها در Twitch، YouTube و Kick', en: 'followers and subscribers across Twitch, YouTube and Kick' },
+      },
+      /** Kick records: each links to the milestone that holds its source (Kick stats, stream video, gifter leaderboard). */
+      {
+        value: { fa: '۱۵٫۴', en: '15.4K' },
+        unit: { fa: 'هزار', en: '' },
+        label: { fa: 'اوج بیننده هم‌زمان در کیک؛ رکورد استریمرهای ایرانی کیک', en: 'peak concurrent viewers on Kick, the record among Iranian Kick streamers' },
+        href: '#2026-kick-record',
+      },
+      {
+        value: { fa: '۲', en: '2B' },
+        unit: { fa: 'میلیارد تومن', en: 'toman' },
+        label: { fa: 'دونیت در یک استریم؛ رکورد استریم فارسی', en: 'in donations in a single stream, the record for a Persian stream' },
+        href: '#2026-records',
+      },
+      {
+        value: { fa: '۵٬۷۲۴', en: '5,724' },
+        label: { fa: 'ساب گیفتی فقط از یک حامی؛ رکورد ساب کیک بین استریمرهای فارسی', en: 'subs gifted by a single supporter, the Kick sub record among Persian streamers' },
+        href: '#2026-records',
+      },
+      {
         value: { fa: '۳۴٫۴', en: '34.4M' },
         unit: { fa: 'میلیون', en: '' },
         label: { fa: 'بازدید در سه کانال یوتیوب', en: 'views across three YouTube channels' },
@@ -71,11 +96,6 @@ export const site = {
       {
         value: { fa: '۱٬۰۹۴', en: '1,094' },
         label: { fa: 'ویدیوی منتشرشده در یوتیوب', en: 'videos published on YouTube' },
-      },
-      {
-        value: { fa: '۳۲۶', en: '326K' },
-        unit: { fa: 'هزار', en: '' },
-        label: { fa: 'مجموع فالوورها و سابسکرایبرها در Twitch، YouTube و Kick', en: 'followers and subscribers across Twitch, YouTube and Kick' },
       },
       {
         value: { fa: '۳۶٫۵', en: '36.5K' },
