@@ -69,7 +69,7 @@ git add . && git commit -m "Add 2027" && git push
 | رنگ‌ها، فونت‌ها، فاصله‌ها | `src/styles/tokens.css` |
 | رفتار اسکرول، لنز و موس | `src/scripts/app.ts` |
 | ردیف‌های تایم‌لاین | `src/components/Milestone.astro` |
-| آیکون سایت (موز نئونی) | `public/favicon.svg` |
+| آیکون سایت (نماد موزگنگ: موز روی کاشی زرد) | `public/favicon.ico`، `favicon.svg` و `icon-*.png` که با `npm run icons` از `scripts/icons.mjs` ساخته می‌شوند |
 | تصویر اشتراک‌گذاری | `public/og-fa.jpg` و `public/og-en.jpg` که با `npm run og` ساخته می‌شوند (کروم لازم است) |
 
 ## دیپلوی

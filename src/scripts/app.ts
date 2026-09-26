@@ -18,14 +18,21 @@ const smoothstep = (a: number, b: number, x: number) => {
   return t * t * (3 - 2 * t);
 };
 
-/* ---------- Smooth scroll ---------- */
-const lenis = reduced ? null : new Lenis({ lerp: 0.09, smoothWheel: true, anchors: false, autoRaf: false });
+/* ---------- Smooth scroll (mouse and trackpad; touch keeps the phone's own, lighter scrolling) ---------- */
+const lenis =
+  reduced || !finePointer ? null : new Lenis({ lerp: 0.09, smoothWheel: true, anchors: false, autoRaf: false });
+
+/* The glass lens runs on desktops with a mouse. Phones and tablets get calm rows: nothing fades or
+   fringes while a finger flings the page, which is also far less work per frame. */
+const lensQuery = window.matchMedia('(min-width: 60rem) and (hover: hover) and (pointer: fine)');
+let lensOn = !reduced && lensQuery.matches;
 
 /* ---------- Elements ---------- */
 const header = document.querySelector<HTMLElement>('.header');
 const lamp = document.querySelector<HTMLElement>('.ambient-lamp');
 const sign = document.querySelector<HTMLElement>('[data-neon]');
 const track = document.querySelector<HTMLElement>('[data-track]');
+const axisFill = track?.querySelector<HTMLElement>('.axis-fill') ?? null;
 const today = document.querySelector<HTMLElement>('[data-today]');
 const rows = Array.from(document.querySelectorAll<HTMLElement>('[data-row]'));
 
@@ -53,8 +60,27 @@ const cells: LensCell[] = rows.flatMap((row, rowIndex) =>
 
 let dirty = true;
 
-/* Layout offsets are read without transforms, so the lens never feeds back into itself. */
+/* Where everything sits on the page, measured once and again only when the layout changes
+   (photos arriving, a guest list opening, fonts, resizes). Scrolling then needs no layout reads.
+   Offsets are read without transforms, so the lens never feeds back into itself. */
+const rowTop: number[] = new Array(rows.length).fill(0);
+const rowHeight: number[] = new Array(rows.length).fill(0);
+const rowLit: boolean[] = new Array(rows.length).fill(false);
+let trackTop = 0;
+let trackHeight = 1;
+
 function measure() {
+  const y = window.scrollY;
+  rows.forEach((row, i) => {
+    const rect = row.getBoundingClientRect();
+    rowTop[i] = rect.top + y;
+    rowHeight[i] = rect.height;
+  });
+  if (track) {
+    const rect = track.getBoundingClientRect();
+    trackTop = rect.top + y;
+    trackHeight = Math.max(1, rect.height);
+  }
   for (const cell of cells) {
     cell.top = cell.el.offsetTop;
     cell.height = cell.el.offsetHeight;
@@ -65,6 +91,23 @@ function measure() {
 measure();
 new ResizeObserver(measure).observe(document.body);
 document.fonts?.ready.then(measure);
+
+function resetLens() {
+  for (const cell of cells) {
+    cell.el.style.removeProperty('--e');
+    cell.el.style.removeProperty('--dir');
+    cell.el.classList.remove('is-refracting');
+    cell.e = -1;
+    cell.dir = 0;
+    cell.refracting = false;
+  }
+}
+
+lensQuery.addEventListener('change', () => {
+  lensOn = !reduced && lensQuery.matches;
+  if (!lensOn) resetLens();
+  dirty = true;
+});
 
 /* ---------- Year links in the header ---------- */
 const yearLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-year-link]'));
@@ -95,7 +138,7 @@ function jumpTo(target: HTMLElement) {
   const offset = block ? Math.max(16, (room - Math.min(rect.height, room)) / 2) : 16;
   const top = Math.max(0, window.scrollY + rect.top - headerHeight - offset);
   if (lenis) lenis.scrollTo(top, { duration: 1.1 });
-  else window.scrollTo({ top, behavior: 'auto' });
+  else window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
   if (block) {
     block.setAttribute('tabindex', '-1');
     block.focus({ preventScroll: true });
@@ -141,32 +184,50 @@ document.querySelectorAll<HTMLImageElement>('.cover img, .shot img').forEach((im
   if (img.complete && img.naturalWidth > 0) markLoaded(img);
 });
 
+// The loading light only moves for photos near the screen; dozens of off-screen shimmers cost frames on phones.
+if ('IntersectionObserver' in window) {
+  const near = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) entry.target.classList.toggle('is-near', entry.isIntersecting);
+    },
+    { rootMargin: '300px 0px' },
+  );
+  document.querySelectorAll('.cover, .shot').forEach((el) => near.observe(el));
+}
+
 /* ---------- Scroll-linked state ---------- */
 const rowTops: number[] = new Array(rows.length).fill(0);
+let lastProgress = -1;
 
 function updateScrollState(viewportHeight: number) {
   const mid = viewportHeight / 2;
+  const y = window.scrollY;
 
   if (track) {
-    const rect = track.getBoundingClientRect();
-    const progress = clamp((mid - rect.top) / rect.height, 0, 1);
-    track.style.setProperty('--progress', progress.toFixed(4));
-    today?.classList.toggle('is-lit', progress >= 0.999);
+    const progress = clamp((mid - (trackTop - y)) / trackHeight, 0, 1);
+    if (Math.abs(progress - lastProgress) > 0.0001) {
+      axisFill?.style.setProperty('--progress', progress.toFixed(4));
+      today?.classList.toggle('is-lit', progress >= 0.999);
+      lastProgress = progress;
+    }
   }
 
   let currentYear = '';
   rows.forEach((row, i) => {
-    const rect = row.getBoundingClientRect();
-    rowTops[i] = rect.top;
-    const lit = rect.top + rect.height / 2 <= mid + 1;
-    row.classList.toggle('is-lit', lit);
+    const top = rowTop[i]! - y;
+    rowTops[i] = top;
+    const lit = top + rowHeight[i]! / 2 <= mid + 1;
+    if (lit !== rowLit[i]) {
+      row.classList.toggle('is-lit', lit);
+      rowLit[i] = lit;
+    }
     // The header marks the year of the row that has reached the middle of the screen.
-    if (rect.top <= mid) currentYear = row.dataset.rowYear ?? '';
+    if (top <= mid) currentYear = row.dataset.rowYear ?? '';
   });
   if (today?.classList.contains('is-lit')) currentYear = 'today';
   setCurrentYear(currentYear);
 
-  if (reduced) return;
+  if (!lensOn) return;
 
   for (const cell of cells) {
     const center = rowTops[cell.rowIndex]! + cell.top + cell.height / 2;
@@ -217,15 +278,26 @@ if (finePointer) {
   });
 }
 
+/* Read in the frame loop before anything is written, so a frame never forces a layout halfway. */
+let signRect: DOMRect | null = null;
+let shownNeon = '';
+
+function measureSign() {
+  signRect = sign ? sign.getBoundingClientRect() : null;
+}
+
 function updateSign() {
-  if (!sign) return;
-  const rect = sign.getBoundingClientRect();
+  const rect = signRect;
+  if (!sign || !rect) return;
   if (rect.bottom < 0 || rect.top > window.innerHeight) return;
   const dx = pointer.sx - (rect.left + rect.width / 2);
   const dy = pointer.sy - (rect.top + rect.height / 2);
   const reach = Math.max(window.innerWidth, 900) * 0.5;
-  const neon = pointer.active ? 0.45 + 0.55 * Math.max(0, 1 - Math.hypot(dx, dy) / reach) : 0.7;
-  sign.style.setProperty('--neon', neon.toFixed(3));
+  const neon = (pointer.active ? 0.45 + 0.55 * Math.max(0, 1 - Math.hypot(dx, dy) / reach) : 0.7).toFixed(3);
+  if (neon !== shownNeon) {
+    sign.style.setProperty('--neon', neon);
+    shownNeon = neon;
+  }
   if (!reduced && pointer.active) {
     sign.style.setProperty('--sry', `${(clamp(dx / (window.innerWidth / 2), -1, 1) * 6).toFixed(2)}deg`);
     sign.style.setProperty('--srx', `${(clamp(-dy / (window.innerHeight / 2), -1, 1) * 4).toFixed(2)}deg`);
@@ -516,10 +588,11 @@ function frame(time: number) {
     lastY = y;
     lastW = w;
     lastH = h;
+    measureSign();
+    measurePortrait();
     header?.classList.toggle('is-scrolled', y > 8);
     updateScrollState(h);
     updateSign();
-    measurePortrait();
   }
 
   const dx = pointer.x - pointer.sx;

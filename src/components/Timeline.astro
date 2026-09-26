@@ -102,7 +102,7 @@ const email = site.email;
     position: relative;
   }
 
-  /* The wire. --progress (0..1) is set from JS; the lit part ends at the middle of the screen. */
+  /* The wire. --progress (0..1) is set from JS on .axis-fill; the lit part ends at the middle of the screen. */
   .axis {
     position: absolute;
     inset-block: 0;
@@ -112,6 +112,7 @@ const email = site.email;
     background: var(--line);
   }
 
+  /* --progress is set on this element alone, so scrolling restyles one element, not the whole timeline. */
   .axis-fill {
     position: absolute;
     top: 0;
