@@ -28,6 +28,7 @@
   --fg: var(--warm-white);
   --fg-soft: #d3d0c5;
   --fg-muted: #aaa698;
+  --fg-faint: #8f8b7f; /* the quietest small text: 5.6:1 on --night */
   --fg-dim: var(--taupe);
   /* Kick chat name-tag colours, used for the glass-lens colour fringes */
   --tag-red: #ff4b23;
