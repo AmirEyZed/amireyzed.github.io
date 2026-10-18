@@ -1,0 +1,32 @@
+# Source: told by him on 18 Oct 2026: joint event with Sam Saberi with Digikala and Digikala Gaming, Friday 24 Mehr 1405 (16 Oct 2026), FC 27 among 16 top Iranian players, 1,500 in-person spectators per the organizer. Photos from his channel (#81663, #81660); the champion's prize of 200 million toman is on the cheque in the photo.
+year: 2026
+order: 7
+featured: true
+title:
+  fa: "گیم بتل دیجی‌کالا"
+  en: "Digikala Game Battle"
+summary:
+  fa: "جمعه ۱۶ اکتبر با سام صابری و در همکاری با دیجی‌کالا و دیجی‌کالا گیمینگ، ایونت حضوری «گیم بتل دیجی‌کالا» رو تو فروشگاه حضوری دیجی‌کالا برگزار کردیم؛ مسابقه FC 27 بین ۱۶ نفر از پلیرهای برتر ایران."
+  en: "On Friday, October 16, together with Sam Saberi and in partnership with Digikala and Digikala Gaming, we held Digikala Game Battle, a live event at Digikala's in-person store: an FC 27 tournament between 16 of Iran's top players."
+why:
+  fa: "بیننده‌ها و پلیرهای برتر FC این بار نه پشت صفحه، که حضوری تو یه سالن کنار هم بودن."
+  en: "Viewers and top FC players came together in person this time, not just on a screen."
+highlights:
+  fa:
+    - "طبق آمار برگزارکننده، ۱۵۰۰ تماشاچی حضوری"
+    - "جایزه قهرمان: ۲۰۰ میلیون تومن"
+  en:
+    - "1,500 in-person spectators, per the organizer"
+    - "Champion's prize: 200 million toman"
+links:
+  - label: { fa: "عکس‌های ایونت در تلگرام", en: "Event photos on Telegram" }
+    url: "https://t.me/amireyzed/81663"
+images:
+  - src: ./2026-game-battle.jpg
+    alt: { fa: "سلفی با تماشاچی‌ها در گیم بتل دیجی‌کالا", en: "A selfie with the crowd at Digikala Game Battle" }
+  - src: ./2026-game-battle-stage.jpg
+    alt: { fa: "روی صحنه گیم بتل دیجی‌کالا", en: "On stage at Digikala Game Battle" }
+  - src: ./2026-game-battle-crowd.jpg
+    alt: { fa: "تماشاچی‌ها جلوی میز اجرای مسابقه در فروشگاه دیجی‌کالا", en: "The audience in front of the host desk at the Digikala store" }
+  - src: ./2026-game-battle-champion.jpg
+    alt: { fa: "قهرمان FC 27 با چک ۲۰۰ میلیون تومنی", en: "The FC 27 champion with the 200-million-toman cheque" }
