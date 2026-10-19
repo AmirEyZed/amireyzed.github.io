@@ -35,3 +35,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      # Tell Bing and the other IndexNow search engines that the pages changed. The key file is public/8a2c85b338b4aab334ad805766c4a9a7.txt.
+      - name: Notify search engines (IndexNow)
+        continue-on-error: true
+        run: |
+          curl -sS -o /dev/null -w "IndexNow: %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d '{"host":"amireyzed.com","key":"8a2c85b338b4aab334ad805766c4a9a7","keyLocation":"https://amireyzed.com/8a2c85b338b4aab334ad805766c4a9a7.txt","urlList":["https://amireyzed.com/","https://amireyzed.com/en/"]}'

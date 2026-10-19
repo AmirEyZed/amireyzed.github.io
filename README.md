@@ -78,4 +78,6 @@ git add . && git commit -m "Add 2027" && git push
 
 - ریپو: `AmirEyZed/amireyzed.github.io`
 - آدرس سایت: `https://amireyzed.com`. آدرس `amireyzed.github.io` هم به آن ریدایرکت می‌شود.
-- DNS: رکورد `A` برای `@` به `185.199.108.153`.
+- DNS: رکورد `A` برای `@` به `185.199.108.153` و رکورد `CNAME` برای `www` به `amireyzed.github.io` (هر دو با ابر خاموش).
+- بعد از هر دیپلوی، Bing و بقیه موتورهای IndexNow از آپدیت صفحه‌ها باخبر می‌شوند. فایل کلیدش `public/8a2c85b338b4aab334ad805766c4a9a7.txt` است و نباید پاک شود.
+- فایل `public/googleae460a36245575f2.html` تایید سایت در سرچ کنسول گوگل است و نباید پاک شود.
