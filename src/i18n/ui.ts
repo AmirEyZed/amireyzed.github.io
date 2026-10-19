@@ -13,7 +13,7 @@ export const ui = {
   fa: {
     'meta.title': 'امیر ایزد (AmirEyZed) | مسیر من، سال به سال',
     'meta.description':
-      'امیرصالح زارع، ملقب به امیر ایزد (AmirEyZed)؛ مسیر کاری سال به سال: تیم‌های رقابتی، لایوها، پادکست‌ها، The One Awards و کار برای کامیونیتی، با عکس، لینک و منبع.',
+      'امیرصالح زارع، ملقب به امیر ایزد (AmirEyZed)، استریمر و یوتیوبر و بهترین استریمر سال The One Awards؛ مسیر کاری سال به سال: تیم‌های رقابتی، لایوها، پادکست‌ها و کار برای کامیونیتی، با عکس، لینک و منبع.',
     'meta.imageAlt': 'امیر ایزد پشت میز استریم',
     'a11y.skip': 'پرش به محتوا',
     'nav.home': 'خانه',
@@ -29,6 +29,8 @@ export const ui = {
     'today.follow': 'دنبال کردن در کیک',
     'today.email': 'ایمیل بزن',
     'footer.find': 'حساب‌های رسمی من',
+    'about.title': 'امیر ایزد کیست؟',
+    'about.lead': 'جواب کوتاه سوال‌های رایج، با همون منبع‌هایی که تو مسیر بالا اومده.',
     'photo.open': 'بزرگ کردن عکس',
     'photo.close': 'بستن عکس',
     'photo.prev': 'عکس قبلی',
@@ -47,7 +49,7 @@ export const ui = {
   en: {
     'meta.title': 'Amir EyZed (AmirEyZed) | My path, year by year',
     'meta.description':
-      "Amirsaleh Zare, known as Amir EyZed (AmirEyZed): his career year by year, competitive teams, live streams, podcasts, The One Awards and community work, with photos, links and sources.",
+      "Amirsaleh Zare, known as Amir EyZed (AmirEyZed), streamer, YouTuber and Streamer of the Year at The One Awards: his career year by year, competitive teams, live streams, podcasts and community work, with photos, links and sources.",
     'meta.imageAlt': 'Amir EyZed at his streaming desk',
     'a11y.skip': 'Skip to content',
     'nav.home': 'Home',
@@ -63,6 +65,8 @@ export const ui = {
     'today.follow': 'Follow on Kick',
     'today.email': 'Send an email',
     'footer.find': 'My official accounts',
+    'about.title': 'Who is Amir EyZed?',
+    'about.lead': 'Short answers to common questions, from the same sources as the timeline above.',
     'photo.open': 'Enlarge photo',
     'photo.close': 'Close photo',
     'photo.prev': 'Previous photo',

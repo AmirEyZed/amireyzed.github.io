@@ -1,0 +1,141 @@
+---
+import { about } from '../data/about';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+/* The same questions and answers as FAQPage data, for search engines and AI assistants. */
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: about.map((item) => ({
+    '@type': 'Question',
+    name: item.question[lang],
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: [item.answer[lang], ...(item.points?.[lang] ?? [])].join(lang === 'fa' ? '؛ ' : '; '),
+    },
+  })),
+};
+---
+
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="inner">
+    <h2 id="about-title" class="about-title">{t(lang, 'about.title')}</h2>
+    <p class="about-lead">{t(lang, 'about.lead')}</p>
+    <div class="qa-list">
+      {
+        about.map((item) => (
+          <article class="qa">
+            <h3 class="q">{item.question[lang]}</h3>
+            <p class="a">{item.answer[lang]}</p>
+            {item.points && (
+              <ul class="points">
+                {item.points[lang].map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)}></script>
+</section>
+
+<style>
+  .about {
+    padding-block: 1rem clamp(4rem, 10vh, 6rem);
+  }
+
+  .inner {
+    width: min(100% - (var(--gutter) * 2), 56rem);
+    margin-inline: auto;
+  }
+
+  .about-title {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  html[lang='fa'] .about-title {
+    font-weight: 900;
+  }
+
+  .about-lead {
+    max-width: 34rem;
+    margin: 0.5rem auto 0;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    text-align: center;
+  }
+
+  .qa-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-block-start: 2rem;
+  }
+
+  .qa {
+    padding: 1.15rem 1.2rem 1.25rem;
+    border: 1px solid rgb(245 245 241 / 0.09);
+    border-radius: var(--radius);
+    background: rgb(27 26 27 / 0.5);
+  }
+
+  .q {
+    color: var(--lime);
+    font-size: var(--step-0);
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  html[lang='fa'] .q {
+    font-weight: 800;
+  }
+
+  .a,
+  .points {
+    margin-block-start: 0.5rem;
+    color: var(--fg-soft);
+    font-size: var(--step--1);
+  }
+
+  .points {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .points li {
+    position: relative;
+    padding-inline-start: 1rem;
+  }
+
+  .points li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.75em;
+    width: 0.4rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--olive);
+  }
+
+  @media (max-width: 47.99rem) {
+    .qa-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

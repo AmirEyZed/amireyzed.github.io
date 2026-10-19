@@ -32,11 +32,18 @@ export const site = {
     fa: 'استریمر و یوتیوبر',
     en: 'Streamer and YouTuber',
   } satisfies Localized,
+  /** Birth date for search engines (30 Esfand 1375, confirmed by him on 2026-09-25). */
+  birthDate: '1997-03-20',
+  /** Awards for search engines (JSON-LD), from the 2025 The One Awards entry. */
+  awards: {
+    fa: ['بهترین استریمر سال، The One Awards ۲۰۲۵', 'بهترین محتواساز ری‌اکشن، The One Awards ۲۰۲۵'],
+    en: ['Streamer of the Year, The One Awards 2025', 'Best Reaction Creator, The One Awards 2025'],
+  },
   /** His official photo (The One Awards red carpet), at a fixed address for search engines. */
   photo: '/amir-eyzed-the-one-awards.jpg',
   intro: {
-    fa: 'امیرصالح زارع هستم، ملقب به امیر ایزد (AmirEyZed). اینجا مسیر کاری منو سال به سال می‌بینی؛ از رینبو و مسابقات رقابتی تا استریم، یوتیوب، پادکست، The One Awards و پروژه‌هایی که برای کامیونیتی ساختم. کنار اتفاق‌های مهم عکس و لینک منبعش هست و آخر صفحه هم کل این مسیر رو تو چند عدد جمع کردم.',
-    en: 'I’m Amirsaleh Zare, known as AmirEyZed. Here you’ll find my career, year by year: from Rainbow Six and competitive play to streaming, YouTube, podcasts, The One Awards and the projects I built for the community. The key moments come with photos and links to their sources, and the end of the page sums the whole path up in a few numbers.',
+    fa: 'امیرصالح زارع هستم، ملقب به امیر ایزد (AmirEyZed)؛ استریمر و یوتیوبر، و برنده جایزه بهترین استریمر سال در The One Awards. اینجا مسیر کاری منو سال به سال می‌بینی؛ از رینبو و مسابقات رقابتی تا استریم، یوتیوب، پادکست، The One Awards و پروژه‌هایی که برای کامیونیتی ساختم. کنار اتفاق‌های مهم عکس و لینک منبعش هست و آخر صفحه هم کل این مسیر رو تو چند عدد جمع کردم.',
+    en: 'I’m Amirsaleh Zare, known as AmirEyZed: a streamer and YouTuber, and Streamer of the Year at The One Awards. Here you’ll find my career, year by year: from Rainbow Six and competitive play to streaming, YouTube, podcasts, The One Awards and the projects I built for the community. The key moments come with photos and links to their sources, and the end of the page sums the whole path up in a few numbers.',
   } satisfies Localized,
   /**
    * Closing line under "Today" at the end of the timeline.

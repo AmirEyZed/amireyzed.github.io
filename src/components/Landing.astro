@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
 import Timeline from './Timeline.astro';
+import About from './About.astro';
 import Footer from './Footer.astro';
 import type { Lang } from '../i18n/ui';
 
@@ -22,6 +23,7 @@ const years = [...new Set(entries.map((e) => e.data.year))].sort((a, b) => a - b
   <main id="main">
     <Hero lang={lang} firstYear={firstYear} />
     <Timeline lang={lang} />
+    <About lang={lang} />
   </main>
   <Footer lang={lang} />
 </Base>

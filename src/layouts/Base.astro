@@ -34,6 +34,8 @@ const jsonLd = {
   url: siteUrl.href,
   image: new URL(site.photo, siteUrl).href,
   jobTitle: site.role[lang],
+  birthDate: site.birthDate,
+  award: site.awards[lang],
   ...(site.email ? { email: `mailto:${site.email}` } : {}),
   sameAs: site.socials.map((s) => s.url),
 };
