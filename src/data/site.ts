@@ -1,4 +1,5 @@
 import type { Lang } from '../i18n/ui';
+import live from './live-stats.json';
 
 type Localized = Record<Lang, string>;
 
@@ -7,6 +8,33 @@ export interface SocialLink {
   label: string;
   url: string;
 }
+
+/* ---------- Weekly numbers (src/data/live-stats.json, refreshed by scripts/update-stats.mjs) ---------- */
+const faDigits = (text: string) => text.replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]!);
+
+/** A full number: 1,094 / ۱٬۰۹۴ */
+const full = (n: number): Localized => ({
+  fa: faDigits(n.toLocaleString('en-US')).replace(/,/g, '٬'),
+  en: n.toLocaleString('en-US'),
+});
+
+/** A short number with its unit: 132.6K → ۱۳۳ هزار / 133K; 34.98M → ۳۵ میلیون / 35.0M */
+function compact(n: number): { value: Localized; unit: Localized } {
+  const [size, fa, en] = n >= 1e6 ? [n / 1e6, 'میلیون', 'M'] : [n / 1e3, 'هزار', 'K'];
+  const text = size >= 100 ? String(Math.round(size)) : size.toFixed(1).replace(/\.0$/, '');
+  return { value: { fa: faDigits(text).replace('.', '٫'), en: text + en }, unit: { fa, en: '' } };
+}
+
+const months = {
+  fa: ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مه', 'ژوئن', 'جولای', 'اوت', 'سپتامبر', 'اکتبر', 'نوامبر', 'دسامبر'],
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+};
+const [liveYear, liveMonth, liveDay] = live.updatedAt.split('-').map(Number) as [number, number, number];
+
+const youtubeSubscribers = live.youtube.reduce((sum, c) => sum + c.subscribers, 0);
+const youtubeViews = live.youtube.reduce((sum, c) => sum + c.views, 0);
+const youtubeVideos = live.youtube.reduce((sum, c) => sum + c.videos, 0);
+const allFollowers = live.twitch.followers + live.kick.followers + youtubeSubscribers;
 
 /** Site-wide facts shown in the header, hero, "Today" block and footer. */
 export const site = {
@@ -54,10 +82,11 @@ export const site = {
     en: 'From 580 Twitch followers to today, I’ve had to start over from scratch more than once. Kick is home for my streams now; I’ll add the rest right here.',
   } satisfies Localized,
   /**
-   * Career totals under "Today". Snapshot of 24 Sep 2026:
-   * Twitch lifetime from TwitchTracker (7,717 h live, 1,368 days, 2,206,296 h watched, 148,339 followers);
-   * YouTube from each channel (12,461,385 + 20,501,540 + 1,476,806 views; 370 + 530 + 194 videos;
-   * 65.9K + 55K + 11.6K subscribers); Kick 45,153 followers (kick.com API, 25 Sep); peak from The One Awards.
+   * Career totals under "Today".
+   * Weekly (src/data/live-stats.json, scripts/update-stats.mjs): Kick and Twitch followers, and YouTube
+   * subscribers, views and videos of the three channels; the "as of" date follows that file.
+   * Fixed, from TwitchTracker on 24 Sep 2026: 7,717 h live over 1,368 days and 2,206,296 h watched on Twitch;
+   * peak from The One Awards.
    * Kick records: 15.4K peak on 17 Aug 2026 (Kick stats), 2 billion toman in one stream on 4 Jun 2026,
    * 5,724 subs gifted by one supporter (Kick gifter leaderboard). Kick does not publish total hours streamed.
    */
@@ -73,9 +102,20 @@ export const site = {
         label: { fa: 'ساعت تماشا روی توییچ', en: 'hours watched on Twitch' },
       },
       {
-        value: { fa: '۳۲۶', en: '326K' },
-        unit: { fa: 'هزار', en: '' },
+        ...compact(allFollowers),
         label: { fa: 'مجموع فالوورها و سابسکرایبرها در Twitch، YouTube و Kick', en: 'followers and subscribers across Twitch, YouTube and Kick' },
+      },
+      {
+        ...compact(live.kick.followers),
+        label: { fa: 'فالوور کیک', en: 'followers on Kick' },
+      },
+      {
+        ...compact(youtubeSubscribers),
+        label: { fa: 'سابسکرایبر در سه کانال یوتیوب', en: 'subscribers across three YouTube channels' },
+      },
+      {
+        ...compact(live.twitch.followers),
+        label: { fa: 'فالوور توییچ', en: 'followers on Twitch' },
       },
       /** Kick records: each links to the milestone that holds its source (Kick stats, stream video, gifter leaderboard). */
       {
@@ -96,12 +136,11 @@ export const site = {
         href: '#2026-records',
       },
       {
-        value: { fa: '۳۴٫۴', en: '34.4M' },
-        unit: { fa: 'میلیون', en: '' },
+        ...compact(youtubeViews),
         label: { fa: 'بازدید در سه کانال یوتیوب', en: 'views across three YouTube channels' },
       },
       {
-        value: { fa: '۱٬۰۹۴', en: '1,094' },
+        value: full(youtubeVideos),
         label: { fa: 'ویدیوی منتشرشده در یوتیوب', en: 'videos published on YouTube' },
       },
       {
@@ -112,7 +151,10 @@ export const site = {
         href: '#2025-the-one-awards',
       },
     ],
-    asOf: { fa: 'تا ۲۴ سپتامبر ۲۰۲۶.', en: 'As of 24 September 2026.' } satisfies Localized,
+    asOf: {
+      fa: `تا ${faDigits(String(liveDay))} ${months.fa[liveMonth - 1]} ${faDigits(String(liveYear))}.`,
+      en: `As of ${liveDay} ${months.en[liveMonth - 1]} ${liveYear}.`,
+    } satisfies Localized,
     /** Public pages where each number can be checked. */
     sources: [
       { label: { fa: 'آمار توییچ در TwitchTracker', en: 'Twitch stats on TwitchTracker' }, url: 'https://twitchtracker.com/amireyzed/statistics' },
@@ -127,6 +169,10 @@ export const site = {
         en: 'Followers and subscribers from the three platforms are added together, so one person may be counted on more than one platform.',
       },
       { fa: 'ساعت‌های لایو کیک توی این عددها حساب نشده.', en: 'Hours streamed on Kick are not included.' },
+      {
+        fa: 'فالوورها، سابسکرایبرها، بازدیدها و تعداد ویدیوها هر هفته خودکار به‌روز میشن؛ تعداد سابسکرایبرها رو خود یوتیوب گرد شده نشون میده.',
+        en: 'Followers, subscribers, views and video counts update automatically every week; YouTube itself shows subscriber counts rounded.',
+      },
     ] satisfies Localized[],
   },
   /** Contact email. Empty = hidden everywhere. */

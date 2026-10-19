@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "og": "node scripts/og.mjs",
-    "icons": "node scripts/icons.mjs"
+    "icons": "node scripts/icons.mjs",
+    "stats": "node scripts/update-stats.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
