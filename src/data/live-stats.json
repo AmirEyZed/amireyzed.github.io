@@ -1,29 +1,29 @@
 {
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-06",
   "kick": {
-    "followers": 48611
+    "followers": 49658
   },
   "twitch": {
-    "followers": 148694
+    "followers": 148696
   },
   "youtube": [
     {
       "handle": "AmirEyZed",
-      "subscribers": 68600,
-      "views": 12604568,
+      "subscribers": 68700,
+      "views": 12619655,
       "videos": 371
     },
     {
       "handle": "EyZedMoments",
       "subscribers": 55900,
-      "views": 21018478,
-      "videos": 542
+      "views": 21250723,
+      "videos": 555
     },
     {
       "handle": "EyZedGaming",
       "subscribers": 11900,
-      "views": 1588404,
-      "videos": 205
+      "views": 1629054,
+      "videos": 212
     }
   ]
 }
